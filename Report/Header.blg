@@ -1,5 +1,3 @@
-[1] Config.pm:318> INFO - This is Biber 1.8
-[1] Config.pm:321> INFO - Logfile is 'Header.blg'
-[122] biber-MSWIN:272> INFO - === %a %b %e, %Y, %H:%M:%S
-[243] Utils.pm:185> ERROR - Cannot find control file 'Header.bcf'! - did you pass the "backend=biber" option to BibLaTeX?
-[243] Biber.pm:109> INFO - ERRORS: 1
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Header.aux
+The style file: apalike.bst
+Database file #1: sources.bib

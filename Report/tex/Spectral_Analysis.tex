@@ -1,14 +1,14 @@
 \section{Spectral Analysis}
-in this chapter different way of analysing the spectrum will be covered. also how it might be useful in the implementation of the transcription system will be considered
+in this chapter different way of analysing the spectrum will be covered. also how it might be useful in the implementation of the transcription system will be considered.
 \subsection{Spectral Centroid}
 this chapter will show what the feature spectral centroid is.\\
-the spectral centroid feature will calculate the center of gravity(COG) of a spectrum. it is defined by the frequency weight power spectrum normalized by the unweigth sum:
+the spectral centroid feature will calculate the center of gravity(COG) of a spectrum it is defined by the frequency weight power spectrum normalized by the unweigth sum \citep{ACA}:
 \begin{equation}\label{Spectral Centroid eq}
 	\upsilon_{SC}(n) = \frac{\displaystyle\sum_{\kappa = 0}^{\frac{K}{2-1}} \kappa\vert X(\kappa,n) \vert^2}{\displaystyle\sum_{\kappa = 0}^{\frac{K}{2-1}} \kappa\vert X(\kappa,n) \vert^2 }    
 \end{equation} 
-however it can also be calculated using the magnitude spectrum instead of the the power spectrum.
+however the spectral centroid can also be calculated using the magnitude spectrum instead of the power spectrum, with means the power is not taken in the calculation\citep{ACA}.
 \\
-the point found by the spectral centroid feature should correlate with the timbre dimension of how sharp or bright the sound is. 
+the point found by the spectral centroid feature should correlate with the timbre dimension of how sharp or bright the sound is \citep{ACA}. 
 \\
 this feature might be used in a transcription system because it should describe how sharp or bright a sound will sound, so this feature could be used to classify as sound. 
 \subsection{Spectral Rolloff}
@@ -54,3 +54,4 @@ for a transcription system the spectral flux as described can be considered to d
  
 \subsection{Spectral Slope}
 This chapter will be on explaining what the spectral slop feature is.\\
+The spectral slope as the name indicate is a feature that is a measure of the slop in the spectral energy.

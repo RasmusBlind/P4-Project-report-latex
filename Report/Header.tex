@@ -5,6 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{natbib}
 
 \author{
 	Sørensen, Casper\\
@@ -26,9 +27,9 @@
 }
 \begin{document}
 
-% when i (Rasmus B. Lind) quick build the pdf the two next lines makes trouble  
+% when i (Rasmus B. Lind) quick build the pdf the next line makes trouble  
 %\maketitle
-%\tableofcontents
+\tableofcontents
 \input{tex/SOTA.tex}
 %\input{tex/VoiceBand.tex}
 \input{tex/dataset_collection.tex}
@@ -37,6 +38,7 @@
 %\input{tex/ZC_ZCR.tex}
 \input{tex/MFCC.tex}
 \input{tex/Spectral_Analysis.tex}
-\bibliographystyle{apalike}
+
 \bibliography{sources}
+\bibliographystyle{apalike}
 \end{document}

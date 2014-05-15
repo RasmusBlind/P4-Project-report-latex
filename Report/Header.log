@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.4.22)  15 MAY 2014 11:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.4.22)  15 MAY 2014 15:30
 entering extended mode
 **Header.tex
 (C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\Header.tex
@@ -150,37 +150,57 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip46
+\bibsep=\skip47
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count102
+)
 (C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\Header.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ucs\ucsencs.def"
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count102
+\scratchcounter=\count103
 \scratchdimen=\dimen114
 \scratchbox=\box28
-\nofMPsegments=\count103
-\nofMParguments=\count104
+\nofMPsegments=\count104
+\nofMParguments=\count105
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count105
+\MPscratchCnt=\count106
 \MPscratchDim=\dimen115
-\MPnumerator=\count106
-\makeMPintoPDFobject=\count107
+\MPnumerator=\count107
+\makeMPintoPDFobject=\count108
 \everyMPtoPDFconversion=\toks26
-) (C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\tex/SOTA.tex
+) (C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\Header.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 1.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 1.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
+\tf@toc=\write3
+
+(C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\tex/SOTA.tex
 <fig/VoiceDrummer.png, id=1, 355.3275pt x 267.24844pt>
 File: fig/VoiceDrummer.png Graphic file (type png)
 
@@ -189,21 +209,19 @@ Package pdftex.def Info: fig/VoiceDrummer.png used on input line 11.
 (pdftex.def)             Requested size: 189.15762pt x 142.26378pt.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/BLind/Documents/
-GitHub/P4-Project-report-latex/Report/fig/VoiceDrummer.png>] ("C:\Program Files
- (x86)\MiKTeX 2.9\tex\latex\ucs\uni-32.def"
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] ("C:\Program Files (x86)\
+MiKTeX 2.9\tex\latex\ucs\uni-32.def"
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-)
-<fig/cataRT.png, id=8, 339.51843pt x 237.88875pt>
+) [2 <C:/Users/BLind/Documents/GitHub/P4-Project-report-latex/Report/fig/VoiceD
+rummer.png>]
+<fig/cataRT.png, id=11, 339.51843pt x 237.88875pt>
 File: fig/cataRT.png Graphic file (type png)
  <use fig/cataRT.png>
 Package pdftex.def Info: fig/cataRT.png used on input line 27.
 (pdftex.def)             Requested size: 203.0495pt x 142.26378pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<fig/voiceband.png, id=9, 185.94469pt x 240.14719pt>
+<fig/voiceband.png, id=12, 185.94469pt x 240.14719pt>
 File: fig/voiceband.png Graphic file (type png)
  <use fig/voiceband.png>
 Package pdftex.def Info: fig/voiceband.png used on input line 37.
@@ -212,37 +230,25 @@ Package pdftex.def Info: fig/voiceband.png used on input line 37.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2] [3 <C:/Users/BLind/Documents/GitHub/P4-Project-report-latex/Report/fig/cata
-RT.png> <C:/Users/BLind/Documents/GitHub/P4-Project-report-latex/Report/fig/voi
-ceband.png>])
+[3 <C:/Users/BLind/Documents/GitHub/P4-Project-report-latex/Report/fig/cataRT.p
+ng>])
 (C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\tex/dataset_col
-lection.tex <fig/dataset_collection.JPG, id=16, 963.6pt x 719.68875pt>
+lection.tex [4 <C:/Users/BLind/Documents/GitHub/P4-Project-report-latex/Report/
+fig/voiceband.png>] <fig/dataset_collection.JPG, id=19, 963.6pt x 719.68875pt>
 File: fig/dataset_collection.JPG Graphic file (type jpg)
 
 <use fig/dataset_collection.JPG>
 Package pdftex.def Info: fig/dataset_collection.JPG used on input line 6.
 (pdftex.def)             Requested size: 190.48167pt x 142.26378pt.
-)
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4] [5 <C:/Users/BLind/Documents/GitHub/P4-Project-report-latex/Report/fig/data
-set_collection.JPG>]
+) [5 <C:/Users/BLind/Documents/GitHub/P4-Project-report-latex/Report/fig/datase
+t_collection.JPG>]
 Chapter 1.
 (C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\tex/MFCC.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--5
 
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 5.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 5.
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
 (C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\tex/Spectral_An
 alysis.tex [6
 
@@ -265,26 +271,19 @@ Overfull \hbox (17.5215pt too wide) in paragraph at lines 42--43
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\Header.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 56--1
-
- []
-
-[8] [9 <C:/Users/BLind/Documents/GitHub/P4-Project-report-latex/Report/fig/spec
-tral_flux.jpg>]
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-) [10
+) [8]
+(C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\Header.bbl
+[9 <C:/Users/BLind/Documents/GitHub/P4-Project-report-latex/Report/fig/spectral
+_flux.jpg>]) [10
 
 ]
 (C:\Users\BLind\Documents\GitHub\P4-Project-report-latex\Report\Header.aux) ) 
 Here is how much of TeX's memory you used:
- 2605 strings out of 493921
- 35045 string characters out of 3144876
- 93952 words of memory out of 3000000
- 5863 multiletter control sequences out of 15000+200000
- 10102 words of font info for 38 fonts, out of 3000000 for 9000
+ 2947 strings out of 493921
+ 39224 string characters out of 3144876
+ 99911 words of memory out of 3000000
+ 6197 multiletter control sequences out of 15000+200000
+ 10756 words of font info for 40 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,7n,24p,932b,267s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C
@@ -298,10 +297,11 @@ les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files
 6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Header.pdf (10 pages, 631165 bytes).
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Header.pdf (10 pages, 645062 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
