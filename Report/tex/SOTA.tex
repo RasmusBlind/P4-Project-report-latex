@@ -1,8 +1,10 @@
 \section{ State-of-the-Art }
+To comprehend the method of transcription, it is relevant to investigate software solutions and theoretical solutions that are approximate to the presented problem of this project. In this section the acquired solutions will be presented in conjunction with the presumed relevance which is necessary to solve the problem.
 \subsection{ Eargram }
 Most literature about concatenative sound synthesis is technically minded and focuses on the efficiency and use of the method. 
 Eargram is a Pure Data patch with the main goal of utilizing machine learning to drive synthesis, using concatenative sound synthesis to combine analysed audio units into a coherent musical output (Bernades, Guedes, and Pennycook, 2012). Eargram was created as a larger application with many included tools, such as 4 different recombination methods and several visualization tools, and is architecturally heavily inspired by Skeleton (Jehan, 2005) and CataRT (Schwarz, Cahen, and Britton, 2008).
 The authors mention that future development is much about the rhythm and correct recombination of separate audio units.
+
 \subsection{ Voice Drummer }
 Voice Drummer is defined as a "Percussion instrument notation interface" (Nakano, Goto, Ogata, and Hiraga, 2005). It is a software-application developed to aid those without substantial musical knowledge to notate music. The program is limited to transcribing bass drum and snare drum, and these are differentiated between by their onomatopoeic expressions and the rhythm-pattern timing.
 \\
@@ -14,11 +16,11 @@ Voice Drummer is defined as a "Percussion instrument notation interface" (Nakano
 	\end{center}
 \end{figure}
 \\
-Onomatopoeic refers to words that phonetically imitates, or resembles the source of the described sound e.g. classifying 'Meow' as a sound a cat would make. Thus, making it easy for a layman to understand, and use Voice Drummer by uttering don-don to generate a Bass Drum, and ta-ta to generate a snare drum. These are transcribed into phonemic representations through a pronunciation dictionary which will recognize and
+Onomatopoeic refers to words that phonetically imitates, or resembles the source of the described sound e.g. classifying 'Meow' as a sound a cat would make. Thus, making it easy for a layman to understand, and use Voice Drummer by uttering \textit{don-don} to generate a Bass Drum, and \textit{ta-ta} to generate a snare drum. These are transcribed into phonemic representations through a pronunciation dictionary which will recognize and
  output the correct corresponding output in real-time.
 
 \subsection{ MATConcat }
-In “MATCONCAT: AN APPLICATION FOR EXPLORING CONCATENATIVE SOUND SYNTHESIS USING MATLAB  By Bob L. Sturm (Sturm, 2004)” such an application has been made for Matlab. Here the method feature Concatenative sound synthesis is used, this methods will approximate an ‘target’ sound / input sound from a ‘corpus’ sound / database of sounds, the sound to use from the database is chosen from analysis of corpus sound and target to where they are matching most to some degree that can be set in the program (Sturm, 2004). The matching makes use of different parameters to make the choice of what is matching most. What degree of matching that the program will accept can be set in the interface and also what to do when the sound falls outside that degree (Sturm, 2004).
+In "MATConcat: An Application for Exploring Concatenative Sound Synthesis Using MATLAB"  By Bob L. Sturm, such an application has been made for Matlab. Here the method feature Concatenative sound synthesis is used, this methods will approximate a 'target' sound / input sound from a 'corpus' sound / database of sounds, the sound to use from the database is chosen from analysis of corpus sound and target to where they are matching most to some degree that can be set in the program (Sturm, 2004). The matching makes use of different parameters to make the choice of what is matching most. What degree of matching that the program will accept can be set in the interface and also what to do when the sound falls outside that degree (Sturm, 2004).
 
 \subsection{ CataRT }
 Another project called cataRT is using a similar method but in this project you can explore the analyzed data as they are shown in a space and as one navigates around in the space (cataRT, 2012). The space that one can navigate around in is comparable to what is described as the corpus or database in the MATConcat example, see figure0.1 for an better idea of how the interface looks like, this project is also implemented using a different platform that of maxMSP instead of MatLab.
@@ -29,7 +31,7 @@ Another project called cataRT is using a similar method but in this project you 
 		\label{cataRT picture form video of cataRT showing the interface.}
 	\end{center}
 \end{figure} 
-These methods could be using to make a voice imitate an instrument if a database was to be made with a given instrument, then by using this method it will be possible to analyze the input voice and find the closets sound from the database of the instrument sounds. Some analyze criteria would be need to find the right database sound such as the pitch. 
+These methods could be using to make a voice imitate an instrument if a database was to be made with a given instrument, then by using this method it will be possible to analyze the input voice and find the closets sound from the database of the instrument sounds. Some analysis criteria would be needed to find the right database sound e.g. the pitch. 
 
 \subsection{ Voice Band }
 \begin{figure}[h]
