@@ -1,0 +1,56 @@
+\section{Spectral Analysis}
+in this chapter different way of analysing the spectrum will be covered. also how it might be useful in the implementation of the transcription system will be considered
+\subsection{Spectral Centroid}
+this chapter will show what the feature spectral centroid is.\\
+the spectral centroid feature will calculate the center of gravity(COG) of a spectrum. it is defined by the frequency weight power spectrum normalized by the unweigth sum:
+\begin{equation}\label{Spectral Centroid eq}
+	\upsilon_{SC}(n) = \frac{\displaystyle\sum_{\kappa = 0}^{\frac{K}{2-1}} \kappa\vert X(\kappa,n) \vert^2}{\displaystyle\sum_{\kappa = 0}^{\frac{K}{2-1}} \kappa\vert X(\kappa,n) \vert^2 }    
+\end{equation} 
+however it can also be calculated using the magnitude spectrum instead of the the power spectrum.
+\\
+the point found by the spectral centroid feature should correlate with the timbre dimension of how sharp or bright the sound is. 
+\\
+this feature might be used in a transcription system because it should describe how sharp or bright a sound will sound, so this feature could be used to classify as sound. 
+\subsection{Spectral Rolloff}
+this chapter will explain what the spectral rolloff is.\\
+The Spectral Rolloff is defined as the frequency bin at which the magnitude of the STFT reaches a percentage K of the overall sum of magnitudes, can be calculated like:\\
+\begin{equation}\label{ eq:normal spectral rolloff}
+	\upsilon_{SR}(n) = i \vert _{\displaystyle\sum_{\kappa = 0}^i \vert X(\kappa, n) \vert = \kappa * \displaystyle\sum_{\kappa = 0}^ {\frac{K}{2-1}}\vert X(\kappa, n) \vert}
+\end{equation}
+\\
+normal the value for K is around 0.85 or 0.95. Low results indicates insufficient magnitudes components at high frequencies and the a low audio bandwidth.\\
+different ways to compute the spectral rolloff can be that only parts of the spectral energy is taken into considerations that is done by use an fmin and a fmax:
+\begin{equation}\label{ eq: fmin and fmax spectral rolloff}
+	\upsilon_{SR}(n) = i \vert _{\displaystyle\sum_{\kappa = \kappa(f_min)}^i \vert X(\kappa, n) \vert = \kappa * \displaystyle\sum_{\kappa = \kappa_(f_min)}^ {\kappa-(f_max)}\vert X(\kappa, n) \vert}
+\end{equation}
+it can also be common to use the power spectrum
+\begin{equation}\label{ eq:power spectral rolloff}
+	\upsilon_{SR}(n) = i \vert _{\displaystyle\sum_{\kappa = 0}^i \vert X(\kappa, n) \vert^2 = \kappa * \displaystyle\sum_{\kappa = 0}^ {\frac{K}{2-1}}\vert X(\kappa, n) \vert^2}
+\end{equation}
+\\
+for our project the spectral rolloff could be used to determine the sound in the classification. 
+
+\subsection{Spectral Flux}
+this chapter will explain the feature Spectral Flux and its uses.\\
+The spectral Flux is how much the spectrum shape change between the different frames it can be defined as:
+\begin{equation}\label{Spectral Flux eq}
+	\upsilon_{SF}(n) = \frac{\sqrt{\displaystyle\sum_{\kappa=0}^{K/2-1}(\vert X(\kappa,n\vert-\vert X(\kappa,n-1)\vert)^2}}{K/2}
+\end{equation} 
+the spectral flux feature can be described as a representation of the roughness of a sound. the result that one will get from a spectral flux feature is in the range from 0 to A where A is the maximum magnitude possible in the spectrum. when looking at spectral flux in a signal it will be flat at silence and spike at pitch changes.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale = 0.5]{fig/spectral_flux.jpg}
+		\caption{Spectral Flux black = the Spectral Flux Gray = the sound}
+		\label{Spectral flux pic}
+	\end{center}
+\end{figure}
+for use in note onset detection (finding the start of the note) only an increase in the spectral energy is wanted an one can consider using a different way to calculate the spectral flux:
+\begin{equation}
+	\upsilon_{SF}(n) = \vert X(\kappa,n)\vert-\vert X(\kappa,n-1)\vert
+\end{equation}
+when doing this all negative values has to be set to zero so that only increase is detected.
+\\
+for a transcription system the spectral flux as described can be considered to do the segmentation of a sound signal because it can detect an onset. 
+ 
+\subsection{Spectral Slope}
+This chapter will be on explaining what the spectral slop feature is.\\

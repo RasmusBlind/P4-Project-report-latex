@@ -1,0 +1,42 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{
+	Sørensen, Casper\\
+	\texttt{csare12@student.aau.dk}
+	\and
+	Christensen, Daniel\\
+	\textttt{12@student.aau.dk}
+	\and
+	Smed, Dina Madsen\\
+	\textttt{dsmed12@student.aau.dk}
+	\and
+	Lind, Rasmus Bloustrød\\
+	\textttt{rlind12@student.aau.dk}
+	\and
+	Vinkel, Simone Patricia \\
+	\texttt{svinke12@student.aau.dk}
+	Høeg, Emil Rose \\
+	\texttt{ehaeg12@student.aau.dk}
+}
+\begin{document}
+
+% when i (Rasmus B. Lind) quick build the pdf the two next lines makes trouble  
+%\maketitle
+%\tableofcontents
+\input{tex/SOTA.tex}
+%\input{tex/VoiceBand.tex}
+\input{tex/dataset_collection.tex}
+\chapter{Theory}
+%\input{tex/RMS.tex}
+%\input{tex/ZC_ZCR.tex}
+\input{tex/MFCC.tex}
+\input{tex/Spectral_Analysis.tex}
+\bibliographystyle{apalike}
+\bibliography{sources}
+\end{document}

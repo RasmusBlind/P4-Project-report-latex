@@ -1,0 +1,11 @@
+\section{spectral Centroid}
+this chapter will show what the feature spectral centroid is.\\
+the spectral centroid feature will calculate the center of gravity(COG) of a spectrum. it is defined by the frequency weight power spectrum normalized by the unweigth sum:
+\begin{equation}
+	\upsilon_{SC}(n) =^{ \sum_{\kappa = 0}^{\frac{K}{2-1}} \kappa\vert X(\kappa,n) \vert^2  }_{ \sum_{\kappa = 0}^{\frac{K}{2-1}} \kappa\vert X(\kappa,n) \vert^2  } 
+\end{equation} 
+however it can also be calculated using the magnitude spectrum instead of the the power spectrum.
+\\
+the point found by the spectral centroid feature should correlate with the timbre dimension of how sharp or bright the sound is. 
+\\
+this feature might be used in a transcription system because it should describe how sharp or bright a sound will sound, so this feature could be used to classify as sound. 
