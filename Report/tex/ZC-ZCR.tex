@@ -1,33 +1,33 @@
 \section{ZC-ZCR}
 
 
-Zero crossing & zero crossing rate:
-Zero crossing is a term normally used in image processing, electronics and mathematics. As explained by Al-Zahrani et. Al In mathematics ““Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” (source2) 
-Zero crossing is a way of measure the period of a periodic signal aka the frequency. (source3) Usually when measure a frequency, it is smart to measure more than just one period, since by having more periods can reduce errors caused by phase noise which is caused by making perturbations (small pairs of zero crossing in regions of low energies (source5)) in zero crossings small in comparison to the period. (source3)
-There is also something called zero crossing rate. ZCR according to Fabien Gouyon et. Al “is defined as the number of time-domain zero-crossings within a defined region of signal, divided by the number of samples of that region” (source6)
+Zero crossing and zero crossing rate:
+Zero crossing is a term normally used in image processing, electronics and mathematics. As explained by Al-Zahrani et al. in mathematics ““Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” (source2) 
+Zero crossing is a way of measure the period of a periodic signal aka the frequency. (source3) Usually when measure a frequency, it is smart to measure more than just one period, since by having more periods can reduce errors caused by phase noise which is caused by making perturbations (small pairs of zero crossing in regions of low energies (source5 XX)) in zero crossings small in comparison to the period. (source3 XX)
+There is also something called zero crossing rate. ZCR according to Fabien Gouyon et. Al “is defined as the number of time-domain zero-crossings within a defined region of signal, divided by the number of samples of that region” (source6 XX)
 
 
 
 
 \begin{equation}\label{eq:ZCR}
-^vzc(n)= \frac{1}{2* \kappa}\sum_{i=i_e(n)}^{i_e (n)}|sign[x(i)]-sign[x(i-1)]|
+v_{zc(n)}= \frac{1}{2* \kappa}\sum_{i=i_e(n)}^{i_e (n)}|sign[x(i)]-sign[x(i-1)]|
 \end{equation}
 
 With a sing function like this:
 \begin{equation}
-sign[x(k)]=\left\{ \begin{array}{1 2}
-1, &\quad \text{if x(i)$>$0}\\ 
-0,&\quad \text{if x(i)=0}\\
--1, &\quad\text{if x(i)$<$0}
-\end{array}
+sign[x(k)]=
+\begin{cases}
+ 1, & \text{if } x(i)>0\\ 
+ 0, & \text{if } x(i)=0\\
+-1, & \text{if } x(i)<0
+\end{cases}
 \end{equation}
 If x(i-1) does not exist in this function then x(i-1)=0 will be used as initialization. 
-0≤vzc(n)≤1 is the output range for this zero crossing rate. There are some changes in the signal, these changes have an effect on the assumed content of high-frequency. Depending on the how many changes occur e.g. the less the signal changes it sign occur, the less high-frequency is assumed to be in the signal. (source4) 
+0≤vzc(n)≤1 is the output range for this zero crossing rate. There are some changes in the signal, these changes have an effect on the assumed content of high-frequency. Depending on the how many changes occur e.g. the less the signal changes it sign occur, the less high-frequency is assumed to be in the signal. (source4 ) 
 \\
-\\how ZCR was used in matlab
-
+how ZCR was used in matlab
 \\
-\\Source2 = 2010, Audio Environment Recognition using Zero Crossing Features and MPEG-7 Descriptors, Saleh Al-Zhrani and Mubarak AlQahtani
+Source2 = 2010, Audio Environment Recognition using Zero Crossing Features and MPEG-7 Descriptors, Saleh Al-Zhrani and Mubarak AlQahtani
 
 Source3= 2012, R.W. Wall, Simple Methods for Detecting Zero Crossing 
 Source4 = 2012, Alexander Lerch, An Introduction to Audio Content Analysis Applications in Signal Processing and Music Informatics
