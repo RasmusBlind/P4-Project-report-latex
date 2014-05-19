@@ -1,0 +1,56 @@
+\section{Features}
+
+\begin{enumerate}
+	\item Time domain features
+	\begin{enumerate}
+		\item RMS
+		\item ZC
+	\end{enumerate}
+	\item Spectral domain features
+	\begin{enumerate}
+		\item Centroid
+		\item Flux
+		\item Rolloff
+		\item Skewness
+	\end{enumerate}
+	\item MFCC
+\end{enumerate}
+
+The features are each divided into a subscript of the whole application. The time domain features consisting of the Root Mean Square (RMS) and Zero-Crossings (ZC) are implemented as functions that each takes the signal or just a segment as input. The RMS function will return a value indicating what the mean energy of the input is, while the total number of zero-crossings will be returned from the ZC function. Programmatically the implementation is rather simple, as can be seen in figure \ref{snippet-RMS} and \ref{snippet-ZC}, where a single loop iterates through all input samples.
+
+\begin{figure}
+\begin{lstlisting}
+function rms = P4_RMS(x)
+% rms = P4_RMS(x)
+%
+% @param x: signal vector.
+% @retval: returns the root mean square of the signal x.
+    rms = 0;
+    for ii = 1:length(x)
+       rms = rms + x(ii)^2; 
+    end
+    rms = sqrt(rms / length(x));
+end
+\end{lstlisting}
+\caption{Code snippet. Matlab implementation of the RMS algorithm.}
+\label{snippet-RMS}
+\end{figure}
+
+\begin{figure}
+\begin{lstlisting}
+function zc = P4_zero_crossing(signal)
+% zc = P4_zero_crossing(x)
+%
+% @param x: signal vector.
+% @retval Returns the total zero crossings of the signal x.
+    zc = 0;
+    for ii = 2:length(signal)
+        if (signal(ii) * signal(ii-1) < 0)
+            zc = zc + 1;
+        end
+    end
+end
+\end{lstlisting}
+\caption{Code snippet. Matlab implementation of the ZC algorithm.}
+\label{snippet-ZC}
+\end{figure}

@@ -7,6 +7,30 @@
 \usepackage{graphicx}
 \usepackage{natbib}
 
+% Code snippet setup ---- START
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+  language=Matlab,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+% Code snippet setup ---- END
+
 \author{
 	Christensen, Daniel\\
 	\texttt{12@student.aau.dk}
@@ -42,12 +66,17 @@ $1^{st}$ version of the report}
 \input{tex/investigation.tex}
 %\input{tex/VoiceBand.tex}
 \input{tex/dataset_collection.tex}
+
 \chapter{Theory}
 \input{tex/RMS.tex}
 \input{tex/ZC-ZCR.tex}
 \input{tex/MFCC.tex}
 \input{tex/Spectral_Analysis.tex}
 \input{tex/onset_detection.tex}
+
+\chapter{Design \& Implementation}
+\input{tex/Feature_Implementation.tex}
+
 \bibliography{sources}
 \bibliographystyle{apalike}
 \end{document}
