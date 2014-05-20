@@ -15,16 +15,16 @@
 	\end{enumerate}
 	\item MFCC
 \end{enumerate}
-
-The features are each divided into a subscript of the whole application. The time domain features consisting of the Root Mean Square (RMS) and Zero-Crossings (ZC) are implemented as functions that each takes the signal or just a segment as input. The RMS function will return a value indicating what the mean energy of the input is, while the total number of zero-crossings will be returned from the ZC function. Programmatically the implementation is rather simple, as can be seen in figure \ref{snippet-RMS} and \ref{snippet-ZC}, where a single loop iterates through all input samples.
+\subsection{Time Domain Features}
+The features are each divided into a subscript of the whole application. The time domain features consisting of the Root Mean Square (RMS) and Zero-Crossings (ZC) are implemented as functions that each takes the signal or just a segment as input. The RMS function will return a value indicating what the mean energy of the input is, while the total number of zero-crossings will be returned from the ZC function. Programmatically the implementation is rather simple, as can be seen in figure \ref{snippet-RMS} and \ref{snippet-ZC}, where a single loop iterates through all input samples to calculate the output.
 
 \begin{figure}
 \begin{lstlisting}
 function rms = P4_RMS(x)
-% rms = P4_RMS(x)
-%
-% @param x: signal vector.
-% @retval: returns the root mean square of the signal x.
+    % rms = P4_RMS(x)
+    %
+    % @param x: signal vector.
+    % @retval: returns the root mean square of the signal x.
     rms = 0;
     for ii = 1:length(x)
        rms = rms + x(ii)^2; 
@@ -39,10 +39,10 @@ end
 \begin{figure}
 \begin{lstlisting}
 function zc = P4_zero_crossing(signal)
-% zc = P4_zero_crossing(x)
-%
-% @param x: signal vector.
-% @retval Returns the total zero crossings of the signal x.
+    % zc = P4_zero_crossing(x)
+    %
+    % @param x: signal vector.
+    % @retval Returns the total zero crossings of the signal x.
     zc = 0;
     for ii = 2:length(signal)
         if (signal(ii) * signal(ii-1) < 0)
@@ -53,4 +53,47 @@ end
 \end{lstlisting}
 \caption{Code snippet. Matlab implementation of the ZC algorithm.}
 \label{snippet-ZC}
+\end{figure}
+
+\subsection{Spectral Domain Features}
+Spectral domain features uses the information gathered in a spectrogram of the sound. Before being able to actually do any calculations of the spectral features, the spectrogram needs to be produced. Using the built-in function in Matlab for calculating the Fast Fourier Transform (FFT) we can produce a spectrogram of the input sound/segment by looping over the input using the specified window size and skip. This spectrogram will then be forwarded to the function corresponding to each of the spectral feature-calculations implemented.
+
+BLA BLA .. something about the other features
+
+\begin{figure}
+\begin{lstlisting}
+function spec = P4_Spectrogram(signal, fs, winSize, winSkip)
+    % spec = P4_Spectrogram(signal, fs, winSize, winSkip)
+    % Calculates the mean spectral centroid of a signal
+    %
+    % @param signal:    signal vector
+    % @param fs:        sampling rate of signal X
+    % @param winSize:   analysis window size in seconds
+    % @param winSkip:   amount to shift each window in seconds
+    
+    % Make it a column vector
+    if isrow(signal)
+        signal = signal';
+    end
+    
+    win_size = winSize * fs;
+    win_skip = winSkip * fs;
+    wins = 1 + floor((length(signal)-win_size)/win_skip);
+    
+    L       = win_size;             % Length of each window
+    NFFT    = 2^nextpow2(L);        % Length of the fft
+    spec    = zeros(NFFT/2+1, wins);% Allocating mem. to spectrogram
+    
+    for ii = 1:wins
+        start = floor((ii-1) * win_skip) + 1;
+        stop = floor((ii-1) * win_skip + win_size);
+        window = signal(start:stop,1);
+        
+        Y = fft(window,NFFT)/L;
+        spec(:,ii) = 2*abs(Y(1:NFFT/2+1));
+    end
+end
+\end{lstlisting}
+\caption{Code snippet. Matlab implementation of calculating the spectrogram.}
+\label{snippet-spectrogram}
 \end{figure}
