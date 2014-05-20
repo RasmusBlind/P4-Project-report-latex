@@ -1,8 +1,8 @@
 \section{RMS}
-
 Root-Mean-Square (RMS)
-The root mean square value is as John bird tells in Engineering Mathematics (source1 XX) “ the square root of the mean value of the squared values of the quantity over an interval “
-One of the principal applications of r.m.s. is with alternating current a.c. and voltage v. The a.c is defined as a current with a heating effect which resamples the direct current. (source1 XX)
+The root mean square value is as John bird tells in Engineering Mathematics \cite{Bird2007
+} “ the square root of the mean value of the squared values of the quantity over an interval “
+One of the principal applications of r.m.s. is with alternating current a.c. and voltage v. The a.c is defined as a current with a heating effect which resamples the direct current. \cite{Bird2007}
 \\
 For a pure sinewave the RMS value is 0.707 * the peak value
 \\
@@ -11,23 +11,11 @@ To find the RMS three mathematical operations are used.
 (2)	Take the mean of the results from (1)
 (3)	Take the square root of the results from (2)
 \begin{equation}\label{eq:RMS formular}
-\sqrt{\frac{1}{b-a} \int_a^\mathrm{b}y^2\mathrm{d}x}
+RMSy = \frac{1}{N-1}\sum_{u=0}^{N-1}|y[u]|^2
 \end{equation}
 \\
-Here is an examples from John bird: Engineering Mathematics (source) on how to calculate RMS with the assumption $y = 2x^2$, between $z = 1$, \& $x = 4$
-The r.m.s. value is:
-\\
-\begin{equation}\label{eq:RMS formular}
-\begin{array}{rcl}
-  \sqrt{\frac{1}{4-1} \int_1^\mathrm{4}y^2\mathrm{d}x}
-  & = & \sqrt{\frac{1}{3} \int_1^\mathrm{4}(2x^2)^2\mathrm{d}x}\\
-  & = & \sqrt{\frac{1}{3} \int_1^\mathrm{4}4x^4\mathrm{d}x}\\
-  & = & \sqrt{\frac{4}{3} [\frac{x^5}{5}]_1^4}\\
-  & = & \sqrt{\frac{4}{15} (1024-1)}\\
-  & = & \sqrt{272.8} = 16.5
-\end{array}
-\end{equation}
 
+\\
 This is how r.m.s. was used in matlab
 \begin{figure}
 \begin{center}
