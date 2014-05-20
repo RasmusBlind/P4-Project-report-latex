@@ -4,13 +4,20 @@ in this chapter different way of analysing the spectrum will be covered. also ho
 this chapter will show what the feature spectral centroid is.\\
 the spectral centroid feature will calculate the center of gravity(COG) of a spectrum it is defined by the frequency weight power spectrum normalized by the unweigth sum \citep{ACA}:
 \begin{equation}\label{Spectral Centroid eq}
-	\upsilon_{SC}(n) = \frac{\displaystyle\sum_{\kappa = 0}^{\frac{K}{2-1}} \kappa\vert X(\kappa,n) \vert^2}{\displaystyle\sum_{\kappa = 0}^{\frac{K}{2-1}} \kappa\vert X(\kappa,n) \vert^2 }    
+	\upsilon_{SC}(n) = \frac{\displaystyle\sum_{\kappa = 0}^{\frac{K}{2-1}} \kappa\vert X(\kappa,n) \vert^2}{\displaystyle\sum_{\kappa = 0}^{\frac{K}{2-1}} \vert X(\kappa,n) \vert^2 }    
 \end{equation} 
-however the spectral centroid can also be calculated using the magnitude spectrum instead of the power spectrum, with means the power is not taken in the calculation\citep{ACA}.
+however the spectral centroid can also be calculated using the magnitude spectrum instead of the power spectrum, with means the power is not taken in the calculation\citep{ACA}.\\
 \\
-the point found by the spectral centroid feature should correlate with the timbre dimension of how sharp or bright the sound is \citep{ACA}. 
+the point found by the spectral centroid feature should correlate with the timbre dimension of how sharp or bright the sound is \citep{ACA}.\\
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale = 0.5]{fig/spectral_centroid.jpg}
+		\caption{Spectral Flux black = the Spectral centroid Gray = the sound}
+		\label{Spectral slope pic}
+	\end{center}
+\end{figure}
 \\
-this feature might be used in a transcription system because it should describe how sharp or bright a sound will sound, so this feature could be used to classify as sound. 
+this feature might be used in a transcription system because it should describe how sharp or bright a sound will sound, so this feature could be used to classify as sound. but there might be problems in the pauses/noise areas as seen on \ref{Spectral slope pic} as there is a high peak at some of the pauses. 
 \subsection{Spectral Rolloff}
 this chapter will explain what the spectral rolloff is.\\
 The Spectral Rolloff is defined as the frequency bin at which the magnitude of the STFT reaches a percentage K of the overall sum of magnitudes, can be calculated like\citep{ACA}\\
@@ -27,8 +34,14 @@ it can also be common to use the power spectrum
 \begin{equation}\label{ eq:power spectral rolloff}
 	\upsilon_{SR}(n) = i \vert _{\displaystyle\sum_{\kappa = 0}^i \vert X(\kappa, n) \vert^2 = \kappa * \displaystyle\sum_{\kappa = 0}^ {\frac{K}{2-1}}\vert X(\kappa, n) \vert^2}
 \end{equation}
-\\
-for our project the spectral rolloff could be used to determine the sound in the classification. 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale = 0.5]{fig/spectral_rolloff.jpg}
+		\caption{Spectral Flux black = the Spectral rolloff Gray = the sound}
+		\label{Spectral rolloff pic}
+	\end{center}
+\end{figure}
+for our project the spectral rolloff could also be used to determine the sound in the classification, as the spectral rolloff will tell about the roughness of the sound. 
 
 \subsection{Spectral Flux}
 this chapter will explain the feature Spectral Flux and its uses.\\
