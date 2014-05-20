@@ -5,11 +5,12 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{natbib}
+%\usepackage{natbib}
+\usepackage[square,sort,comma,numbers]{natbib}
 
 \author{
 	Christensen, Daniel\\
-	\texttt{12@student.aau.dk}
+	\texttt{dhch12@student.aau.dk}
 	\and
 	Høeg, Emil Rose \\
 	\texttt{ehaeg12@student.aau.dk}
@@ -29,15 +30,16 @@
 	Vinkel, Simone Patricia \\
 	\texttt{svinke12@student.aau.dk}
 }
-\title{Group 403\\
-$1^{st}$ version of the report}
+\title{{\LARGE \textbf{Automatic Transcription of Beatboxing}} \\
+{{\Large By group 403}}}
 \begin{document}
 
 % when i (Rasmus B. Lind) quick build the pdf the next line makes trouble  
 \maketitle
 \tableofcontents
-\chapter{Background}
+\chapter{Introduction}
 \input{tex/intro.tex}
+\chapter{Background}
 \input{tex/SOTA.tex}
 \input{tex/investigation.tex}
 %\input{tex/VoiceBand.tex}
@@ -48,6 +50,11 @@ $1^{st}$ version of the report}
 \input{tex/MFCC.tex}
 \input{tex/Spectral_Analysis.tex}
 \input{tex/onset_detection.tex}
+\chapter{Evaluation}
+\chapter{Discussion}
+\chapter{Conclusion}
+
+
 \bibliography{sources}
 \bibliographystyle{apalike}
 \end{document}
