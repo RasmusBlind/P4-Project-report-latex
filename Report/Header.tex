@@ -6,7 +6,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 %\usepackage{natbib}
-\usepackage[authoryear]{natbib}
+\usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{hyperref}
 \usepackage{rotating}
 \usepackage[toc,page]{appendix}
@@ -40,6 +40,7 @@
 }
 % Code snippet setup ---- END
 
+
 \author{
 	Christensen, Daniel\\
 	\texttt{dhch12@student.aau.dk}
@@ -66,6 +67,7 @@
 {{\Large By group 403}}}
 \begin{document}
 
+% when i (Rasmus B. Lind) quick build the pdf the next line makes trouble  
 \maketitle
 \tableofcontents
 \chapter{Introduction}
@@ -77,6 +79,7 @@
 \input{tex/datasetcollection.tex}
 
 \chapter{Theory}
+\input{tex/choosin_sound_class.tex}
 \input{tex/RMS.tex}
 \input{tex/ZC-ZCR.tex}
 \input{tex/MFCC.tex}
@@ -92,7 +95,6 @@
 \chapter{Evaluation}
 \chapter{Discussion}
 \chapter{Conclusion}
-
 \bibliography{sources}
 \bibliographystyle{apalike}
 
