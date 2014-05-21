@@ -1,7 +1,12 @@
 \section{MFCC}
+
 This chapter will explain the Mel Frequency Cepstral Coefficients or MFCC, which is a feature that could be used to make a transcription system. \\
 the MFCC feature is a compact description of the spectral envelope. the MFCC is often used in speach recognition and have been useful in musical processing as well\citep{ACA}. In audio signal classification a small subset of the resulting MFCCs will already contain the principle information, in most cases between 4-20 MFCC is used. the way that the MFCC is calculated is  similar to the way human perceive sound, instead of a linear frequency scale it uses a non-linear frequency scale that model the human perception also the DCT is used instead of DFT\citep{ACA}. The jth coefficient 
 vj MFCC (n) can be calculated like this\citep{ACA}\\
+This chapter will explain the Mel Frequency Cepstral Coefficients or MFCC, which is a feature that could be used to make a transcription system. \\
+the MFCC feature is a compact description of the spectral envelope. the MFCC is often used in speech recognition and have been useful in musical processing as well\citep{ACA}. In audio signal classification a small subset of the resulting MFCCs will already contain the principle information, in most cases between 4-20 MFCC is used. the way that the MFCC is calculated is  similar to the way human perceive sound, instead of a linear frequency scale it uses a non-linear frequency scale that model the human perception also the DCT is used instead of DFT \citep{ACA}. The jth coefficient 
+vj  MFCC (n) can be calculated like this\citep{ACA}\\
+>>>>>>> master
 \begin{equation}\label{ eq:MFCC calculation}
 	 \upsilon ^j  _{MFCC} (n) = \sum_{\kappa'=1}^{K'} log(\vert X' (\kappa',n) \vert)\cos(j(\kappa' - \frac{1}{2})\frac{\pi}{K})
 \end{equation}

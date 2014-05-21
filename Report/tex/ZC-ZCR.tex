@@ -4,6 +4,7 @@ Zero crossing and zero crossing rate:
 Zero crossing is a term normally used in image processing, electronics and mathematics. As explained by \cite{Al-Zhrani2010} in mathematics ““Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” \cite{Al-Zhrani2010}
 Zero crossing is a way of measure the period of a periodic signal aka the frequency.\cite{RWW2012}  Usually when measure a frequency, it is smart to measure more than just one period, since by having more periods can reduce errors caused by phase noise which is caused by making perturbations (small pairs of zero crossing in regions of low energies \cite{Mallat1988} ) in zero crossings small in comparison to the period. \cite{RWW2012}
 There is also something called zero crossing rate. ZCR according to D.S.Shete et. al is defined as the amount of times the audio waveform the crosses the zero axis.\\
+
 \begin{equation}\label{eq:ZCR}
 v_{zc(n)}= \frac{1}{2* \kappa}\sum_{i=i_e(n)}^{i_e (n)}|sign[x(i)]-sign[x(i-1)]|
 \end{equation}
@@ -18,7 +19,7 @@ sign[x(k)]=
 \end{cases}
 \end{equation}
 If x(i-1) does not exist in this function then x(i-1)=0 will be used as initialization. 
-0≤vzc(n)≤1 is the output range for this zero crossing rate. There are some changes in the signal, these changes have an effect on the assumed content of high-frequency. Depending on the how many changes occur e.g. the less the signal changes it sign occur, the less high-frequency is assumed to be in the signal. \cite{Al-Zhrani2010} 
+0≤vzc(n)≤1 is the output range for this zero crossing rate. There are some changes in the signal, these changes have an effect on the assumed content of high-frequency. Depending on the how many changes occur e.g. the less the signal changes it sign occur, the less high-frequency is assumed to be in the signal. \citep{AlZhrani2010} 
 \\
 how ZCR was used in matlab
 \\
