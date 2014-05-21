@@ -1,0 +1,43 @@
+\section{Features}
+All features should be usable independently of each other, thus each calculation of a feature is implemented in its own function that will return one or more values about that feature. In the following we have divided the description of the features in 3 categories: the time domain features, spectral domain features and the MFCC in its own category.
+
+% TIME DOMAIN SUBSEC ---- START
+\subsection{Time Domain Features}
+The time domain features consisting of the Root Mean Square (RMS) and Zero-Crossings (ZC) are implemented as functions that each takes the signal or just a segment as input. The RMS function will return a value indicating what the mean energy of the input is, while the total number of zero-crossings will be returned from the ZC function. Programmatically the implementation is rather simple, as can be seen in figure \ref{snippet-RMS} and \ref{snippet-ZC}, where a single loop iterates through all input samples to calculate the output.
+
+\begin{lstlisting}[caption=Matlab implementation of the RMS algorithm., label=snippet-RMS]
+function rms = P4_RMS(x)
+    % rms = P4_RMS(x)
+    %
+    % @param x: signal vector.
+    % @retval: returns the root mean square of the signal x.
+    rms = 0;
+    for ii = 1:length(x)
+       rms = rms + x(ii)^2; 
+    end
+    rms = sqrt(rms / length(x));
+end
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Matlab implementation of the ZC algorithm., label=snippet-ZC]
+function zc = P4_zero_crossing(signal)
+    % zc = P4_zero_crossing(x)
+    %
+    % @param x: signal vector.
+    % @retval Returns the total zero crossings of the signal x.
+    zc = 0;
+    for ii = 2:length(signal)
+        if (signal(ii) * signal(ii-1) < 0)
+            zc = zc + 1;
+        end
+    end
+end
+\end{lstlisting}
+% TIME DOMAIN SUBSEC ---- END
+
+% SPECTRAL DOMAIN SUBSEC ---- START
+\subsection{Spectral Domain Features}
+Spectral domain features uses the information gathered in a spectrogram of the sound. Before being able to actually do any calculations of the spectral features, the spectrogram needs to be produced. Using the built-in function in Matlab for calculating the Fast Fourier Transform (FFT) we can produce a spectrogram of the input sound/segment by looping over the input using the specified window size and skip, see appendix \ref{app:feat-spectrogram}. This spectrogram will then be forwarded to the function corresponding to each of the spectral feature-calculations implemented as follows.
+
+The spectral features implemented are: (a) Centroid, (b) Flux, (c) Rolloff and (d) Skewness, all of which are implemented using the code provided by Alexander Lerch\footnote{\url{http://www.audiocontentanalysis.org/code/}} \citep{ACA}. The extracted value from each of these features is a mean value of the whole signal segment sent into the function. This value is directly used in the classifier to identify and describe that specific segment. See appendices under \ref{app:features} for complete implementation.
+% SPECTRAL DOMAIN SUBSEC ---- END
