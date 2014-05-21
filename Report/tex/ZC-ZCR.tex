@@ -1,10 +1,9 @@
 \section{ZC-ZCR}
 
 Zero crossing and zero crossing rate:
-Zero crossing is a term normally used in image processing, electronics and mathematics. As explained by \cite{Al-Zhrani2010}  in mathematics ““Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” \cite{Al-Zhrani2010}
+Zero crossing is a term normally used in image processing, electronics and mathematics. As explained by \cite{Al-Zhrani2010} in mathematics ““Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” \cite{Al-Zhrani2010}
 Zero crossing is a way of measure the period of a periodic signal aka the frequency.\cite{RWW2012}  Usually when measure a frequency, it is smart to measure more than just one period, since by having more periods can reduce errors caused by phase noise which is caused by making perturbations (small pairs of zero crossing in regions of low energies \cite{Mallat1988} ) in zero crossings small in comparison to the period. \cite{RWW2012}
-There is also something called zero crossing rate. ZCR according to Fabien Gouyon et. Al “is defined as the number of time-domain zero-crossings within a defined region of signal, divided by the number of samples of that region” \cite{Gouyon2000}
-\\
+There is also something called zero crossing rate. ZCR according to D.S.Shete et. al is defined as the amount of times the audio waveform the crosses the zero axis.\\
 \begin{equation}\label{eq:ZCR}
 v_{zc(n)}= \frac{1}{2* \kappa}\sum_{i=i_e(n)}^{i_e (n)}|sign[x(i)]-sign[x(i-1)]|
 \end{equation}
@@ -23,8 +22,3 @@ If x(i-1) does not exist in this function then x(i-1)=0 will be used as initiali
 \\
 how ZCR was used in matlab
 \\
-Source2 = 2010, Audio Environment Recognition using Zero Crossing Features and MPEG-7 Descriptors, Saleh Al-Zhrani and Mubarak AlQahtani
-Source3= 2012, R.W. Wall, Simple Methods for Detecting Zero Crossing 
-Source4 = 2012, Alexander Lerch, An Introduction to Audio Content Analysis Applications in Signal Processing and Music Informatics
-Source5 = 1988, Stephane G. Mallat, Dyadic Wavelets Energy Zero-Crossings
-Soure6 = 2000, Farbien Gouyon, François Pachet, Olivier Delerue, ON THE USE OF ZERO-CROSSING RATE FOR AN APPLICATION OF CLASSIFICATION OF PERCUSSIVE SOUNDS  
