@@ -5,7 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{natbib}
+\usepackage[square,sort,comma,numbers]{natbib}
 
 \author{
 	Christensen, Daniel\\
@@ -33,6 +33,7 @@
 $1^{st}$ version of the report}
 \begin{document}
 
+% when i (Rasmus B. Lind) quick build the pdf the next line makes trouble  
 \maketitle
 \tableofcontents
 \chapter{Background}
@@ -47,7 +48,7 @@ $1^{st}$ version of the report}
 \input{tex/MFCC.tex}
 \input{tex/Spectral_Analysis.tex}
 \input{tex/onset_detection.tex}
-\input{tex/KNN.tex}
+\input{tex/choosin_sound_class.tex}
 \bibliography{sources}
 \bibliographystyle{apalike}
 \end{document}
