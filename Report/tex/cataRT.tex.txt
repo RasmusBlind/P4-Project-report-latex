@@ -1,0 +1,10 @@
+\subsection{ CataRT }
+Another project called cataRT is using a similar method but in this project you can explore the analyzed data as they are shown in a space and as one navigates around in the space (cataRT, 2012). The space that one can navigate around in is comparable to what is described as the corpus or database in the MATConcat example, see figure0.1 for an better idea of how the interface looks like, this project is also implemented using a different platform that of maxMSP instead of MatLab.\\
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[height=5cm]{fig/cataRT.png}
+		\caption{cataRT picture form video of cataRT showing the interface. http://imtr.ircam.fr/imtr/CataRT}
+		\label{cataRT}
+	\end{center}
+\end{figure} 
+These methods could be used to make a voice imitate an instrument if a database was to be made with a given instrument, then by using this method it will be possible to analyze the input voice and find the closets sound from the database of the instrument sounds. Some analysis criteria would be needed to find the right database sound e.g. the pitch. 
