@@ -6,8 +6,9 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 %\usepackage{natbib}
-\usepackage[authoryear]{natbib}
+\usepackage[square,sort,comma,numbers]{natbib}
 \usepackage{hyperref}
+
 
 \author{
 	Christensen, Daniel\\
@@ -35,6 +36,7 @@
 {{\Large By group 403}}}
 \begin{document}
 
+% when i (Rasmus B. Lind) quick build the pdf the next line makes trouble  
 \maketitle
 \tableofcontents
 \chapter{Introduction}
@@ -44,6 +46,7 @@
 \input{tex/investigation.tex}
 %\input{tex/VoiceBand.tex}
 \input{tex/datasetcollection.tex}
+\input{tex/choosin_sound_class.tex}
 \chapter{Theory}
 \input{tex/RMS.tex}
 \input{tex/ZC-ZCR.tex}
@@ -54,7 +57,6 @@
 \chapter{Evaluation}
 \chapter{Discussion}
 \chapter{Conclusion}
-
 \bibliography{sources}
 \bibliographystyle{apalike}
 \end{document}
