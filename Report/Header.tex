@@ -8,9 +8,12 @@
 %\usepackage{natbib}
 \usepackage[authoryear]{natbib}
 \usepackage{hyperref}
+\usepackage{rotating}
+\usepackage[toc,page]{appendix}
 
 % Code snippet setup ---- START
 \usepackage{listings}
+\renewcommand{\lstlistingname}{Snippet}
 \usepackage{color}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -22,13 +25,17 @@
   showstringspaces=false,
   columns=flexible,
   basicstyle={\small\ttfamily},
-  numbers=none,
+  captionpos=b,
+  numbers=left,
+  numbersep=5pt,
+  stepnumber=5,
+  firstnumber=1,
   numberstyle=\tiny\color{gray},
   keywordstyle=\color{blue},
   commentstyle=\color{dkgreen},
   stringstyle=\color{mauve},
   breaklines=true,
-  breakatwhitespace=true
+  breakatwhitespace=false,
   tabsize=3
 }
 % Code snippet setup ---- END
@@ -78,6 +85,7 @@
 \input{tex/KNN.tex}
 
 \chapter{Our Approach}
+\input{tex/Approach.tex}
 \input{tex/Feature_Implementation.tex}
 \input{tex/Application.tex}
 
@@ -87,4 +95,10 @@
 
 \bibliography{sources}
 \bibliographystyle{apalike}
+
+\begin{appendices}
+\chapter{Matlab Scripts}
+\input{tex/appendices/Features-scripts.tex}
+
+\end{appendices}
 \end{document}
