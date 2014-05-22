@@ -1,9 +1,5 @@
 \section{ State-of-the-Art }
 To comprehend the method of transcription, it is relevant to investigate software solutions and theoretical solutions that are approximate to the presented problem of this project. In this section the acquired solutions will be presented in conjunction with the presumed relevance which is necessary to solve the problem.
-\subsection{ Eargram }
-Most literature about concatenative sound synthesis is technically minded and focuses on the efficiency and use of the method. 
-Eargram is a Pure Data patch with the main goal of utilizing machine learning to drive synthesis, using concatenative sound synthesis to combine analysed audio units into a coherent musical output (Bernades, Guedes, and Pennycook, 2012). Eargram was created as a larger application with many included tools, such as 4 different recombination methods and several visualization tools, and is architecturally heavily inspired by Skeleton (Jehan, 2005) and CataRT (Schwarz, Cahen, and Britton, 2008).
-The authors mention that future development is much about the rhythm and correct recombination of separate audio units.
 
 \subsection{ Voice Drummer }
 Voice Drummer is defined as a "Percussion instrument notation interface" \citep{VoiceDrummer}. It is a software-application developed to aid those without substantial musical knowledge to notate music. The program is limited to transcribing bass drum and snare drum, and these are differentiated between by their onomatopoeic expressions and the rhythm-pattern timing.
@@ -18,9 +14,6 @@ Voice Drummer is defined as a "Percussion instrument notation interface" \citep{
 \\
 Onomatopoeic refers to words that phonetically imitates, or resembles the source of the described sound e.g. classifying 'Meow' as a sound a cat would make. Thus, making it easy for a layman to understand, and use Voice Drummer by uttering \textit{don-don} to generate a Bass Drum, and \textit{ta-ta} to generate a snare drum. These are transcribed into phonemic representations through a pronunciation dictionary which will recognize and
  output the correct corresponding output in real-time.
-
-\subsection{ MATConcat }
-In "MATConcat: An Application for Exploring Concatenative Sound Synthesis Using MATLAB"  By Bob L. Sturm, such an application has been made for Matlab. Here the method Concatenative sound synthesis is use. This methods will approximate a 'target' sound (input sound) from a 'corpus' sound (database of sounds), which sound to use from the database is chosen from analysis of corpus sound and target, to which sound in the database are matching the input with some parameters of how much they can deviate from each other (Sturm, 2004). What degree of matching that the program will accept can be set in the interface and also what to do when the sound falls outside that degree, it is possible to force a match (Sturm, 2004).
 
 \subsection{ Voice Band }
 \begin{figure}[h]
@@ -39,6 +32,7 @@ As for the drums, they are divided into kick/snare (two-in-one), hi-hat and cras
 All instruments and singing will have to be recorded separately, but on the same track. After having recorded an instrument, it will play back the previous recorded sounds while recording another one. It is possible to undo the last take without having to delete everything, but if you want to edit some of the first recordings this is not possible.  You cannot go back and change or edit the whole arrangement. It converts the samples into a MP3 file, which can be sent to an e-mail. 
 
 \subsection{ Loop Station RC-505 }
+\label{loopstation}
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[height=5cm]{fig/Roland-RC-505.JPG}
@@ -46,8 +40,7 @@ All instruments and singing will have to be recorded separately, but on the same
 		\label{Looper}
 	\end{center}
 \end{figure}
-The Roland Loop Station is specially build for beatboxers. It enables a performing beatbox artist to record and play 5 tracks simultaneously. It can also apply sound effects to the recorded tracks, which actually makes it sound closer to a synthesizer. The Loop Station can record 99 phrases, and provides 85 onboard rhytm patterns. Moreover it can be operated with hands and with footswitches. Additionally it can be used as a MIDI controller. It has a XLR mic input, phantom power, mono/stereo instruments input, and AUX input, which makes the Roland Looper RC-505 stand out as one of the most professional build tools for beatboxers.
-
-The Loop Station is used and promoted by the australian beatbox artist DUB FX.$**SOURCE http://www.rolandconnect.com/product_2013-04.php?p=rc-505 **$
+The Roland Loop Station is specially build for beatboxers. It enables a performing beatbox artist to record and play 5 tracks simultaneously. It can also apply sound effects to the recorded tracks, which actually makes it sound closer to a synthesizer. The Loop Station can record 99 phrases, and provides 85 on-board rhythm patterns. Moreover it can be operated with hands and with foot-switches. Additionally it can be used as a MIDI controller. It has a XLR mic input, phantom power, mono/stereo instruments input, and AUX input, which makes the Roland Looper RC-505 stands, according to Roland CONNECT, out as one of the most professional build tools for beatboxers\footnote{\url{http://www.rolandconnect.com/product_2013-04.php?p=rc-505}}.
+The Loop Station is used and promoted by the Australian beatboxing-artist DUB FX.
 
 
