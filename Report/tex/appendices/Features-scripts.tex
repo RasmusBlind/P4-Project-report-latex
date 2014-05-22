@@ -1,0 +1,210 @@
+\section{Features}
+\label{app:features}
+% SPECTROGRAM ---- START
+\subsection{Spectrogram}
+\label{app:feat-spectrogram}
+
+\begin{lstlisting}[caption=Matlab implementation of calculating the spectrogram., label=snippet-spectrogram]
+function spec = P4_Spectrogram(signal, fs, winSize, winSkip)
+    % spec = P4_Spectrogram(signal, fs, winSize, winSkip)
+    % Calculates the mean spectral centroid of a signal
+    %
+    % @param signal:    signal vector
+    % @param fs:        sampling rate of signal X
+    % @param winSize:   analysis window size in seconds
+    % @param winSkip:   amount to shift each window in seconds
+    
+    % Make it a column vector
+    if isrow(signal)
+        signal = signal';
+    end
+    
+    win_size = winSize * fs;
+    win_skip = winSkip * fs;
+    wins = 1 + floor((length(signal)-win_size)/win_skip);
+    
+    L       = win_size;             % Length of each window
+    NFFT    = 2^nextpow2(L);        % Length of the fft
+    spec    = zeros(NFFT/2+1, wins);% Allocating mem. to spectrogram
+    
+    for ii = 1:wins
+        start = floor((ii-1) * win_skip) + 1;
+        stop = floor((ii-1) * win_skip + win_size);
+        window = signal(start:stop,1);
+        
+        Y = fft(window,NFFT)/L;
+        spec(:,ii) = 2*abs(Y(1:NFFT/2+1));
+    end
+end
+\end{lstlisting}
+% SPECTROGRAM ---- END
+
+% CENTROID ---- START
+\subsection{Spectral Centroid}
+\label{app:feat-centroid}
+
+\begin{lstlisting}[caption=Matlab implementation of the spectral centroid., label=snippet-speccentroid] 
+function [sct] = P4_MeanSpectralCentroid(signal, fs, winSize, winSkip)
+    % sct = P4_SpectralCentroid(X, fs)
+    % Calculates the mean spectral centroid of a signal
+    %
+    % @param X:         signal vector
+    % @param fs:        sampling rate of signal X
+    % @param winSize:   analysis window size in seconds
+    % @param winSkip:   amount to shift each window in seconds
+    
+    spec = P4_Spectrogram(signal, fs, winSize, winSkip);
+    sct = mean(SpectralCentroid(spec, fs));
+end
+
+function vsc = SpectralCentroid(X, fs)
+% Credit: Alexander Lerch, An Introduction to Audio Content Analysis.
+% ===================================================================
+% @brief computes the spectral centroid from the (squared) magnitude spectrum
+%
+% @param X: spectrogram (dimension FFTLength X Observations)
+% @param f_s: sample rate of audio data 
+%
+% @retval v spectral centroid (in Hz)
+    X       = X.^2;
+    vsc     = ([0:size(X,1)-1]*X)./sum(X,1);
+ 
+    % avoid NaN for silence frames
+    vsc (sum(X,1) == 0) = 0;
+ 
+    % convert from index to Hz
+    vsc     = vsc / size(X,1) * fs/2;
+end
+\end{lstlisting}
+% CENTROID ---- END
+
+% FLUX ---- START
+\subsection{Spectral Flux}
+\label{app:feat-flux}
+
+\begin{lstlisting}[caption=Matlab implementation of the spectral flux., label=snippet-specflux]
+function [sflx] = P4_MeanSpectralFlux(signal, fs, winSize, winSkip)
+    % sct = P4_SpectralCentroid(X, fs)
+    % Calculates the mean spectral centroid of a signal
+    %
+    % @param X:         signal vector
+    % @param fs:        sampling rate of signal X
+    % @param winSize:   analysis window size in seconds
+    % @param winSkip:   amount to shift each window in seconds
+    
+   spec = P4_Spectrogram(signal, fs, winSize, winSkip);
+   sflx = mean(SpectralFlux(spec));
+end
+
+function [vsf] = SpectralFlux (X)
+% Credit: Alexander Lerch, An Introduction to Audio Content Analysis.
+% ===================================================================
+% @brief computes the spectral flux from the magnitude spectrum
+% called by ::ComputeFeature
+%
+% @param X: spectrogram (dimension FFTLength X Observations)
+%
+% @retval v spectral flux
+
+    % difference spectrum (set first diff to zero)
+    afDeltaX    = diff([X(:,1), X],1,2);
+ 
+    % flux
+    vsf         = sqrt(sum(afDeltaX.^2))/size(X,1);
+end
+\end{lstlisting}
+% FLUX ---- END
+
+% ROLLOFF ---- START
+\subsection{Spectral Rolloff}
+\label{app:feat-rolloff}
+
+\begin{lstlisting}[caption=Matlab implementation of the spectral rolloff., label=snippet-specrolloff]
+function sroff = P4_MeanSpectralRolloff(signal, fs, winSize, winSkip)
+    spec = P4_Spectrogram(signal, fs, winSize, winSkip);
+    sroff = mean(SpectralRolloff(spec, fs));
+end
+
+function [vsr] = SpectralRolloff (X, fs, kappa)
+% Credit: Alexander Lerch, An Introduction to Audio Content Analysis.
+% ===================================================================
+% @brief computes the spectral rolloff from the magnitude spectrum
+%
+% @param X: spectrogram (dimension FFTLength X Observations)
+% @param fs: sample rate of audio data 
+%
+% @retval v spectral rolloff (in Hz)
+
+    % initialize parameters
+    if (nargin < 3)
+        kappa   = 0.85;
+    end
+ 
+    % allocate memory
+    vsr     = zeros(1,size(X,2));
+ 
+    %compute rolloff
+    afSum   = sum(X,1);
+    for (n = 1:length(vsr))
+        vsr(n)  = find(cumsum(X(:,n)) >= kappa*afSum(n), 1); 
+    end
+ 
+    % convert from index to Hz
+    vsr     = vsr / size(X,1) * fs/2;
+end
+\end{lstlisting}
+% ROLLOFF ---- END
+
+% SKEWNESS ---- START
+\subsection{Spectral Skewness}
+\label{app:feat-skewness}
+
+\begin{lstlisting}[caption=Matlab implementation of the spectral skewness., label=snippet-specskewness]
+function sskw = P4_MeanSpectralSkewness(signal, fs, winSize, winSkip)
+    % sskw = P4_SpectralSkewness(X, fs)
+    % Calculates the spectral skewness of a signal
+    %
+    % @param X:         signal vector
+    % @param fs:        sampling rate of signal X
+    % @param winSize:   analysis window size in seconds
+    % @param winSkip:   amount to shift each window in seconds
+    
+    spec = P4_Spectrogram(signal, fs, winSize, winSkip);
+    sskw = mean(SpectralSkewness(spec));
+end
+
+function [vssk] = SpectralSkewness (X)
+% Credit: Alexander Lerch, An Introduction to Audio Content Analysis.
+% ===================================================================
+% @brief computes the spectral skewness from the magnitude spectrum
+% called by ::ComputeFeature
+%
+% @param X: spectrogram (dimension FFTLength X Observations)
+%
+% @retval v spectral skewness
+    UseBookDefinition = true;
+ 
+    if (UseBookDefinition)
+        % compute mean and standard deviation
+        mu_x    = mean(abs(X), 1);
+        std_x   = std(abs(X), 1);
+ 
+        % compute skewness
+        X       = X - repmat(mu_x, size(X,1), 1);
+        vssk    = sum ((X.^3)./(repmat(std_x, size(X,1), 1).^3*size(X,1)));
+    else
+        % interpret the spectrum as pdf, not as signal
+        f       = linspace(0, fs/2, size(X,1));
+        % compute mean and standard deviation
+        mu_X    = (f * X) ./ (sum(X,1));
+        tmp     = repmat(f, size(X,2),1) - repmat(mu_X, size(X,1),1)';
+        var_X   = diag (tmp.^2 * X) ./ (sum(X,1)'*size(X,1));
+ 
+        vssk    = diag (tmp.^3 * X) ./ (var_X.^(3/2) .* sum(X,1)'*size(X,1));
+    end
+ 
+    % avoid NaN for silence frames
+    vssk (sum(X,1) == 0) = 0;
+end
+\end{lstlisting}
+% SKEWNESS ---- END
