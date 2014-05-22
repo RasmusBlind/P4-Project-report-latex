@@ -1,4 +1,16 @@
-\documentclass[12pt,a4paper]{report}
+\documentclass[11pt,a4paper]{report}
+
+\usepackage[a4paper,
+			twoside,
+			left=1.5in,
+			right=1.0in,
+			height=9.0in,
+			headheight=14pt]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{}
+\fancyhead[LE,RO]{\thepage}
+
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
 \usepackage{amsmath}
@@ -71,12 +83,16 @@
 \maketitle
 \tableofcontents
 \chapter{Introduction}
+\thispagestyle{empty}
 \input{tex/intro.tex}
+
 \chapter{Background}
+\thispagestyle{empty}
 \input{tex/SOTA.tex}
 \input{tex/investigation.tex}
 \input{tex/datasetcollection.tex}
 \chapter{Theory}
+\thispagestyle{empty}
 \input{tex/choosingSoundClass.tex}
 \input{tex/RMS.tex}
 \input{tex/ZC-ZCR.tex}
@@ -86,14 +102,19 @@
 \input{tex/KNN.tex}
 
 \chapter{Our Approach}
+\thispagestyle{empty}
 \input{tex/Approach.tex}
 \input{tex/Segmentation.tex}
 \input{tex/Feature_Implementation.tex}
 \input{tex/Application.tex}
 
 \chapter{Evaluation}
+\thispagestyle{empty}
 \chapter{Discussion}
+\thispagestyle{empty}
 \chapter{Conclusion}
+\thispagestyle{empty}
+
 \bibliography{sources}
 \bibliographystyle{apalike}
 
