@@ -19,9 +19,13 @@
 \usepackage{graphicx}
 %\usepackage{natbib}
 \usepackage{natbib}
+\usepackage{multicol}
+\usepackage{subcaption}
+\usepackage{makecell}
 \usepackage[hidelinks]{hyperref}
 \usepackage{rotating}
 \usepackage[toc,page]{appendix}
+\usepackage{epstopdf}
 
 % Code snippet setup ---- START
 \usepackage{listings}
@@ -76,9 +80,25 @@
 }
 \title{{\LARGE \textbf{Automatic Transcription of Beatboxing}} \\
 {{\Large By group 403}}}
-\begin{document}
 
-% when i (Rasmus B. Lind) quick build the pdf the next line makes trouble 
+
+% BACKGROUND ---- START
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{fig/Background.png}%
+\vfill
+}}}
+% BACKGROUND ---- END
+
+\begin{document}
+% Add background
+\AddToShipoutPicture*{\BackgroundPic}
+% when i (Rasmus B. Lind) quick build the pdf the next line makes trouble  
 
 \maketitle
 \tableofcontents
@@ -108,8 +128,11 @@
 
 \chapter{Evaluation}
 \thispagestyle{empty}
+\input{tex/Evaluation.tex}
+
 \chapter{Discussion}
 \thispagestyle{empty}
+
 \chapter{Conclusion}
 \thispagestyle{empty}
 
