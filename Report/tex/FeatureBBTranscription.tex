@@ -5,16 +5,16 @@ The root mean square value is as John bird tells in Engineering Mathematics \cit
 As Bird mentions in Engineering mathematics "One of the principal applications of RMS is with alternating current and voltage". \citep{Bird2007} The alternating current (a.c.) is defined as a current which has a heating effect resembling the direct current \citep{Bird2007}.
 \\
 The RMS is found by doing these three steps:
-(1) First take the square of the amplitude, (2) then take the mean of the squared results, (3) lastly take the square root of the results from the results of part (2)\citep{Bird2007}. Here is \cite{Bird2007} mathematical formula for RMS:
+(1) First take the square of the amplitude, (2) then take the mean of the squared results, (3) lastly take the square root of the results from the results of part (2)\citep{Bird2007}. Here is \citep{Bird2007} mathematical formula for RMS:
 
 \begin{equation}\label{eq:RMS formular}
 RMSy = \frac{1}{b-a}\int_a^b\mathrm{y}^{2}\,\mathrm{d}x
 \end{equation}
 \subsection{Zero Crossing-Zero Crossing Rate}
 Zero crossing and zero crossing rate:
-Zero crossing is a term normally used in image processing, electronics and mathematics. As explained by \cite{Al-Zhrani2010} in mathematics ““Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” \cite{Al-Zhrani2010}
-Zero crossing is a way of measure the period of a periodic signal aka the frequency.\cite{RWW2012} \\
-Usually when measure a frequency, it is smart to measure more than just one period, since by having more periods can reduce errors caused by phase noise which is caused by making perturbations (small pairs of zero crossing in regions of low energies \cite{Mallat1988} ) in zero crossings small in comparison to the period. \cite{RWW2012} \\
+Zero crossing is a term normally used in image processing, electronics and mathematics. As explained by \citep{AlZhrani2010} in mathematics “Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” \citep{AlZhrani2010}
+Zero crossing is a way of measure the period of a periodic signal aka the frequency.\citep{RWW2012} \\
+Usually when measure a frequency, it is smart to measure more than just one period, since by having more periods can reduce errors caused by phase noise which is caused by making perturbations (small pairs of zero crossing in regions of low energies \citep{Mallat1988} ) in zero crossings small in comparison to the period. \citep{RWW2012} \\
 There is also something called zero crossing rate. ZCR according to D.S.Shete et. al is defined as the amount of times the audio waveform the crosses the zero axis.\\
 \begin{equation}\label{eq:ZCR}
 \upsilon_{ZC}(n)= \frac{1}{2 \kappa}\sum_{i=i_s(n)}^{i_e (n)}|sign[x(i)]-sign[x(i-1)]|
@@ -47,7 +47,7 @@ For our project the MFCC can be considered as one of the features to describe th
 In this section different way of analysing the spectrum of sounds will be covered, the Spectral features described will be some that was used in the articles presented in the sound classification section.
 \subsubsection{Spectral Centroid}
 This section will show what the feature spectral centroid is.\\
-The spectral centroid feature will calculate the center of gravity(COG) of a spectrum it is defined by the frequency weight power spectrum normalized by the unweigth sum \citep{ACA}:
+The spectral centroid feature will calculate the Center of Gravity(COG) of a spectrum it is defined by the frequency weight power spectrum normalized by the unweigth sum \citep{ACA}:
 \begin{equation}\label{Spectral Centroid eq}
 	\upsilon_{SC}(n) = \frac{\displaystyle\sum_{k = 0}^{\frac{\kappa}{2-1}} k\vert X(k,n) \vert^2}{\displaystyle\sum_{k = 0}^{\frac{\kappa}{2-1}} \vert X(k,n) \vert^2 }    
 \end{equation} 
@@ -57,6 +57,14 @@ The point found by the spectral centroid feature should correlate with the timbr
 
 This feature might be used in a transcription system because it should describe how sharp or bright a sound will sound, so this feature could be used to classify as sound.
 
+\subsubsection{Spectral Spread}
+this section will introduce the feature spectral Spread which will measure the power spectrum around the spectral centroid.\\
+it can be seen as taking the standard deviation of the power spectrum around the spectral centroid, and can be calculated like \citep{ACA}:
+\begin{equation}
+	\upsilon_{SS}(n)=\sqrt{\frac{\sum_{k = 0}^{\kappa/2-1}(k-\upsilon_{SS}(n))^2\vert X(k,n)\vert^2}{\sum_{k = 0}^{\kappa/2-1}\vert X(k,n)\vert^2}}
+\end{equation}
+as the spectral centroid can be calculated in different ways the spread follow accordantly which mean that the spectral spread can also be calculated using the magnitude spectrum instead of the power spectrum \citep{ACA}.
+
 \subsubsection{Spectral Rolloff}
 This section will explain what the spectral rolloff is.\\
 The Spectral Rolloff is defined as the frequency bin at which the magnitude of the STFT reaches a percentage K of the overall sum of magnitudes, can be calculated like\citep{ACA}\\
@@ -64,7 +72,7 @@ The Spectral Rolloff is defined as the frequency bin at which the magnitude of t
 	\upsilon_{SR}(n) = i \vert _{\displaystyle\sum_{k = 0}^i \vert X(k, n) \vert = K  \displaystyle\sum_{k = 0}^ {\frac{\kappa}{2-1}}\vert X(k, n) \vert}
 \end{equation}
 \\
-Normal the value for K is around 0.85 or 0.95. Low results indicates insufficient magnitudes components at high frequencies and the a low audio bandwidth\citep{ACA}.\\
+Normal the value for K percentage is around 0.85 or 0.95. Low results indicates insufficient magnitudes components at high frequencies and a low audio bandwidth\citep{ACA}.\\
 Different ways to compute the spectral rolloff can be that only parts of the spectral energy is taken into considerations that is done by use an fmin and a fmax\citep{ACA}
 \begin{equation}\label{ eq: fmin and fmax spectral rolloff}
 	\upsilon_{SR, \Delta f}(n) = i \vert _{\displaystyle\sum_{k = k(f_{min})}^i \vert X(k, n) \vert = K \displaystyle\sum_{k = k_(f_{min})}^ {k(f_{max})}\vert X(k, n) \vert}
