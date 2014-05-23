@@ -80,8 +80,23 @@
 }
 \title{{\LARGE \textbf{Automatic Transcription of Beatboxing}} \\
 {{\Large By group 403}}}
-\begin{document}
 
+% BACKGROUND ---- START
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{fig/Background.png}%
+\vfill
+}}}
+% BACKGROUND ---- END
+
+\begin{document}
+% Add background
+\AddToShipoutPicture*{\BackgroundPic}
 % when i (Rasmus B. Lind) quick build the pdf the next line makes trouble  
 \maketitle
 \tableofcontents

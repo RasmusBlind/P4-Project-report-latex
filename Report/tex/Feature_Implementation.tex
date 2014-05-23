@@ -41,3 +41,6 @@ Spectral domain features uses the information gathered in a spectrogram of the s
 
 The spectral features implemented are: (a) Centroid, (b) Flux, (c) Rolloff and (d) Skewness, all of which are implemented using the code provided by Alexander Lerch\footnote{\url{http://www.audiocontentanalysis.org/code/}} \citep{ACA}. The extracted value from each of these features is a mean value of the whole signal segment sent into the function. This value is directly used in the classifier to identify and describe that specific segment. See appendices under \ref{app:features} for complete implementation.
 % SPECTRAL DOMAIN SUBSEC ---- END
+
+\subsection{Mel Frequency Cepstral Coefficients}
+Using the MFCC algorithm provided by Malcolm Slaney we have implemented a version of it that has been adjusted by Bob L. Sturm. This adjustment makes it possible to use different analysis window sizes and skips, please refer to provided Matlab-script "mfcc.m". The algorithm will provide a feature vector with 40 cepstral coefficients that describe every window of the input sound. To use these coefficients, we take a mean over all windows, i.e. for every coefficient we take the mean value of that coefficient over all windows. Out of these 40 mean values, we use the first 20 coefficients.
