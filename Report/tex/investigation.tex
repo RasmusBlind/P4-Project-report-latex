@@ -11,9 +11,21 @@ The considerations made by Hazan may serve as a benchmark tool which may suffice
 
 \subsection{Sound Classification}
 
-It is important to understand how standard beatboxing techniques works, in order to build a system that recognizes vocal instrumental sounds. In \textit{Beatbox Classification Using ACE} by Sinyor \textit{et al}, each specific instrumental sound triggers the system to understand which sounds to replace with synthesized instruments. In this project the focus will be on basic percussion: kick, snare and cymbal.
 
-The sequential process of classification contains two fundamental steps[**source**], to be described in this chapter: 
+In \textit{Beatbox Classification Using ACE} by \cite{Sinyor05}, they make a system that classifies the different beatbox inputs. in the test they used three persons who was skilled in the art of beatboxing, and three who did not.\cite{Sinyor05} They tested with different features and see which worked the best, which  was the whole purpose of the article. This article is relevant since the system possibly can be used in the future for voice-controlled applications.\\
+Their test(s) and results:
+The beatboxers and non-beatboxers were told to imitated 4 different types of sounds: two "kick drum(also known as a bass drum), a snare drum, a closed hihat and a open hihat."\cite{Sinyor05} Though the subjects imitated the snare in different ways, as a k, and p snare. One of the one-beatboxers even imitated both of the snares.\\
+The features \cite{Sinyor05} used for classification was: zero-crossing, zero-crossing rate, Compactness, spectral centroid, Spectral Flux, Spectral Rolloff and Root Mean Square\cite{Sinyor05}.\\
+In the second test \cite{Sinyor05} made, they used a k -nearest neighbour (k-nn) classifier they used some of the features mentioned above to train the system. "The initial population was 50 and it took 14 generations to convergence" \cite{Sinyor05} the feature selected was namely: zero-crossing (rate), Root Mean Square, Spectral Rolloff, Compactness.\\ 
+The best result when they used all the sound 5 classes and the k-nn classifier had an accuracy of 94.55\%. The best result with only 3 sound classes "(bass, snare, hihat)" \cite{Sinyor05} and with the k-nn classifier had an accuracy rate of 98.55\% \cite{Sinyor05}.\\
+When looking at the results the accuracy was pretty high, and the highest percentage was with a few sounds types (3)  where they used the k-nn classifier. But over all, the tests high accuracy rate.
+
+
+
+It is important to understand how standard beatboxing techniques works, in order to build a system that recognizes vocal instrumental sounds.
+In \textit{Beatbox Classification Using ACE} by \cite{Sinyor05}, each specific instrumental sound triggers the system to understand which sounds to replace with synthesized instruments. In this project the focus will be on basic percussion: kick, snare and cymbal. Cymbal refers we in this report to as high hat.
+
+The sequential process of classification contains two fundamental steps \cite{Sinyor05}, to be described in this chapter: 
 \begin{enumerate}
 	\item Data Collection
 		\begin{enumerate}
@@ -31,8 +43,6 @@ Data Collection:
 Initially it is important to collect a range of sounds related to beatboxing. Therefore a dataset must be recorded both from experienced and unexperienced beatboxers. Subjects are instructed to record a small sequence of beatboxing, consisting of kick, snare and cymbal sounds (for this project). All sounds are recorded in 96Khz .wav files. 
 
 ** GRAPHICS DESCRIBING BASIC SAMPLES ** 
-
-The recording for this project was done with a Zoom H4N linked to a standard phantom powered studio mic typically used by beatboxers. To get the most useful recordings the aim was to come as close as possible to the beatboxing sound environment, including background noise and the technical framework.\\
 
 In \textit{Delayed decision-making in real-time beatbox percussion classification} Dan Stowell and Mark D. Plumbey study the relationship and balance between low-latency and high precision in a real-time classification system of beatboxing sounds. Their hypothesis is that the performance of a real-time classifier will improve if its final decision is allowed to be delayed. 
 In order to do this they propose a solution in which an event trigger is performed before the classification, which allows the system to have an initial decision before its final classification. One aspect of the study is the performance of classification, but another aspect they investigate is the affection of the listening experience and quality of the audio output. 
