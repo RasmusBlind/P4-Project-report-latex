@@ -1,0 +1,126 @@
+\documentclass[11pt,a4paper]{report}
+
+\usepackage[a4paper,
+			twoside,
+			left=1.5in,
+			right=1.0in,
+			height=9.0in,
+			headheight=14pt]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{}
+\fancyhead[LE,RO]{\thepage}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage{natbib}
+\usepackage{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{rotating}
+\usepackage[toc,page]{appendix}
+
+% Code snippet setup ---- START
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Snippet}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+  language=Matlab,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  captionpos=b,
+  numbers=left,
+  numbersep=5pt,
+  stepnumber=5,
+  firstnumber=1,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=false,
+  tabsize=3
+}
+% Code snippet setup ---- END
+
+\author{
+	Christensen, Daniel\\
+	\texttt{\href{mailto:dhch12@student.aau.dk}{dhch12@student.aau.dk}}
+	\and
+	Høeg, Emil Rose \\
+	\texttt{\href{mailto:ehaeg12@student.aau.dk}{ehaeg12@student.aau.dk}}
+	\and
+	Lind, Rasmus Bloustrød\\
+	\texttt{\href{mailto:rlind12@student.aau.dk}{rlind12@student.aau.dk}}
+	\and
+	Nilsson, Sam Alix \\
+	\texttt{\href{mailto:snilss12@student.aau.dk}{snilss12@student.aau.dk}}
+	\and
+	Smed, Dina Madsen\\
+	\texttt{\href{mailto:dsmed12@student.aau.dk}{dsmed12@student.aau.dk}}
+	\and
+	Sørensen, Casper\\
+	\texttt{\href{mailto:csare12@student.aau.dk}{csare12@student.aau.dk}}
+	\and
+	Vinkel, Simone Patricia \\
+	\texttt{\href{mailto:svinkel12@student.aau.dk}{svinkel12@student.aau.dk}}
+}
+\title{{\LARGE \textbf{Automatic Transcription of Beatboxing}} \\
+{{\Large By group 403}}}
+\begin{document}
+
+% when i (Rasmus B. Lind) quick build the pdf the next line makes trouble  
+\maketitle
+\tableofcontents
+\chapter{Introduction}
+\thispagestyle{empty}
+\input{tex/intro.tex}
+
+\chapter{Background}
+\thispagestyle{empty}
+\input{tex/SOTA.tex}
+\input{tex/investigation.tex}
+\input{tex/datasetcollection.tex}
+
+\chapter{Theory}
+\thispagestyle{empty}
+\input{tex/choosingSoundClass.tex}
+\input{tex/RMS.tex}
+\input{tex/ZC-ZCR.tex}
+\input{tex/MFCC.tex}
+\input{tex/Spectral_Analysis.tex}
+\input{tex/onset_detection.tex}
+\input{tex/KNN.tex}
+
+\chapter{Our Approach}
+\thispagestyle{empty}
+\input{tex/Approach.tex}
+\input{tex/Segmentation.tex}
+\input{tex/Feature_Implementation.tex}
+\input{tex/Application.tex}
+
+\chapter{Evaluation}
+\thispagestyle{empty}
+\chapter{Discussion}
+\thispagestyle{empty}
+\chapter{Conclusion}
+\thispagestyle{empty}
+
+\bibliography{sources}
+\bibliographystyle{apalike}
+
+\begin{appendices}
+\chapter{Matlab Scripts}
+\input{tex/appendices/Features-scripts.tex}
+
+\end{appendices}
+\end{document}
