@@ -1,5 +1,5 @@
 \section{Features}
-All features should be usable independently of each other, thus each calculation of a feature is implemented in its own function that will return one or more values about that feature. In the following we have divided the description of the features in 3 categories: the time domain features, spectral domain features and the MFCC in its own category.
+All feature extraction should be usable independently of each other, thus each calculation of the features is implemented in its own function that will return one or more values about that feature. In the following we have divided the description of the features in 3 categories: the time domain features, spectral domain features and the MFCC in its own category.
 
 % TIME DOMAIN SUBSEC ---- START
 \subsection{Time Domain Features}
@@ -44,3 +44,6 @@ The spectral features implemented are: (a) Centroid, (b) Flux, (c) Rolloff and (
 
 \subsection{Mel Frequency Cepstral Coefficients}
 Using the MFCC algorithm provided by Malcolm Slaney we have implemented a version of it that has been adjusted by Bob L. Sturm. This adjustment makes it possible to use different analysis window sizes and skips, please refer to provided Matlab-script "mfcc.m". The algorithm will provide a feature vector with 40 cepstral coefficients that describe every window of the input sound. To use these coefficients, we take a mean over all windows, i.e. for every coefficient we take the mean value of that coefficient over all windows. Out of these 40 mean values, we use the first 20 coefficients.
+\\
+
+\colorbox{red}{WE NEED kNN HERE}
