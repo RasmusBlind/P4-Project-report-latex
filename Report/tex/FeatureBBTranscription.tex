@@ -1,0 +1,112 @@
+\section{Features}
+\subsection{Root Mean Square}
+The root mean square value is “the square root of the mean value of the squared values of the quantity over an interval"  \citep{Bird2007}.
+\\
+As Bird mentions in Engineering mathematics "One of the principal applications of RMS is with alternating current and voltage" \citep{Bird2007}. The alternating current (a.c.) is defined as a current which has a heating effect resembling the direct current \citep{Bird2007}.
+\\
+The RMS is found by doing these three steps:
+(1) First take the square of the amplitude, (2) then take the mean of the squared results, (3) lastly take the square root of the results from the results of part (2) \citep{Bird2007}. \\ Here is \citep{Bird2007} mathematical formula for RMS:
+\begin{equation}\label{eq:RMS formular}
+RMS value = \frac{1}{b-a}\int_a^b\mathrm{y}^{2}\,\mathrm{d}x
+\end{equation}
+\subsection{Zero Crossing-Zero and Crossing Rate}
+Zero crossing is a term normally used in image processing, electronics and mathematics. As explained by \citep{AlZhrani2010} in mathematics “Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” \citep{AlZhrani2010}
+Zero crossing is a way of measure the period of a periodic signal aka the frequency\citep{RWW2012}. \\
+Usually when measure a frequency, it is smart to measure more than just one period, since by having more periods can reduce errors caused by phase noise which is caused by making perturbations (small pairs of zero crossing in regions of low energies \citep{Mallat1988} ) in zero crossings small in comparison to the period. \citep{RWW2012} \\
+There is also something called zero crossing rate. ZCR according to D.S.Shete et al. is defined as the amount of times the audio waveform the crosses the zero axis.\\
+\begin{equation}\label{eq:ZCR}
+\upsilon_{ZC}(n)= \frac{1}{2 \kappa}\sum_{i=i_s(n)}^{i_e (n)}|sign[x(i)]-sign[x(i-1)]|
+\end{equation}
+\\
+With a sign function like this:
+\begin{equation}
+sign[x(k)]=
+\begin{cases}
+ 1, & \text{if } x(i)>0\\ 
+ 0, & \text{if } x(i)=0\\
+-1, & \text{if } x(i)<0
+\end{cases}
+\end{equation}
+If x(i-1) does not exist in this function then x(i-1)=0 will be used as initialization. 
+0≤vzc(n)≤1 is the output range for this zero crossing rate. There are some changes in the signal, these changes have an effect on the assumed content of high-frequency. Depending on the how many changes occur e.g. the less the signal changes it sign occur, the less high-frequency is assumed to be in the signal. \citep{AlZhrani2010} 
+
+\subsection{Mel-Frequency Cepstral Coefficients}
+This section will explain the Mel-Frequency Cepstral Coefficients or MFCC, which is a feature that could be used to make a transcription system. \\
+The MFCC feature is a compact description of the spectral envelope. The MFCC is often used in speech recognition and have been useful in musical processing as well\citep{ACA}. \\ 
+In audio signal classification a small subset of the resulting MFCCs will already contain the principle information, in most cases between 4-20 MFCC is used. The way that the MFCC is calculated is  similar to the way human perceive sound, instead of a linear frequency scale it uses a non-linear frequency scale that model the human perception also the DCT is used instead of DFT \citep{ACA}. The jth coefficient vj  MFCC (n) can be calculated like this\citep{ACA}\\
+\begin{equation}\label{ eq:MFCC calculation}
+  \upsilon ^j  _{MFCC} (n) = \sum_{k'=1}^{\kappa'} log(\vert X' (k',n) \vert)\cos(j(k' - \frac{1}{2})\frac{\pi}{\kappa'})
+\end{equation}
+\\
+There are different way to implement the MFCC feature the main difference between the different implementations are the way that the spectrum is calculated, there is the originals being David and Mermelstein DM, HTK an implementation found in the HMM tool kit software and the implementation found in Slaney's Audiotory Toolbox SAT\citep{Slaney}.
+\\
+For our project the MFCC can be considered as one of the features to describe the audio. One point is that it is a compact description of the spectral envelope another is that is follow the human perception to some degree.
+\subsection{Spectral Analysis}
+In this section different way of analysing the spectrum of sounds will be covered, the Spectral features described will be some that was used in the articles presented in the sound classification section.
+\subsubsection{Spectral Centroid}
+This section will show what the feature spectral centroid is.\\
+The spectral centroid feature will calculate the Center of Gravity(COG) of a spectrum it is defined by the frequency weight power spectrum normalized by the unweigth sum \citep{ACA}:
+\begin{equation}\label{Spectral Centroid eq}
+	\upsilon_{SC}(n) = \frac{\displaystyle\sum_{k = 0}^{\frac{\kappa}{2-1}} k\vert X(k,n) \vert^2}{\displaystyle\sum_{k = 0}^{\frac{\kappa}{2-1}} \vert X(k,n) \vert^2 }    
+\end{equation} 
+However the spectral centroid can also be calculated using the magnitude spectrum instead of the power spectrum, with means the power is not taken in the calculation\citep{ACA}.
+\\
+The point found by the spectral centroid feature should correlate with the timbre dimension of how sharp or bright the sound is \citep{ACA}. 
+
+This feature might be used in a transcription system because it should describe how sharp or bright a sound will sound, so this feature could be used to classify as sound.
+
+\subsubsection{Spectral Spread}
+this section will introduce the feature spectral Spread which will measure the power spectrum around the spectral centroid.\\
+it can be seen as taking the standard deviation of the power spectrum around the spectral centroid, and can be calculated like \citep{ACA}:
+\begin{equation}
+	\upsilon_{SS}(n)=\sqrt{\frac{\sum_{k = 0}^{\kappa/2-1}(k-\upsilon_{SS}(n))^2\vert X(k,n)\vert^2}{\sum_{k = 0}^{\kappa/2-1}\vert X(k,n)\vert^2}}
+\end{equation}
+as the spectral centroid can be calculated in different ways the spread follow accordantly which mean that the spectral spread can also be calculated using the magnitude spectrum instead of the power spectrum \citep{ACA}.
+
+\subsubsection{Spectral Rolloff}
+This section will explain what the spectral rolloff is.\\
+The Spectral Rolloff is defined as the frequency bin at which the magnitude of the STFT reaches a percentage K of the overall sum of magnitudes, can be calculated like\citep{ACA}\\
+\begin{equation}\label{ eq:normal spectral rolloff}
+	\upsilon_{SR}(n) = i \vert _{\displaystyle\sum_{k = 0}^i \vert X(k, n) \vert = K  \displaystyle\sum_{k = 0}^ {\frac{\kappa}{2-1}}\vert X(k, n) \vert}
+\end{equation}
+\\
+Normal the value for K percentage is around 0.85 or 0.95. Low results indicates insufficient magnitudes components at high frequencies and a low audio bandwidth\citep{ACA}.\\
+Different ways to compute the spectral rolloff can be that only parts of the spectral energy is taken into considerations that is done by use an fmin and a fmax\citep{ACA}
+\begin{equation}\label{ eq: fmin and fmax spectral rolloff}
+	\upsilon_{SR, \Delta f}(n) = i \vert _{\displaystyle\sum_{k = k(f_{min})}^i \vert X(k, n) \vert = K \displaystyle\sum_{k = k_(f_{min})}^ {k(f_{max})}\vert X(k, n) \vert}
+\end{equation}
+It can also be common to use the power spectrum
+\begin{equation}\label{ eq:power spectral rolloff}
+	\upsilon_{SR, pow}(n) = i \vert _{\displaystyle\sum_{k = 0}^i \vert X(k, n) \vert^2 = K \displaystyle\sum_{k= 0}^ {\frac{\kappa}{2-1}}\vert X(k, n) \vert^2}
+\end{equation}
+\\
+For our project the spectral rolloff could be used to determine the sound in the classification. 
+for our project the spectral rolloff could also be used to determine the sound in the classification, as the spectral rolloff will tell about the roughness of the sound. 
+
+\subsubsection{Spectral Flux}
+This Section will explain the feature Spectral Flux and its uses.\\
+The spectral Flux is how much the spectrum shape change between the different frames it can be defined as\citep{ACA}:
+\begin{equation}\label{Spectral Flux eq}
+	\upsilon_{SF}(n) = \frac{\sqrt{\displaystyle\sum_{k=0}^{\kappa/2-1}(\vert X(k,n)\vert-\vert X(k,n-1)\vert)^2}}{\kappa/2}
+\end{equation} 
+The spectral flux feature can be described as a representation of the roughness of a sound. The result that one will get from a spectral flux feature is in the range from 0 to A where A is the maximum magnitude possible in the spectrum\citep{ACA}. when looking at spectral flux in a signal it will be flat at silence and spike at pitch changes\citep{ACA}.
+
+For use in note onset detection (finding the start of the note) only an increase in the spectral energy is wanted an one can consider using a different way to calculate the spectral flux\citep{ACA}:
+\begin{equation}
+	\Delta X(k,n) = \vert X(k,n)\vert-\vert X(k,n-1)\vert
+\end{equation}
+When doing this all negative values has to be set to zero so that only increase is detected\citep{ACA}.
+\\
+For a transcription system the spectral flux as described can be considered to do the segmentation of a sound signal because it can detect an onset.
+ 
+\subsubsection{Spectral Slope}
+This Section will be on explaining what the spectral slop feature is.\\
+The spectral slope as the name indicate is a feature that is a measure of the slop in the spectral energy\citep{ACA}. The spectral slope is calculated using a linear regression of the spectral magnitude spectral, the slop is then estimated using this equation\citep{ACA}
+\begin{equation}
+	\upsilon _{SSI} (n) = \frac{\displaystyle\sum_{k = 0}^{\kappa/2-1}(k - \mu_k)(\vert X(k,n)\vert - \mu_\vert x _\vert)}{\displaystyle\sum_{k = 0}^{\kappa/2-1}(k - \mu_k)^2}
+\end{equation}
+\begin{equation}
+	= \kappa\frac{\displaystyle\sum_{k= 0}^{\kappa/2-1}k\vert X(k,n)\vert - \displaystyle\sum_{k = 0}^{\kappa/2-1}k\displaystyle\sum_{k = 0}^{\kappa/2-1}\vert X(k,n)\vert}{\kappa \displaystyle\sum_{k = 0}^{\kappa/2-1}\kappa^2-(\displaystyle\sum_{k = 0}^{\kappa/2-1}k)^2}
+\end{equation}
+The result the one can get from these equations is defined by range of the spectral magnitude.
+The spectral slope will be high at pauses and get lower with there is a sound based on that the spectral slope could be considered for the segmentation.
