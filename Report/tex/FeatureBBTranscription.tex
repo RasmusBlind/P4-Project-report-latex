@@ -1,21 +1,19 @@
 \section{Features}
 \subsection{Root Mean Square}
-The root mean square value is as John bird tells in Engineering Mathematics \citep{Bird2007} “the square root of the mean value of the squared values of the quantity over an interval".
+The root mean square value is “the square root of the mean value of the squared values of the quantity over an interval"  \citep{Bird2007}.
 \\
-As Bird mentions in Engineering mathematics "One of the principal applications of RMS is with alternating current and voltage". \citep{Bird2007} The alternating current (a.c.) is defined as a current which has a heating effect resembling the direct current \citep{Bird2007}.
+As Bird mentions in Engineering mathematics "One of the principal applications of RMS is with alternating current and voltage" \citep{Bird2007}. The alternating current (a.c.) is defined as a current which has a heating effect resembling the direct current \citep{Bird2007}.
 \\
 The RMS is found by doing these three steps:
-(1) First take the square of the amplitude, (2) then take the mean of the squared results, (3) lastly take the square root of the results from the results of part (2)\citep{Bird2007}. Here is \citep{Bird2007} mathematical formula for RMS:
-
+(1) First take the square of the amplitude, (2) then take the mean of the squared results, (3) lastly take the square root of the results from the results of part (2) \citep{Bird2007}. \\ Here is \citep{Bird2007} mathematical formula for RMS:
 \begin{equation}\label{eq:RMS formular}
-RMSy = \frac{1}{b-a}\int_a^b\mathrm{y}^{2}\,\mathrm{d}x
+RMS value = \frac{1}{b-a}\int_a^b\mathrm{y}^{2}\,\mathrm{d}x
 \end{equation}
-\subsection{Zero Crossing-Zero Crossing Rate}
-Zero crossing and zero crossing rate:
+\subsection{Zero Crossing-Zero and Crossing Rate}
 Zero crossing is a term normally used in image processing, electronics and mathematics. As explained by \citep{AlZhrani2010} in mathematics “Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” \citep{AlZhrani2010}
-Zero crossing is a way of measure the period of a periodic signal aka the frequency.\citep{RWW2012} \\
+Zero crossing is a way of measure the period of a periodic signal aka the frequency\citep{RWW2012}. \\
 Usually when measure a frequency, it is smart to measure more than just one period, since by having more periods can reduce errors caused by phase noise which is caused by making perturbations (small pairs of zero crossing in regions of low energies \citep{Mallat1988} ) in zero crossings small in comparison to the period. \citep{RWW2012} \\
-There is also something called zero crossing rate. ZCR according to D.S.Shete et. al is defined as the amount of times the audio waveform the crosses the zero axis.\\
+There is also something called zero crossing rate. ZCR according to D.S.Shete et al. is defined as the amount of times the audio waveform the crosses the zero axis.\\
 \begin{equation}\label{eq:ZCR}
 \upsilon_{ZC}(n)= \frac{1}{2 \kappa}\sum_{i=i_s(n)}^{i_e (n)}|sign[x(i)]-sign[x(i-1)]|
 \end{equation}
