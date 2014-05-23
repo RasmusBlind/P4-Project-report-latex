@@ -11,6 +11,7 @@
 \cfoot{}
 \fancyhead[LE,RO]{\thepage}
 
+\usepackage{url}
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
 \usepackage{amsmath}
@@ -25,6 +26,7 @@
 \usepackage{rotating}
 \usepackage[toc,page]{appendix}
 \usepackage{epstopdf}
+
 
 % Code snippet setup ---- START
 \usepackage{listings}
@@ -107,18 +109,23 @@ keepaspectratio]{fig/Background.png}%
 
 \chapter{Background}
 \thispagestyle{empty}
-\input{tex/datasetcollection.tex}
+
+\input{tex/BB_Artform.tex}
+\input{tex/Contextualize.tex}
 
 \chapter{Methods of Beatboxing-transcription}
 \thispagestyle{empty}
-%\input{tex/IntroToMethodsOfbeatboxingTranscription.tex}
+\input{tex/IntroToMethodsOfbeatboxingTranscription.tex}
 \input{tex/SOTA.tex}
 \input{tex/investigation.tex}
-%\input{tex/FeatureBBTranscription.tex}
+\input{tex/FeatureBBTranscription.tex}
+
 \input{tex/onset_detection.tex}
 
 \chapter{Our Approach}
 \thispagestyle{empty}
+
+\input{tex/datasetcollection.tex}
 \input{tex/KNN.tex}
 \input{tex/choosingSoundClass.tex}
 \input{tex/Approach.tex}
