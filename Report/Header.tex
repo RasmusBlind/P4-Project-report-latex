@@ -19,9 +19,13 @@
 \usepackage{graphicx}
 %\usepackage{natbib}
 \usepackage{natbib}
+\usepackage{multicol}
+\usepackage{subcaption}
+\usepackage{makecell}
 \usepackage[hidelinks]{hyperref}
 \usepackage{rotating}
 \usepackage[toc,page]{appendix}
+\usepackage{epstopdf}
 
 % Code snippet setup ---- START
 \usepackage{listings}
@@ -125,8 +129,11 @@ keepaspectratio]{fig/Background.png}%
 
 \chapter{Evaluation}
 \thispagestyle{empty}
+\input{tex/Evaluation.tex}
+
 \chapter{Discussion}
 \thispagestyle{empty}
+
 \chapter{Conclusion}
 \thispagestyle{empty}
 

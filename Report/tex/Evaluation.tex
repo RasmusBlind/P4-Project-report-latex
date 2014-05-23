@@ -1,0 +1,66 @@
+% Chapter 'Evaluation'
+In this chapter we will evaluate the performance of our transcription system. bla bla
+
+\section{Methods}
+
+	\subsection{Training and Test Sets}
+		The dataset consists of sound segments, segmented based on the annotations. This means that our segmentation of sound (present in our application), will not be part of the evaluation.
+		The training and test sets of sounds for the KNN classifier are randomly chosen from the same pool (the dataset). It is distributed between the training and test set in a 70\%/30\% ratio, accordingly, for each class. This means there will not be a fixed number of sounds for each class (neither total nor divided), but rather a fixed distribution between the number of training and test sounds for each class. We can do this instead of e.g. k-fold cross validation, due to scale of our collected dataset. The ratio was suggested by our supervisor\footnote{Bob L. Sturm}. The composition of the entire dataset has been summarized in table \ref{table:eval:datasetComposition}. 
+		Furthermore, all sounds with a duration less than the windowsize used for feature calculation, are removed before testing. This is done before splitting the dataset, such as to make sure we do not distort the 70/30 distribution.
+
+		\begin{table}
+			\centering
+			\begin{tabular}{|l|r|r|}
+				\hline
+				Value  &  Count  & Percent \\ \hline
+		      noise    &  150    & 10.19\% \\ \hline
+		          k    &  466    & 31.66\% \\ \hline
+		  undefined    &  130    &  8.83\% \\ \hline
+		          s    &  331    & 22.49\% \\ \hline
+		         hh    &  395    & 26.83\% \\ \hline
+		      TOTAL    &  1472	 & 100.00\% \\ \hline
+
+			\end{tabular}
+			\caption{Dataset composition}
+			\label{table:eval:datasetComposition}
+		\end{table}
+
+
+	\subsection{Variables}
+		As the number of combinations of features, and parameters of features and classifiers, is very large, we purposely keep as few variables and as many constants as possible. We chose not to test combinations of features, but rather single features one at a time.
+		The primary variable to be tested is the K in the KNN classifier (how many neighbors it considers). Beyond that, only few variables will be changed: the window size
+		All features will be calculated for $K \in [1;10]$.
+
+
+	\subsection{Measures}
+		A confusion table is created for each test (each unique combination of variables). This will be shown in percentages (or rather, values between 0 and 1). Overall accuracy is calculated, along with precision, recall, and F-score for each class individually.
+		For the sake of compactness, all the measures are included in an extended confusion table, as shown in the explanatory table \ref{table:eval:explanatory}.
+
+			\begin{table}
+				\centering
+				\begin{tabular}{|c | c | c | c | c |}
+					\hline
+					 & Real Class(1) & Real Class(2) & Real Class(3) & Precision\\ \hline
+					Label(1)  & ... & ... & ... & ...\\ \hline
+					Label(2)  & ... & ... & ... & ...\\ \hline
+					Label(3) & ... & ... & ... & ...\\ \hline
+					Recall   & ... & ... & ... & \multicolumn{1}{c}{Overall}\\ \cline{1-4}
+					F-Score & ... & ... & ... & \multicolumn{1}{c}{Accuracy} \\ \cline{1-4}
+				\end{tabular}
+				\caption{$K=1$}
+				\label{table:eval:explanatory}
+			\end{table}
+		chi squared?
+		sign test?
+ 
+\section{Results}
+
+	\subsection{MFCC}
+		Three different configurations of of the MFCC feature will be tested for $K \in [1;10]$: 20ms,10ms, and 5ms window sizes with 10ms, 5ms, and 2ms window skip respectively. All tests will use feature vectors consisting of the first 20 coefficients. Since confusion tables take up a lot of pages, they have been put in the appendix, see appendix REFREFREFREF. 
+		
+		\input{tex/testMFCCPlots.tex}
+		\input{tex/testMFCC20ms10ms.tex}
+		\input{tex/testMFCC10ms5ms.tex}
+		\input{tex/testMFCC5ms2ms.tex}
+		
+		
