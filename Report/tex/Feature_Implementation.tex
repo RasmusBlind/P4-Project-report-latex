@@ -43,4 +43,4 @@ The spectral features implemented are: (a) Centroid, (b) Flux, (c) Rolloff and (
 % SPECTRAL DOMAIN SUBSEC ---- END
 
 \subsection{Mel Frequency Cepstral Coefficients}
-Th
+Using the MFCC algorithm provided by Malcolm Slaney we have implemented a version of it that has been adjusted by Bob L. Sturm. This adjustment makes it possible to use different analysis window sizes and skips, please refer to provided Matlab-script "mfcc.m". The algorithm will provide a feature vector with 40 cepstral coefficients that describe every window of the input sound. To use these coefficients, we take a mean over all windows, i.e. for every coefficient we take the mean value of that coefficient over all windows. Out of these 40 mean values, we use the first 20 coefficients.
