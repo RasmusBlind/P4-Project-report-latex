@@ -10,13 +10,6 @@ However the spectral centroid can also be calculated using the magnitude spectru
 \\
 The point found by the spectral centroid feature should correlate with the timbre dimension of how sharp or bright the sound is \citep{ACA}. 
 
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[scale = 0.5]{fig/spectral_centroid.jpg}
-		\caption{Spectral Flux black = the Spectral centroid Gray = the sound \citep{ACA}}
-		\label{Spectral centroid pic}
-	\end{center}
-\end{figure}
 This feature might be used in a transcription system because it should describe how sharp or bright a sound will sound, so this feature could be used to classify as sound. but there might be problems in the pauses/noise areas as seen on figure \ref{Spectral centroid pic} as there is a high peak at some of the pauses. 
 \subsection{Spectral Rolloff}
 This chapter will explain what the spectral rolloff is.\\
@@ -35,17 +28,7 @@ It can also be common to use the power spectrum
 	\upsilon_{SR, pow}(n) = i \vert _{\displaystyle\sum_{k = 0}^i \vert X(k, n) \vert^2 = K \displaystyle\sum_{k= 0}^ {\frac{\kappa}{2-1}}\vert X(k, n) \vert^2}
 \end{equation}
 \\
-For our project the spectral rolloff could be used to determine the sound in the classification. 
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[scale = 0.5]{fig/spectral_rolloff.jpg}
-		\caption{Spectral Flux black = the Spectral rolloff Gray = the sound \citep{ACA}}
-		\label{Spectral rolloff pic}
-	\end{center}
-\end{figure}
-for our project the spectral rolloff could also be used to determine the sound in the classification, as the spectral rolloff will tell about the roughness of the sound. 
-
+For our project the spectral rolloff could also be used to determine the sound in the classification, as the spectral rolloff will tell about the roughness of the sound. 
 
 \subsection{Spectral Flux}
 This chapter will explain the feature Spectral Flux and its uses.\\
@@ -53,14 +36,7 @@ The spectral Flux is how much the spectrum shape change between the different fr
 \begin{equation}\label{Spectral Flux eq}
 	\upsilon_{SF}(n) = \frac{\sqrt{\displaystyle\sum_{k=0}^{\kappa/2-1}(\vert X(k,n)\vert-\vert X(k,n-1)\vert)^2}}{\kappa/2}
 \end{equation} 
-The spectral flux feature can be described as a representation of the roughness of a sound. The result that one will get from a spectral flux feature is in the range from 0 to A where A is the maximum magnitude possible in the spectrum\citep{ACA}. when looking at spectral flux in a signal it will be flat at silence and spike at pitch changes\citep{ACA}.
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[scale = 0.5]{fig/spectral_flux.jpg}
-		\caption{Spectral Flux black = the Spectral Flux Gray = the sound \citep{ACA}}
-		\label{Spectral flux pic}
-	\end{center}
-\end{figure}
+The spectral flux feature can be described as a representation of the roughness of a sound. The result that one will get from a spectral flux feature is in the range from 0 to A, where A is the maximum magnitude possible in the spectrum\citep{ACA}. When looking at spectral flux in a signal it will be flat at silence and spike at pitch changes\citep{ACA}.
 For use in note onset detection (finding the start of the note) only an increase in the spectral energy is wanted an one can consider using a different way to calculate the spectral flux\citep{ACA}:
 \begin{equation}
 	\Delta X(k,n) = \vert X(k,n)\vert-\vert X(k,n-1)\vert
@@ -68,7 +44,6 @@ For use in note onset detection (finding the start of the note) only an increase
 When doing this all negative values has to be set to zero so that only increase is detected\citep{ACA}.
 \\
 For a transcription system the spectral flux as described can be considered to do the segmentation of a sound signal because it can detect an onset.
- 
 \subsection{Spectral Slope}
 This chapter will be on explaining what the spectral slop feature is.\\
 The spectral slope as the name indicate is a feature that is a measure of the slop in the spectral energy\citep{ACA}. The spectral slope is calculated using a linear regression of the spectral magnitude spectral, the slop is then estimated using this equation\citep{ACA}
@@ -79,11 +54,4 @@ The spectral slope as the name indicate is a feature that is a measure of the sl
 	= \kappa\frac{\displaystyle\sum_{k= 0}^{\kappa/2-1}k\vert X(k,n)\vert - \displaystyle\sum_{k = 0}^{\kappa/2-1}k\displaystyle\sum_{k = 0}^{\kappa/2-1}\vert X(k,n)\vert}{\kappa \displaystyle\sum_{k = 0}^{\kappa/2-1}\kappa^2-(\displaystyle\sum_{k = 0}^{\kappa/2-1}k)^2}
 \end{equation}
 The result the one can get from these equations is defined by range of the spectral magnitude.
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[scale = 0.5]{fig/spectral_slope_fig.jpg}
-		\caption{Spectral slope black = the Spectral slope Gray = the sound \citep{ACA}}
-		\label{Spectral slope pic}
-	\end{center}
-\end{figure}
-As it is possible to see on the picture of the spectral slope (fig \ref{Spectral slope pic}) one use for this feature could be in the segmentation, because in the silent or the part with just it is high and when there is a signal is goes down. 
+The spectral slope will be high at pauses and get lower with there is a sound based on that the spectral slope could be considered for the segmentation.

@@ -8,16 +8,16 @@
 			headheight=14pt]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\cfoot{}
+
 \fancyhead[LE,RO]{\thepage}
 
+\usepackage{url}
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-%\usepackage{natbib}
 \usepackage{natbib}
 \usepackage{multicol}
 \usepackage{subcaption}
@@ -28,6 +28,7 @@
 \usepackage{epstopdf}
 \usepackage{caption}
 \usepackage{subcaption}
+
 
 % Code snippet setup ---- START
 \usepackage{listings}
@@ -105,18 +106,24 @@ keepaspectratio]{fig/Background.png}%
 \tableofcontents
 \chapter{Introduction}
 \thispagestyle{empty}
-\input{tex/intro.tex}
+\input{tex/intro2.tex}
+%\input{tex/intro.tex}
 
 \chapter{Background}
 \thispagestyle{empty}
+\input{tex/BB_Artform.tex}
+\input{tex/Contextualize.tex}
+\input{tex/phonemes.tex}
+\input{tex/Acoustics.tex}
 \input{tex/investigation.tex}
+
+\chapter{Methods of Beatboxing-transcription}
+\thispagestyle{empty}
+\input{tex/IntroToMethodsOfbeatboxingTranscription.tex}
 \input{tex/SOTA.tex}
-\input{tex/RMS.tex}
-\input{tex/ZC-ZCR.tex}
-\input{tex/MFCC.tex}
-\input{tex/Spectral_Analysis.tex}
+\input{tex/investigation.tex}
+\input{tex/FeatureBBTranscription.tex}
 \input{tex/onset_detection.tex}
-\input{tex/KNN.tex}
 
 \chapter{Our Approach}
 \thispagestyle{empty}

@@ -2,7 +2,7 @@
 A great amount of effort has been put into investigating possible solutions to how transcription can be achieved through sound and music computing. While many articles, books and papers on the topic has been scrutinized, three specific articles we found to be of utmost importance to the project. The articles addresses relevant topics i.e. transcription - / and sound classification of beatboxing.
 
 \subsection{Transcription}
-In the article \textit{Towards Automatic Transcription of Expressive Oral Percussive Performances}, Amoury Hazan propose a solution to automatic transcription, that involves sound segregation, oral percussive descriptors, and machine learning techniques. Sound segregation is described as a simple method that fits well with monophonic oral percussive recordings, which requires few computing resources \citep{Hazan2005a}.	
+In the article \textit{Towards Automatic Transcription of Expressive Oral Percussive Performances}, Amoury Hazan propose a solution to automatic transcription, that involves sound segregation, oral percussive descriptors, and machine learning techniques. Sound segregation is described as a simple method that fits well with monophonic oral percussive recordings, which requires few computing resources \citep{Hazan2005}.	
 
 His project aims to reduce the gap between the user and the device (keyboard, drum pad), among other things in order to offer an aid to those musicians who cannot transcript a beat they have in mind.
 Through research of the taxonomy of human phonemes, and assuring perfect percussive events through segregation and transcription, the resulting drum score lack information concerning how the performer has modulated the produced sound. Thus, Hazan argues that energy and resonance frequency variation has to be defined together with effective computational methods to track them.
@@ -10,41 +10,21 @@ Through research of the taxonomy of human phonemes, and assuring perfect percuss
 The considerations made by Hazan may serve as a benchmark tool which may suffice to serve as a possible solution to the problem. The technical descriptions and reflections could serve as an inspiration regarding how to construct the software based transcription-solution.
 
 \subsection{Sound Classification}
-
-It is important to understand how standard beatboxing techniques works, in order to build a system that recognizes vocal instrumental sounds. In \textit{Beatbox Classification Using ACE} by Sinyor \textit{et al}, each specific instrumental sound triggers the system to understand which sounds to replace with synthesized instruments. In this project the focus will be on basic percussion: kick, snare and cymbal.
-
-The sequential process of classification contains two fundamental steps[**source**], to be described in this chapter: 
-\begin{enumerate}
-	\item Data Collection
-		\begin{enumerate}
-			\item Recording
-			\item Segmentation
-		\end{enumerate}
-	\item Classification
-		\begin{enumerate}
-			\item Features
-			\item Feature Selection
-		\end{enumerate}
-\end{enumerate}
-
-Data Collection: 
-Initially it is important to collect a range of sounds related to beatboxing. Therefore a dataset must be recorded both from experienced and unexperienced beatboxers. Subjects are instructed to record a small sequence of beatboxing, consisting of kick, snare and cymbal sounds (for this project). All sounds are recorded in 96Khz .wav files. 
-
-** GRAPHICS DESCRIBING BASIC SAMPLES ** 
-
-The recording for this project was done with a Zoom H4N linked to a standard phantom powered studio mic typically used by beatboxers. To get the most useful recordings the aim was to come as close as possible to the beatboxing sound environment, including background noise and the technical framework.\\
-
+\subsubsection{Beatbox Classification Using ACE}
+In \textit{Beatbox Classification Using ACE} by \citep{Sinyor05}, they make a system that classifies the different beatbox inputs. in the test they used three persons who was skilled in the art of beatboxing, and three was not. \citep{Sinyor05} They tested with different features and investigated which worked the best. This article is relevant since the system possibly can be used in the future for voice-controlled applications.\\
+Their test(s) and results:
+The beatboxers and non-beatboxers were told to imitated 4 different types of sounds: "kick drum(also known as a bass drum), a snare drum, a closed hihat and a open hihat."\citep{Sinyor05} Though the subjects imitated the snare in different ways, as a k, and p snare. One of the none-beatboxers even imitated both of the snares.\\
+The features \citep{Sinyor05} used for classification was: zero-crossing, zero-crossing rate, Compactness, spectral centroid, Spectral Flux, Spectral Rolloff and Root Mean Square\citep{Sinyor05}.\\
+In the second test \citep{Sinyor05} made, they used a k -nearest neighbour (k-nn) classifier with used the features mentioned above to train the system. "The initial population was 50 and it took 14 generations to convergence" \citep{Sinyor05} the feature selected was namely: zero-crossing (rate), Root Mean Square, Spectral Rolloff, Compactness.\\ 
+The best result was when they used all the sound 5 classes and the k-nn classifier had an accuracy of 94.55\%. The best result with only 3 sound classes "(bass, snare, hihat)" \citep{Sinyor05} was with the k-nn classifier and had an accuracy rate of 98.55\% \citep{Sinyor05}.\\
+When looking at the results the accuracy was pretty high, and the highest percentage was with a few sounds types (3)  where they used the k-nn classifier. But over all, the tests high accuracy rate.
+\subsubsection{Delayed decision-making in real-time beatbox percussion classification}
 In \textit{Delayed decision-making in real-time beatbox percussion classification} Dan Stowell and Mark D. Plumbey study the relationship and balance between low-latency and high precision in a real-time classification system of beatboxing sounds. Their hypothesis is that the performance of a real-time classifier will improve if its final decision is allowed to be delayed. 
-In order to do this they propose a solution in which an event trigger is performed before the classification, which allows the system to have an initial decision before its final classification. One aspect of the study is the performance of classification, but another aspect they investigate is the affection of the listening experience and quality of the audio output. 
-
-Using Sonic Visualizer, onsets of kick, snare and hihat sounds has been manually annotated in 14 short recordings of beatboxing (performed by both amateurs and semi-pros) by listening and inspecting sonograms and waveforms. The recordings are then used to test the performance of a three-way classification (kick, snare and hihat), and is measured through Kullback-Leibler divergence and the Naïve Bayes classifier independently on 24 different acoustic features including: eight MFCCs, spectral spread, spectral centroid, spectral crest factor, four subbands to spectral crest factor, spectral roll-off (25, 50, 80, 95 percentages), high-frequency content, zero-crossing rate, spectral flatness, spectral flux, spectral slope.
-
+In order to do this they propose a solution in which an event trigger is performed before the classification, which allows the system to have an initial decision before its final classification. One aspect of the study is the performance of classification, but another aspect they investigate is the affection of the listening experience and quality of the audio output. \\
+Using Sonic Visualizer, onsets of kick, snare and hihat sounds has been manually annotated in 14 short recordings of beatboxing (performed by both amateurs and semi-pros) by listening and inspecting sonograms and waveforms. The recordings are then used to test the performance of a three-way classification (kick, snare and hihat), and is measured through Kullback-Leibler divergence and the Naïve Bayes classifier independently on 24 different acoustic features including: eight MFCCs, spectral spread, spectral centroid, spectral crest factor, four subbands to spectral crest factor, spectral roll-off (25, 50, 80, 95 percentages), high-frequency content, zero-crossing rate, spectral flatness, spectral flux, spectral slope.\\
 The classification experiments tested on the performance of high precision classification when its decision is delayed.
 The delay is defined in frames in relation to the onset, and the results of the classification experiments show that in general for all of the features a delay of 2 frames (approximately 23 ms) gave the strongest classification performance.
-The perceptual experiments were performed using MUSHRA to understand how the delayed decision-making affects the listening experience of the audio output, which could be important in e.g. real-time musical performances. The experiments were performed with 3 kinds of drum sets: Immediate-onset samples, Roland TR909 samples and Amen Break. Delay frames from 1-4 (12, 23, 35 and 46 ms) were investigated, where each sound excerpt also had a reference signal (of 8 seconds) and a low quality anchor. The results show that regarding the immediate onset drum set, the delayed decision-making were unacceptable at any delay. For the two remaining drum sets the accepted delays varied from 12-35 ms.
-
+The perceptual experiments were performed using MUSHRA to understand how the delayed decision-making affects the listening experience of the audio output, which could be important in e.g. real-time musical performances. The experiments were performed with 3 kinds of drum sets: Immediate-onset samples, Roland TR909 samples and Amen Break. Delay frames from 1-4 (12, 23, 35 and 46 ms) were investigated, where each sound excerpt also had a reference signal (of 8 seconds) and a low quality anchor. The results show that regarding the immediate onset drum set, the delayed decision-making were unacceptable at any delay. For the two remaining drum sets the accepted delays varied from 12-35 ms.\\
 Altogether the delayed decision-making was acceptable in some cases, but since they used pre-made sound excerpts with 100 percent classification accuracy (after the delay), to focus only on the percuptual listening experience, the overall experience might have been different if it was used in real-time during a live beatbox performance. 
-The confusion matrix of classifications of strongest delay of 2 frames show that the snare sounds often (31.5) were misclassified as a kick sound, which, as they suggests, might be because they are produced in a similar way with plosive sounds.
-
+The confusion matrix of classifications of strongest delay of 2 frames show that the snare sounds often (31.5) were misclassified as a kick sound, which, as they suggests, might be because they are produced in a similar way with plosive sounds. \\
 Annotations through Sonic Visiualizer, SBN and some of the features used in the classification will be important and relevant to explore for this project.
-
