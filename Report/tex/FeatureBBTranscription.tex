@@ -9,11 +9,15 @@ The RMS is found by doing these three steps:
 \begin{equation}\label{eq:RMS formular}
 RMS value = \frac{1}{b-a}\int_a^b\mathrm{y}^{2}\,\mathrm{d}x
 \end{equation}
-\subsection{Zero Crossing-Zero and Crossing Rate}
-Zero crossing is a term normally used in image processing, electronics and mathematics. As explained by \citep{AlZhrani2010} in mathematics “Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” \citep{AlZhrani2010}
-Zero crossing is a way of measure the period of a periodic signal aka the frequency\citep{RWW2012}. \\
-Usually when measure a frequency, it is smart to measure more than just one period, since by having more periods can reduce errors caused by phase noise which is caused by making perturbations (small pairs of zero crossing in regions of low energies \citep{Mallat1988} ) in zero crossings small in comparison to the period. \citep{RWW2012} \\
-There is also something called zero crossing rate. ZCR according to D.S.Shete et al. is defined as the amount of times the audio waveform the crosses the zero axis.\\
+
+RMS tell us about the amount of energy used in the signal.
+
+\subsection{Zero Crossing and Zero Crossing Rate}
+Zero crossing is a term normally used in image processing, electronics and mathematics \citep{AlZhrani2010}. As explained by \citep{AlZhrani2010} in mathematics "“Zero-crossing” is a point where the sign of a function goes from negative to positive, or the other way around. This is represented by a crossing of the axis (zero value) in the graph of the function” \citep{AlZhrani2010}.
+In other words zero crossing is a way of measure the period of a periodic signal aka the frequency \citep{RWW2012}. \\
+When measuring a frequency, it is wise to measure an amount of periods instead of just one period. Since by having more periods can reduce errors caused by phase noise \citep{RWW2012} which is caused by making the perturbations (small pairs of zero crossing in regions of low energies \citep{Mallat1988} ) small in zero crossings in comparison to the period. \citep{RWW2012} \\
+There is also something called zero crossing rate. ZCR according to \citep{DSShete} is defined as the amount of times the audio waveform crosses the zero axis.\\
+Below can you see the zero crossing rate formula from \citep{ACA} 
 \begin{equation}\label{eq:ZCR}
 \upsilon_{ZC}(n)= \frac{1}{2 \kappa}\sum_{i=i_s(n)}^{i_e (n)}|sign[x(i)]-sign[x(i-1)]|
 \end{equation}
@@ -27,8 +31,9 @@ sign[x(k)]=
 -1, & \text{if } x(i)<0
 \end{cases}
 \end{equation}
-If x(i-1) does not exist in this function then x(i-1)=0 will be used as initialization. 
-0≤vzc(n)≤1 is the output range for this zero crossing rate. There are some changes in the signal, these changes have an effect on the assumed content of high-frequency. Depending on the how many changes occur e.g. the less the signal changes it sign occur, the less high-frequency is assumed to be in the signal. \citep{AlZhrani2010} 
+If x(i-1) does not exist in this function then x(i-1)=0 will be used as initialization \citep{ACA},
+0≤vzc(n)≤1 is the output range for this zero crossing rate. There are some changes in the signal, these changes have an effect on the assumed content of high-frequency\citep{ACA}. Depending on the how many changes occur e.g. the less the signal changes it sign occur, the less high-frequency is assumed to be in the signal \citep{ACA}. \\
+To sum up, the zero crossing rate can be seen as measure of high and low frequency signal. Since it measures the amount of times the signal crosses the x-axis.
 
 \subsection{Mel-Frequency Cepstral Coefficients}
 This section will explain the Mel-Frequency Cepstral Coefficients or MFCC, which is a feature that could be used to make a transcription system. \\
@@ -56,12 +61,12 @@ The point found by the spectral centroid feature should correlate with the timbr
 This feature might be used in a transcription system because it should describe how sharp or bright a sound will sound, so this feature could be used to classify as sound.
 
 \subsubsection{Spectral Spread}
-this section will introduce the feature spectral Spread which will measure the power spectrum around the spectral centroid.\\
-it can be seen as taking the standard deviation of the power spectrum around the spectral centroid, and can be calculated like \citep{ACA}:
+This section will introduce the feature spectral Spread which will measure the power spectrum around the spectral centroid.\\ 
+It can be seen as taking the standard deviation of the power spectrum around the spectral centroid, and can be calculated like \citep{ACA}:
 \begin{equation}
 	\upsilon_{SS}(n)=\sqrt{\frac{\sum_{k = 0}^{\kappa/2-1}(k-\upsilon_{SS}(n))^2\vert X(k,n)\vert^2}{\sum_{k = 0}^{\kappa/2-1}\vert X(k,n)\vert^2}}
 \end{equation}
-as the spectral centroid can be calculated in different ways the spread follow accordantly which mean that the spectral spread can also be calculated using the magnitude spectrum instead of the power spectrum \citep{ACA}.
+As the spectral centroid can be calculated in different ways the spread follow accordantly which mean that the spectral spread can also be calculated using the magnitude spectrum instead of the power spectrum \citep{ACA}.
 
 \subsubsection{Spectral Rolloff}
 This section will explain what the spectral rolloff is.\\
