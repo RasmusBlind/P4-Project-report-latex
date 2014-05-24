@@ -26,6 +26,8 @@
 \usepackage{rotating}
 \usepackage[toc,page]{appendix}
 \usepackage{epstopdf}
+\usepackage{caption}
+\usepackage{subcaption}
 
 
 % Code snippet setup ---- START
@@ -99,7 +101,6 @@ keepaspectratio]{fig/Background.png}%
 \begin{document}
 % Add background
 \AddToShipoutPicture*{\BackgroundPic}
-% when i (Rasmus B. Lind) quick build the pdf the next line makes trouble  
 
 \maketitle
 \tableofcontents
@@ -110,31 +111,23 @@ keepaspectratio]{fig/Background.png}%
 
 \chapter{Background}
 \thispagestyle{empty}
-
 \input{tex/BB_Artform.tex}
 \input{tex/Contextualize.tex}
 \input{tex/phonemes.tex}
 \input{tex/Acoustics.tex}
 \input{tex/investigation.tex}
+
 \chapter{Methods of Beatboxing-transcription}
 \thispagestyle{empty}
 \input{tex/IntroToMethodsOfbeatboxingTranscription.tex}
 \input{tex/SOTA.tex}
 \input{tex/investigation.tex}
 \input{tex/FeatureBBTranscription.tex}
-
 \input{tex/onset_detection.tex}
 
 \chapter{Our Approach}
 \thispagestyle{empty}
-
-\input{tex/datasetcollection.tex}
-\input{tex/KNN.tex}
-\input{tex/choosingSoundClass.tex}
-\input{tex/Approach.tex}
-\input{tex/Segmentation.tex}
-\input{tex/Feature_Implementation.tex}
-\input{tex/Application.tex}
+\input{tex/Our-Approach.tex}
 
 \chapter{Evaluation}
 \thispagestyle{empty}
