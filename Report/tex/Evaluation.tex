@@ -1,10 +1,34 @@
 % Chapter 'Evaluation'
-In this chapter we will evaluate the performance of our transcription system. bla bla
 
 \section{Methods}
 	\subsection{Hypothesis}
-	write hyp
+		There are many things we could evaluate, as both features, segmentation, and classification are critical parts of the application. Even if only evaluating on the classifier, the number of combinations of features, and parameters of features (window size and window skip), is huge. We want keep a single independent variable. To limit ourselves, we chose not to test any combinations of features, but rather single features one at a time. We will then test that feature for $K \in [1;10]$. We state the null hypothesis that two knn-classifiers with a different k and otherwise identical, will not have result in significantly different confusion tables.
+		
+		This will be tested for each feature and each feature configuration.
+		We will test window sizes of 20ms, 10ms, and 5ms; and we will test window skips of 10ms, 5ms, 2ms respectively. This will be the case for all features using window: MFCC, Spectral Flux, Spectral Centroid, Spectral Skew, and Spectral Rolloff. Only the first 20 MFCC coefficients will be used. RMS and ZCR are calculated over the entire sound.
+		
+		To determine if the independent variable $k$ has any has any significant effect on resulting confusion tables, the chi squared test is used. 
+		
+	\subsection{Measures}
+		A confusion table is created for each test (each unique combination of variables). This will be shown in percentages (or rather, values between 0 and 1). Overall accuracy is calculated, along with precision, recall, and F-score for each class individually. For the sake of compactness, all the measures are included in an extended confusion table, as shown in the explanatory table \ref{table:eval:explanatory}. 
+		The most important measure, for the sake of measuring our transcription system, would be the precision, that is, the amount of correctly transcribed sounds over the actual amount of that sound class.
+		Recall should just be ignored, since we only test on the dataset, which means that we always test on all available samples of any given class, meaning that it would be the same as the amount of . This would be different, had the segmentation been part of the evaluation. It is included nonetheless, as further progress with this project might find a need for it.
 
+			\begin{table}
+				\centering
+				\begin{tabular}{|c | c | c | c | c |}
+					\hline
+				 & Real Class(1) & Real Class(2) & Real Class(3) & Precision\\ \hline
+					Label(1)  & ... & ... & ... & ...\\ \hline
+					Label(2)  & ... & ... & ... & ...\\ \hline
+					Label(3) & ... & ... & ... & ...\\ \hline
+					F-Score & ... & ... & ... & Accuracy \\ \cline{1-4}
+				\end{tabular}
+				\caption{$K=1$}
+				\label{table:eval:explanatory}
+			\end{table}
+		
+		
 	\subsection{Training and Test Sets}
 		The dataset consists of sound segments, segmented based on the annotations. This means that our segmentation of sound (present in our application), will not be part of the evaluation.
 		The training and test sets of sounds for the KNN classifier are randomly chosen from the same pool (the dataset). It is distributed between the training and test set in a 70\%/30\% ratio, accordingly, for each class. This means there will not be a fixed number of sounds for each class (neither total nor divided), but rather a fixed distribution between the number of training and test sounds for each class. We can do this instead of e.g. k-fold cross validation, due to scale of our collected dataset. The ratio was suggested by our supervisor\footnote{Bob L. Sturm}. The composition of the entire dataset has been summarized in table \ref{table:eval:datasetComposition}. 
@@ -26,37 +50,6 @@ In this chapter we will evaluate the performance of our transcription system. bl
 			\caption{Dataset composition}
 			\label{table:eval:datasetComposition}
 		\end{table}
-
-
-	\subsection{Variables}
-		As the number of combinations of features, and parameters of features (window size and window skip) and classifiers, is very large, we purposely keep as few variables and as many constants as possible.  We chose not to test combinations of features, but rather single features one at a time. RMS and ZCR will only be tested once
-	 We test however all tests with different will be $\chi\sup{2}$-tested
-		
-		The primary variable to be tested is the K in the KNN classifier (how many neighbors it considers).
-		All features will be calculated for $K \in [1;10]$.
-
-
-	\subsection{Measures}
-		A confusion table is created for each test (each unique combination of variables). This will be shown in percentages (or rather, values between 0 and 1). Overall accuracy is calculated, along with precision, recall, and F-score for each class individually. For the sake of compactness, all the measures are included in an extended confusion table, as shown in the explanatory table \ref{table:eval:explanatory}. 
-		The most important measure, for the sake of measuring our transcription system, would be the precision, that is, the amount of correctly transcribed sounds over the actual amount of that sound class.
-		Recall should just be ignored, since we only test on the dataset, which means that we always test on all available samples of any given class, meaning that it would be the same as the amount of . This would be different, had the segmentation been part of the evaluation. It is included nonetheless, as further progress with this project might find a need for it.
-
-			\begin{table}
-				\centering
-				\begin{tabular}{|c | c | c | c | c |}
-					\hline
-					 & Real Class(1) & Real Class(2) & Real Class(3) & Precision\\ \hline
-					Label(1)  & ... & ... & ... & ...\\ \hline
-					Label(2)  & ... & ... & ... & ...\\ \hline
-					Label(3) & ... & ... & ... & ...\\ \hline
-					Recall   & ... & ... & ... & \multicolumn{1}{c}{Overall}\\ \cline{1-4}
-					F-Score & ... & ... & ... & \multicolumn{1}{c}{Accuracy} \\ \cline{1-4}
-				\end{tabular}
-				\caption{$K=1$}
-				\label{table:eval:explanatory}
-			\end{table}
-			
-	To determine if the independent variable $k$ has any has any significant effect on resulting confusion tables, the $\chi\sup{2}$-test is used. 	
 		
 		
 	\subsection{Test Implementation}		% REFERENCES TO APPENDIX!
@@ -68,15 +61,16 @@ In this chapter we will evaluate the performance of our transcription system. bl
 For all results found, some interpretation of the data and statistics will be presented. Further discussion about the relevance of the data, possible mistakes that affected results, or similar, will be covered in chapter \ref{chapter:Discussion}. Only the relevant results will be shown and discussed. All data can be found in appendix \ref{APPENDIXBORWHATEVER}. 
 
 
-	\subsection{MFCC}
-		\input{testMFCCPlots.tex}
-		
-		Three different configurations of of the MFCC feature have been tested for $K \in [1;10]$: 20ms,10ms, and 5ms window sizes with 10ms, 5ms, and 2ms window skip respectively. All tests use feature vectors consisting of the first 20 coefficients. All results for the MFCC feature can be found in \appendix{APPENDIX_MFCC}.
-		
-		
-
-		% REMEMBER REMEMBER THE 5TH OF, JUST ADD THE DAMN 'tex/' AT SOME POINT	
-		\input{testMFCC20ms10ms.tex}
-		\input{testMFCC10ms5ms.tex}
-		\input{testMFCC5ms2ms.tex}	
+	\subsection{Root Mean Square}
+	Discuss best and worst. Mention significant configurations
+	
+	\subsection{Zero Crossing Rate}
+	
+	\subsection{Mel Frequency Cepstrum Coefficients}
+	
+	\subsection{Spectral Centroid}
+	
+	\subsection{Spectral Skew}
+	
+	\subsection{Spectral Flux}
 	
