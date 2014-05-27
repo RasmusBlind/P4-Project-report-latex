@@ -77,37 +77,38 @@
 			\label{fig:eval:rms}
 			\caption{Plots over K for Root Mean Square}
 		\end{figure}
-		
-		\scalebox{0.45\textwidth}{
-			\begin{table}
+
+		\begin{table}
+			\begin{subtable}[tbp]{0.45\textwidth}
 				\centering
 				\begin{tabular}{|c|c|c|c"c|}
 					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{s} & \textcolor{red}{0.719} & 0.212 & 0.161 & 0.714\\ \hline
-					 \textbf{k} & 0.094 & \textcolor{red}{0.364} & 0.364 & 0.391\\ \hline
-					 \textbf{hh} & 0.094 & 0.424 & \textcolor{red}{0.475} & 0.452\\ \Xhline{2\arrayrulewidth}
-					 F & 0.717 & 0.377 & 0.463 & \textcolor{blue}{0.539}\\ \hline
+				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+				 \textbf{s} & \textcolor{red}{0.719} & 0.212 & 0.161 & 0.714\\ \hline
+				 \textbf{k} & 0.094 & \textcolor{red}{0.364} & 0.364 & 0.391\\ \hline
+				 \textbf{hh} & 0.094 & 0.424 & \textcolor{red}{0.475} & 0.452\\ \Xhline{2\arrayrulewidth}
+				 F & 0.717 & 0.377 & 0.463 & \textcolor{blue}{0.539}\\ \hline
 				\end{tabular}
 				\label{table:eval:rmsWorst}
-				\caption{$K=1 (Worst)$}
-			\end{table}
-		}
-		\scalebox{0.45\textwidth}{
-			\begin{table}
+				\caption{$K=1$ (Worst)}
+			\end{subtable}
+			
+			\begin{subtable}[tbp]{0.45\textwidth}
 				\centering
 				\begin{tabular}{|c|c|c|c"c|}
 					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{s} & \textcolor{red}{0.791} & 0.141 & 0.059 & 0.840\\ \hline
-					 \textbf{k} & 0.079 & \textcolor{red}{0.384} & 0.339 & 0.427\\ \hline
-					 \textbf{hh} & 0.079 & 0.475 & \textcolor{red}{0.602} & 0.522\\ \Xhline{2\arrayrulewidth}
-					 F & 0.815 & 0.404 & 0.559 & \textcolor{blue}{0.615}\\ \hline
+				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+				 \textbf{s} & \textcolor{red}{0.791} & 0.141 & 0.059 & 0.840\\ \hline
+				 \textbf{k} & 0.079 & \textcolor{red}{0.384} & 0.339 & 0.427\\ \hline
+				 \textbf{hh} & 0.079 & 0.475 & \textcolor{red}{0.602} & 0.522\\ \Xhline{2\arrayrulewidth}
+				 F & 0.815 & 0.404 & 0.559 & \textcolor{blue}{0.615}\\ \hline
 				\end{tabular}
 				\label{table:eval:rmsBest}
-				\caption{$K=9 (Best)$}
-			\end{table}
-		}
+				\caption{$K=9$ (Best)}
+			\end{subtable}
+				
+			\caption{Measures over K using RMS}
+		\end{table}
 	
 		The best results using the RMS feature vector was observed using $K=9$, see table \ref{table:eval:rmsBest}. Some configurations had slightly higher precision in classes 's' and 'hh', although this seems minimal (see e.g. appendix  \ref{app:rms:k6) and \ref{app:rms:k8)}. The worst observed was using $K=1$, see table \ref{table:eval:rmsWorst}. All tests performed using RMS, returned $p < alpha$, making the results significant, and disproving the null-hypothesis. All results from for the RMS feature can be found in appendix \ref{app:res:rms}.
 		
@@ -125,45 +126,49 @@
 		\end{figure}
 		
 		\begin{table}
-			\centering
-			\begin{tabular}{|c|c|c|c"c|}
-				\cline{2-5}
-				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-				 \textbf{s} & \textcolor{red}{0.871} & 0.081 & 0.017 & 0.924\\ \hline
-				 \textbf{k} & 0.122 & \textcolor{red}{0.636} & 0.169 & 0.630\\ \hline
-				 \textbf{hh} & 0.122 & 0.283 & \textcolor{red}{0.814} & 0.768\\ \Xhline{2\arrayrulewidth}
-				 F & 0.896 & 0.633 & 0.790 & \textcolor{blue}{0.787}\\ \hline
-			\end{tabular}
-			\label{table:eval:zcrBest1}
-			\caption{$K=9$}
-		\end{table}
+			\begin{subtable}[tbp]{0.45\textwidth}
+				\centering
+				\begin{tabular}{|c|c|c|c"c|}
+					\cline{2-5}
+					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+					 \textbf{s} & \textcolor{red}{0.871} & 0.081 & 0.017 & 0.924\\ \hline
+					 \textbf{k} & 0.122 & \textcolor{red}{0.636} & 0.169 & 0.630\\ \hline
+					 \textbf{hh} & 0.122 & 0.283 & \textcolor{red}{0.814} & 0.768\\ \Xhline{2\arrayrulewidth}
+					 F & 0.896 & 0.633 & 0.790 & \textcolor{blue}{0.787}\\ \hline
+				\end{tabular}
+				\label{table:eval:zcrBest1}
+				\caption{$K=9$ (Best)}
+			\end{subtable}
 		
-		\begin{table}
-			\centering
-			\begin{tabular}{|c|c|c|c"c|}
-				\cline{2-5}
-				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-				 \textbf{s} & \textcolor{red}{0.871} & 0.051 & 0.017 & 0.945\\ \hline
-				 \textbf{k} & 0.122 & \textcolor{red}{0.636} & 0.169 & 0.630\\ \hline
-				 \textbf{hh} & 0.122 & 0.313 & \textcolor{red}{0.814} & 0.750\\ \Xhline{2\arrayrulewidth}
-				 F & 0.906 & 0.633 & 0.780 & \textcolor{blue}{0.787}\\ \hline
-			\end{tabular}
-			\label{table:eval:zcrBest2}
-			\caption{$K=10$}
-		\end{table}
-		
-		\begin{table}
-			\centering
-			\begin{tabular}{|c|c|c|c"c|}
-				\cline{2-5}
-				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-				 \textbf{s} & \textcolor{red}{0.899} & 0.172 & 0.051 & 0.845\\ \hline
-				 \textbf{k} & 0.101 & \textcolor{red}{0.525} & 0.288 & 0.520\\ \hline
-				 \textbf{hh} & 0.101 & 0.303 & \textcolor{red}{0.661} & 0.722\\ \Xhline{2\arrayrulewidth}
-				 F & 0.871 & 0.523 & 0.690 & \textcolor{blue}{0.716}\\ \hline
-			\end{tabular}
-			\label{table:eval:zcrWorst}
-			\caption{$K=1$}
+			\begin{subtable}[tbp]{0.45\textwidth}
+				\centering
+				\begin{tabular}{|c|c|c|c"c|}
+					\cline{2-5}
+					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+					 \textbf{s} & \textcolor{red}{0.871} & 0.051 & 0.017 & 0.945\\ \hline
+					 \textbf{k} & 0.122 & \textcolor{red}{0.636} & 0.169 & 0.630\\ \hline
+					 \textbf{hh} & 0.122 & 0.313 & \textcolor{red}{0.814} & 0.750\\ \Xhline{2\arrayrulewidth}
+					 F & 0.906 & 0.633 & 0.780 & \textcolor{blue}{0.787}\\ \hline
+				\end{tabular}
+				\label{table:eval:zcrBest2}
+				\caption{$K=10$ (Best)}
+			\end{subtable}
+			
+			\begin{subtable}[tbp]{0.45\textwidth}
+				\centering
+				\begin{tabular}{|c|c|c|c"c|}
+					\cline{2-5}
+					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+					 \textbf{s} & \textcolor{red}{0.885} & 0.162 & 0.042 & 0.854\\ \hline
+					 \textbf{k} & 0.108 & \textcolor{red}{0.475} & 0.305 & 0.480\\ \hline
+					 \textbf{hh} & 0.108 & 0.364 & \textcolor{red}{0.653} & 0.675\\ \Xhline{2\arrayrulewidth}
+					 F & 0.869 & 0.477 & 0.664 & \textcolor{blue}{0.694}\\ \hline
+				\end{tabular}
+				\label{table:eval:zcrWorst}
+				\caption{$K=2$ (Worst)}
+			\end{subtable}
+			
+			\caption{Measures over K using ZCR}
 		\end{table}
 		
 		The best results using ZCR was a tie $K=9$ (table \ref{table:eval:zcrBest1) and $k=10$ (\ref{table:eval:zcrBest2}). In the results from $K=9$, the precision of the 'hh' is slightly better than in $K=10$. In $K=10$, the precision of the 'k' is slightly better.
@@ -175,8 +180,6 @@
 		
 	\subsection{Mel Frequency Cepstrum Coefficients}
 		\begin{figure}
-		
-		
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc2010FP.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc2010_P.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc2010_R.png}
@@ -184,8 +187,6 @@
 			\caption{Plots over K for MFCC with 20ms windows and 10ms window skips}
 		\end{figure}
 		\begin{figure}
-		
-		
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc105FP.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc105_P.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc105_R.png}
@@ -193,8 +194,6 @@
 			\caption{Plots over K for MFCC with 10ms windows and 5ms window skips}
 		\end{figure}
 		\begin{figure}
-		
-		
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc52FP.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc52_P.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc52_R.png}
@@ -202,15 +201,13 @@
 			\caption{Plots over K for MFCC with 5ms windows and 2ms window skips}
 		\end{figure}\clearpage
 		
-		% BEST:
-		% WORST:
-		
+		% BEST: 5ms 2ms K=7, K=8
+		% WORST: 20ms 10ms K=2, although it still has better k precision than some (e.g. K=4, K=6). It has the worst s precision of all, but a few have similar hh precision (e.g. K=1, K=6)
+		% CHI: All significant for all configurations of MFCC
 		
 		
 	\subsection{Spectral Centroid}
 		\begin{figure}
-		
-		
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010FP.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010_P.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010_R.png}
@@ -218,8 +215,6 @@
 			\caption{Plots over K for Spectral Centroid with 20ms windows and 10ms window skips}
 		\end{figure}
 		\begin{figure}
-		
-		
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105FP.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105_P.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105_R.png}
@@ -227,8 +222,6 @@
 				\caption{Plots over K for Spectral Centroid with 10ms windows and 5ms window skips}
 		\end{figure}
 		\begin{figure}
-		
-		
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52FP.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52_P.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52_R.png}
@@ -237,12 +230,9 @@
 		\end{figure}\clearpage
 		
 	
-	
 	\subsection{Spectral Skew}
 			
 		\begin{figure}
-		
-		
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew2010FP.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew2010_P.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew2010_R.png}
@@ -251,8 +241,6 @@
 		\end{figure}
 		
 		\begin{figure}
-		
-		
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew105FP.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew105_P.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew105_R.png}
