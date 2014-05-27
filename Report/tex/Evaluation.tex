@@ -110,7 +110,7 @@
 			\caption{Measures over K using RMS}
 		\end{table}
 	
-		The best results using the RMS feature vector was observed using $K=9$, see table \ref{table:eval:rmsBest}. Some configurations had slightly higher precision in classes 's' and 'hh', although this seems minimal (see e.g. appendix  \ref{app:rms:k6) and \ref{app:rms:k8)}. The worst observed was using $K=1$, see table \ref{table:eval:rmsWorst}. All tests performed using RMS, returned $p < alpha$, making the results significant, and disproving the null-hypothesis. All results from for the RMS feature can be found in appendix \ref{app:res:rms}.
+		The best results using the RMS feature vector was observed using $K=9$, see table \ref{table:eval:rmsBest}. Some configurations had slightly higher precision in classes 's' and 'hh', although this seems minimal (see e.g. appendix  \ref{app:rms:k6) and \ref{app:rms:k8}). The worst observed was using $K=1$, see table \ref{table:eval:rmsWorst}. All tests performed using RMS, returned $p < alpha$, making the results significant, and disproving the null-hypothesis. All results from for the RMS feature can be found in appendix \ref{app:res:rms}.
 		
 	%
 	%	ZCR
@@ -171,7 +171,7 @@
 			\caption{Measures over K using ZCR}
 		\end{table}
 		
-		The best results using ZCR was a tie $K=9$ (table \ref{table:eval:zcrBest1) and $k=10$ (\ref{table:eval:zcrBest2}). In the results from $K=9$, the precision of the 'hh' is slightly better than in $K=10$. In $K=10$, the precision of the 'k' is slightly better.
+		The best results using ZCR was a tie $K=9$ (table \ref{table:eval:zcrBest1}) and $k=10$ (\ref{table:eval:zcrBest2}). In the results from $K=9$, the precision of the hh is slightly better than in $K=10$. In $K=10$, the precision of the kick is slightly better.
 		Th worst results was observed with $K=2$ (table \ref{table:eval:zcrWorst}). As with our results using RMS, we found that all probabilities were significant.
 		
 	%	
@@ -201,7 +201,7 @@
 			\caption{Plots over K for MFCC with 5ms windows and 2ms window skips}
 		\end{figure}\clearpage
 		
-		Over all three configurations of the MFCC feature vector, the best performing were $K=7$ and $K=8$, when using a window size of 5ms and skip of 2ms, see table \ref{table:eval:mfccBest1) and \ref{table:eval:mfccBest2}. Although some of other results with the same parameters reach similar performance in regards to precision per class (see appendix \ref{tlmfcc52}). The worst performing, by accuracy, is using 20ms window size and 10ms skip with $K=2$ (see table \ref{table:eval:mfccWorst}). It still has better precision for 'k' than some others(e.g. $K=4$ or $K=6$), but some have similar 'hh' precision (e.g. $K=1$ or $K=6$). All configurations, both in parameters and K, disproved the null hypothesis with $alpha=0.01$.
+		Over all three configurations of the MFCC feature vector, the best performing were $K=7$ and $K=8$, when using a window size of 5ms and skip of 2ms, see table \ref{table:eval:mfccBest1}) and \ref{table:eval:mfccBest2}. Although some of other results with the same parameters reach similar performance in regards to precision per class (see appendix \ref{tlmfcc52}). The worst performing, by accuracy, is using 20ms window size and 10ms skip with $K=2$ (see table \ref{table:eval:mfccWorst}). It still has better precision for kick than some others(e.g. $K=4$ or $K=6$), but some have similar hh precision (e.g. $K=1$ or $K=6$). All configurations, both in parameters and K, disproved the null hypothesis with $alpha=0.01$.
 		
 		
 	%
@@ -230,7 +230,14 @@
 				\caption{Plots over K for Spectral Centroid with 5ms windows and 2ms window skips}
 		\end{figure}\clearpage
 		
-	%
+		% BEST: 9(10,5)
+		% WORST: 2
+		% CHI: All significant
+		The best configuration found was 10ms windows and 5ms window skips, with $K=9$, as shown in table \ref{table:eval:centroidBest}. Some results show similar or better precision in some classes, e.g. $K=8$, seen in table \ref{table:eval:centroidSimilar}. The worst result seen was using 20ms window size, 10ms window skip, as shown in table \ref{table:eval:centroidWorst}.
+		Once again, every single test done, is deemed significant on the grounds of $alpha=0.01$.
+		
+				
+	% 
 	% SS
 	%
 	\subsection{Spectral Skew}
@@ -258,6 +265,8 @@
 				\caption{Plots over K for Spectral Skew with 5ms windows and 2ms window skips}
 		\end{figure}\clearpage
 		
+		% BEST: 5ms 2ms, K=5, best k, best s, these have better hh (10ms5ms, K)
+		% WORST: 20ms 10ms2 K=2. Some (same parameters, K=1, K=3, K=6) har slightly lower precision with kicks.
 	
 	%
 	% SF
@@ -292,4 +301,6 @@
 				\caption{Plots over K for Spectral Flux with 5ms windows and 2ms window skips}
 		\end{figure}
 		
+	% BEST:
+	% WORST:
 
