@@ -8,16 +8,16 @@
 			headheight=14pt]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\cfoot{}
+
 \fancyhead[LE,RO]{\thepage}
 
+\usepackage{url}
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-%\usepackage{natbib}
 \usepackage{natbib}
 \usepackage{multicol}
 \usepackage{subcaption}
@@ -26,6 +26,9 @@
 \usepackage{rotating}
 \usepackage[toc,page]{appendix}
 \usepackage{epstopdf}
+\usepackage{caption}
+\usepackage{subcaption}
+
 
 % Code snippet setup ---- START
 \usepackage{listings}
@@ -80,37 +83,51 @@
 }
 \title{{\LARGE \textbf{Automatic Transcription of Beatboxing}} \\
 {{\Large By group 403}}}
-\begin{document}
 
-% when i (Rasmus B. Lind) quick build the pdf the next line makes trouble  
+
+% BACKGROUND ---- START
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{fig/Background.png}%
+\vfill
+}}}
+% BACKGROUND ---- END
+
+\begin{document}
+% Add background
+\AddToShipoutPicture*{\BackgroundPic}
+
 \maketitle
 \tableofcontents
 \chapter{Introduction}
 \thispagestyle{empty}
-\input{tex/intro.tex}
+\input{tex/intro2.tex}
+%\input{tex/intro.tex}
 
 \chapter{Background}
 \thispagestyle{empty}
+\input{tex/BB_Artform.tex}
+\input{tex/Contextualize.tex}
+\input{tex/phonemes.tex}
+\input{tex/Acoustics.tex}
+\input{tex/investigation.tex}
+
+\chapter{Methods of Beatboxing-transcription}
+\thispagestyle{empty}
+\input{tex/IntroToMethodsOfbeatboxingTranscription.tex}
 \input{tex/SOTA.tex}
 \input{tex/investigation.tex}
-\input{tex/datasetcollection.tex}
-
-\chapter{Theory}
-\thispagestyle{empty}
-\input{tex/choosingSoundClass.tex}
-\input{tex/RMS.tex}
-\input{tex/ZC-ZCR.tex}
-\input{tex/MFCC.tex}
-\input{tex/Spectral_Analysis.tex}
+\input{tex/FeatureBBTranscription.tex}
 \input{tex/onset_detection.tex}
-\input{tex/KNN.tex}
 
 \chapter{Our Approach}
 \thispagestyle{empty}
-\input{tex/Approach.tex}
-\input{tex/Segmentation.tex}
-\input{tex/Feature_Implementation.tex}
-\input{tex/Application.tex}
+\input{tex/Our-Approach.tex}
 
 \chapter{Evaluation}
 \thispagestyle{empty}
