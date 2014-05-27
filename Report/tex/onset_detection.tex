@@ -1,21 +1,23 @@
 \section{Onset Detection}
-This section  will cover the anatomy of a segmentation.
 In short an onset is the start of a sound event \citep{ACA}. 
-A important thing to know about this segmentation is the difference between: transients onset and attack \citep{Bello2005}.
-Attack: attack of a note is the time during amplitude changes, from the beginning to the maximum amplitude is reached \citep{ACA}.
-Transient: Transient also starts when the attack starts, at the beginning of of a sound\citep{Bello2005}. It "ends when the note reaches its quasi-periodic state" \citep{ACA}.
-Onset: Onset is a chosen instant which marks the temporally extended transient \citep{Bello2005}. Mostly that interval is as mentioned earlier, the beginning of a sound. 
-\\
-There are at lot of different ways of finding onset detection for a audio signals, it depends on which kind of audio signal you have\citep{Bello2005}. 
-In: An Introduction to Audio Content Analysis \citep{ACA}, Lerch refers to three different onset times namely: Note Onset Time (NOT), Acoustic Onset Time (AOT) and Perceptual Onset Time (POT)\citep{ACA}.
-\\
-NOT: "the time when the instrument is triggered to make a sound.(...) this is not necessarily the time when the signal becomes detectable or audible" \citep{ACA}.
-\\
-AOT: "the first time when a signal or an acoustic event is theoretically measurable. Sometimes the AOT is called physical onset time" \citep{ACA}.
-\\
-POT: "the first time when the event can be perceived by the
-listener" \citep{ACA}.
-\\
-So which of these three would be detectable in the signal and be best for automatic onset detection. Since NOT has a symbolic nature, it cannot be detected by the audio signal\cite{ACA}. By assuming that the timing to the sound perception is adapted and the audio content analysis (ACA) system used analyses the perceptible audio content, then POT would fit the requirements best\cite{ACA}.
+An important thing to know about onset segmentation is the difference between transients, onset and attack \citep{Bello2005}.
+Attack of a note is the time during amplitude changes, from the beginning of a sound to the maximum amplitude is reached \citep{ACA}.
+Transient also starts when the attack starts, at the beginning of a sound\citep{Bello2005}. When the note reaches its quasi-periodic state, the transient is considered to end \citep{ACA}.
+Onset is a chosen instance which marks the temporarily extended transient \citep{Bello2005}. 
 
-In our project we can use this segmentation to see which part of the audio file have sound, and where there is no sound. 
+
+There are at lot of different ways to find the onset for an audio signal. It depends on which kind of audio signal one has \citep{Bello2005}. 
+Lerch refers to three different onset times: Note Onset Time (NOT), Acoustic Onset Time (AOT) and Perceptual Onset Time (POT).
+
+
+NOT is "the time when the instrument is triggered to make a sound [...] this is not necessarily the time when the signal becomes detectable or audible" \citep{ACA}.
+\\
+AOT is "the first time when a signal or an acoustic event is theoretically measurable. Sometimes the AOT is called physical onset time" \citep{ACA}.
+\\
+POT is "the first time when the event can be perceived by the
+listener" \citep{ACA}.
+
+
+Out of these three one must find the most suitable onset detection type. As Lerch stated NOT is not necessarily detectable in audio signals \cite{ACA}. Furthermore  Lerch states that POT is often the most suitable onset time for onset detection. \citep{ACA}.
+
+In our project we can use this segmentation to see which part of the audio file have sound, and where there is no sound. 	
