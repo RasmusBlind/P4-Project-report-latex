@@ -201,11 +201,12 @@
 			\caption{Plots over K for MFCC with 5ms windows and 2ms window skips}
 		\end{figure}\clearpage
 		
-		% BEST: 5ms 2ms K=7, K=8
-		% WORST: 20ms 10ms K=2, although it still has better k precision than some (e.g. K=4, K=6). It has the worst s precision of all, but a few have similar hh precision (e.g. K=1, K=6)
-		% CHI: All significant for all configurations of MFCC
+		Over all three configurations of the MFCC feature vector, the best performing were $K=7$ and $K=8$, when using a window size of 5ms and skip of 2ms, see table \ref{table:eval:mfccBest1) and \ref{table:eval:mfccBest2}. Although some of other results with the same parameters reach similar performance in regards to precision per class (see appendix \ref{tlmfcc52}). The worst performing, by accuracy, is using 20ms window size and 10ms skip with $K=2$ (see table \ref{table:eval:mfccWorst}). It still has better precision for 'k' than some others(e.g. $K=4$ or $K=6$), but some have similar 'hh' precision (e.g. $K=1$ or $K=6$). All configurations, both in parameters and K, disproved the null hypothesis with $alpha=0.01$.
 		
 		
+	%
+	% SC
+	%
 	\subsection{Spectral Centroid}
 		\begin{figure}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010FP.png}
@@ -229,7 +230,9 @@
 				\caption{Plots over K for Spectral Centroid with 5ms windows and 2ms window skips}
 		\end{figure}\clearpage
 		
-	
+	%
+	% SS
+	%
 	\subsection{Spectral Skew}
 			
 		\begin{figure}
@@ -248,8 +251,6 @@
 				\caption{Plots over K for Spectral Skew with 10ms windows and 5ms window skips}
 		\end{figure}
 		\begin{figure}
-		
-		
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew52FP.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew52_P.png}
 			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew52_R.png}
@@ -258,7 +259,9 @@
 		\end{figure}\clearpage
 		
 	
-	
+	%
+	% SF
+	%
 	\subsection{Spectral Flux}
 		
 		\begin{figure}
