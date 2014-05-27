@@ -28,6 +28,7 @@
 \usepackage{epstopdf}
 \usepackage{caption}
 \usepackage{subcaption}
+\newcolumntype{"}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
 
 
 % Code snippet setup ---- START
@@ -125,6 +126,7 @@ keepaspectratio]{fig/BBB.png}%
 \input{tex/onset_detection.tex}
 
 \chapter{Our Approach}
+\label(chapter:OurApproach)
 \thispagestyle{empty}
 \input{tex/Our-Approach.tex}
 
@@ -133,6 +135,7 @@ keepaspectratio]{fig/BBB.png}%
 \input{tex/Evaluation.tex}
 
 \chapter{Discussion}
+\label{chapter:Discussion};
 \thispagestyle{empty}
 
 \chapter{Conclusion}
@@ -144,6 +147,9 @@ keepaspectratio]{fig/BBB.png}%
 \begin{appendices}
 \chapter{Matlab Scripts}
 \input{tex/appendices/Features-scripts.tex}
+
+\chapter{Results}
+\input{tex/appendices/test/test.tex}
 
 \end{appendices}
 \end{document}
