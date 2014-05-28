@@ -251,73 +251,7 @@
 	% SC
 	%
 	\subsection{Spectral Centroid}
-%		\begin{figure}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010FP.png}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010_P.png}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010_R.png}
-%			
-%			\caption{Plots over K for Spectral Centroid with 20ms windows and 10ms window skips}
-%		\end{figure}
-%		\begin{figure}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105FP.png}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105_P.png}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105_R.png}
-%				
-%				\caption{Plots over K for Spectral Centroid with 10ms windows and 5ms window skips}
-%		\end{figure}
-%		\begin{figure}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52FP.png}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52_P.png}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52_R.png}
-%				
-%				\caption{Plots over K for Spectral Centroid with 5ms windows and 2ms window skips}
-%		\end{figure}\clearpage
-%		
-%		\begin{table}
-%			\begin{subtable}[h]{0.45\textwidth}
-%				\centering
-%				\begin{tabular}{|c|c|c|c"c|}
-%					\cline{2-5}
-%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-%					 \textbf{k} & \textcolor{red}{0.935} & 0.020 & 0.008 & 0.977\\ \hline
-%					 \textbf{s} & 0.065 & \textcolor{red}{0.806} & 0.271 & 0.658\\ \hline
-%					 \textbf{hh} & 0.065 & 0.173 & \textcolor{red}{0.720} & 0.833\\ \Xhline{2\arrayrulewidth}
-%					 F & 0.956 & 0.725 & 0.773 & \textcolor{blue}{0.828}\\ \hline
-%				\end{tabular}
-%				\label{table:eval:centroidBest}
-%				\caption{$wSize=10ms, wSkip=5ms, K=9$}
-%			\end{subtable}
-%			\hfill
-%			\begin{subtable}[h]{0.45\textwidth}
-%			\centering
-%			\begin{tabular}{|c|c|c|c"c|}
-%			\cline{2-5}
-%			 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-%			 \textbf{k} & \textcolor{red}{0.957} & 0.041 & 0.008 & 0.964\\ \hline
-%			 \textbf{s} & 0.043 & \textcolor{red}{0.786} & 0.280 & 0.664\\ \hline
-%			 \textbf{hh} & 0.043 & 0.173 & \textcolor{red}{0.712} & 0.832\\ \Xhline{2\arrayrulewidth}
-%			 F & 0.960 & 0.720 & 0.767 & \textcolor{blue}{0.828}\\ \hline
-%			\end{tabular}
-%			\label{table:eval:centroidSimilar}
-%			\caption{$wSize=10ms, wSkip=5ms, K=8$}
-%			\end{subtable}
-%			\hfill
-%			\begin{subtable}[h]{0.45\textwidth}
-%			\centering
-%			\begin{tabular}{|c|c|c|c"c|}
-%			\cline{2-5}
-%			 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-%			 \textbf{k} & \textcolor{red}{0.920} & 0.163 & 0.009 & 0.888\\ \hline
-%			 \textbf{s} & 0.072 & \textcolor{red}{0.446} & 0.239 & 0.519\\ \hline
-%			 \textbf{hh} & 0.072 & 0.391 & \textcolor{red}{0.752} & 0.704\\ \Xhline{2\arrayrulewidth}
-%			 F & 0.904 & 0.480 & 0.727 & \textcolor{blue}{0.738}\\ \hline
-%			\end{tabular}
-%			\caption{$wSize=20ms, wSkip=10ms, K=2$}
-%			\label{table:eval:centroidWorst}
-%			\end{subtable}
-%			
-%			\caption{Measures over K using Spectral Centroid}
-%		\end{table}
+
 		
 		Using the Spectral Centroid feature, the best configuration found, with accuracy 82.8\% was 10ms windows and 5ms window skips, and $K=9$, as shown in table \ref{table:eval:centroidBest}. Some results show similar or better precision in some classes, e.g. $K=8$, seen in table \ref{table:eval:centroidSimilar}. The worst accuracy seen, was using 20ms window size, 10ms window skip, and $K=2$, with accuracy 73.8\%, as shown in table \ref{table:eval:centroidWorst}. $X^2$-test revealed no significant differences (see all in appendix \ref{app:res:sc}).
 		
