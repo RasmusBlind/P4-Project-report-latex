@@ -7,12 +7,12 @@
 		This will be tested for each feature and each feature configuration.
 		We will test window sizes of 20ms, 10ms, and 5ms; and we will test window skips of 10ms, 5ms, 2ms respectively. This will be the case for all features using window: MFCC, Spectral Flux, Spectral Centroid, Spectral Skew, and Spectral Rolloff. Only the first 20 MFCC coefficients will be used. RMS and ZCR are calculated over the entire sound.
 		
-		To determine if the independent variable $k$ has any has any significant effect on resulting confusion tables, the chi squared test is used. Since we are testing over 10 different K, but only on unique combinations of $K_1$ and $K_2$, the amount of tests done in total will be $Tests = 10*9/2 = 45$. We have chosen that the null hypothesis can be disputed, if any calculated probability $p < \alpha$. Further, the Bonferroni correction\citep{bonferroni} will be applied to $\alpha$, such that $\alpha=\alpha/45 = 0.00\overline{111}$.
+		To determine if the independent variable $k$ has any has any significant effect on resulting confusion tables, the chi squared test is used. Since we are testing over 10 different K, but only on unique combinations of $K_1$ and $K_2$, the amount of tests done in total will be $Tests = 10*9/2 = 45$. We have chosen that the null hypothesis can be disputed, if any calculated probability $p < \alpha$. Further, the Bonferroni correction\citep{bonferroni} will be applied to $\alpha$, such that $\alpha=\alpha/45 = 0.00\overline{1}$.
 		
 	\subsection{Measures}
 		A confusion table is created for each test (each unique combination of variables). This will be shown in percentages (or rather, values between 0 and 1). Overall accuracy is calculated, along with precision, recall, and F-score for each class individually. For the sake of compactness, all the measures are included in an extended confusion table, as shown in the explanatory table \ref{table:eval:explanatory}. 
 		The most important measure, for the sake of measuring our transcription system, would be the precision, that is, the amount of correctly transcribed sounds over the actual amount of that sound class.
-		Recall should just be ignored, since we only test on the dataset, which means that we always test on all available samples of any given class, meaning that it would be the same as the amount of . This would be different, had the segmentation been part of the evaluation. It is included nonetheless, as further progress with this project might find a need for it. When looking at results, we will judge the performance primarily by accuracy and precision.
+		Recall should just be ignored, since we only test on the dataset, which means that we always test on all available samples of any given class, meaning that it would be the same as the total amount. This would be different, had the segmentation been part of the evaluation. It is included nonetheless, as further progress with this project might find a need for it. When looking at results, we will judge the performance primarily by accuracy and precision.
 
 			\begin{table}
 				\centering
@@ -67,259 +67,259 @@
 	%
 	
 	\subsection{Root Mean Square}
-		\begin{figure}
-		
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/rms11FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/rms11_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/rms11_R.png}
-			
-			\label{fig:eval:rms}
-			\caption{Plots over K for Root Mean Square}
-		\end{figure}
-
-		\begin{table}
-			\begin{subtable}[tbp]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-				 \textbf{k} & \textcolor{red}{0.719} & 0.212 & 0.161 & 0.714\\ \hline
-				 \textbf{s} & 0.094 & \textcolor{red}{0.364} & 0.364 & 0.391\\ \hline
-				 \textbf{hh} & 0.094 & 0.424 & \textcolor{red}{0.475} & 0.452\\ \Xhline{2\arrayrulewidth}
-				 F & 0.717 & 0.377 & 0.463 & \textcolor{blue}{0.539}\\ \hline
-				\end{tabular}
-				\label{table:eval:rmsWorst}
-				\caption{$K=1$ (Worst)}
-			\end{subtable}
-			
-			\begin{subtable}[tbp]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-				 \textbf{k} & \textcolor{red}{0.791} & 0.141 & 0.059 & 0.840\\ \hline
-				 \textbf{s} & 0.079 & \textcolor{red}{0.384} & 0.339 & 0.427\\ \hline
-				 \textbf{hh} & 0.079 & 0.475 & \textcolor{red}{0.602} & 0.522\\ \Xhline{2\arrayrulewidth}
-				 F & 0.815 & 0.404 & 0.559 & \textcolor{blue}{0.615}\\ \hline
-				\end{tabular}
-				\label{table:eval:rmsBest}
-				\caption{$K=9$ (Best)}
-			\end{subtable}
-				
-			\caption{Measures over K using RMS}
-		\end{table}
-	
-		The best results using the RMS feature vector was observed using $K=9$ with accuracy 61.5\% (see table \ref{table:eval:rmsBest}). Some configurations had slightly higher precision in classes 's' and 'hh', although this seems minimal (see e.g. appendix  \ref{app:rms:k6} and \ref{app:rms:k8}). The worst observed was using $K=1$, with accuracy 53.9\% see table \ref{table:eval:rmsWorst}. All results from for the RMS feature can be found in appendix \ref{app:res:rms}. The $X^2$ test revealed no significant differences between any two $K$ (see all p in \ref{xlrms11}).
+%%		\begin{figure}
+%%		
+%%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/rms11FP.png}
+%%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/rms11_P.png}
+%%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/rms11_R.png}
+%%			
+%%			\label{fig:eval:rms}
+%%			\caption{Plots over K for Root Mean Square}
+%%		\end{figure}
+%%
+%%		\begin{table}
+%%			\begin{subtable}[tbp]{0.45\textwidth}
+%%				\centering
+%%				\begin{tabular}{|c|c|c|c"c|}
+%%					\cline{2-5}
+%%				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%%				 \textbf{k} & \textcolor{red}{0.719} & 0.212 & 0.161 & 0.714\\ \hline
+%%				 \textbf{s} & 0.094 & \textcolor{red}{0.364} & 0.364 & 0.391\\ \hline
+%%				 \textbf{hh} & 0.094 & 0.424 & \textcolor{red}{0.475} & 0.452\\ \Xhline{2\arrayrulewidth}
+%%				 F & 0.717 & 0.377 & 0.463 & \textcolor{blue}{0.539}\\ \hline
+%%				\end{tabular}
+%%				\label{table:eval:rmsWorst}
+%%				\caption{$K=1$ (Worst)}
+%%			\end{subtable}
+%%			
+%%			\begin{subtable}[tbp]{0.45\textwidth}
+%%				\centering
+%%				\begin{tabular}{|c|c|c|c"c|}
+%%					\cline{2-5}
+%%				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%%				 \textbf{k} & \textcolor{red}{0.791} & 0.141 & 0.059 & 0.840\\ \hline
+%%				 \textbf{s} & 0.079 & \textcolor{red}{0.384} & 0.339 & 0.427\\ \hline
+%%				 \textbf{hh} & 0.079 & 0.475 & \textcolor{red}{0.602} & 0.522\\ \Xhline{2\arrayrulewidth}
+%%				 F & 0.815 & 0.404 & 0.559 & \textcolor{blue}{0.615}\\ \hline
+%%				\end{tabular}
+%%				\label{table:eval:rmsBest}
+%%				\caption{$K=9$ (Best)}
+%%			\end{subtable}
+%%				
+%%			\caption{Measures over K using RMS}
+%%		\end{table}
+	1
+		The best results using the RMS feature vector was observed using $K=9$ with accuracy 61.5\% (see appendixx \ref{app:RMS:9:best}). Some configurations had slightly higher precision in classes 's' and 'hh', although this seems minimal (see e.g. appendix  \ref{app:rms:k6} and \ref{app:rms:k8}). The worst observed was using $K=1$, with accuracy 53.9\% see appendix \ref{app:RMS:1:worst}. All results from for the RMS feature can be found in appendix \ref{app:res:rms}. The $X^2$ test revealed no significant differences between any two $K$ (see all p in \ref{xlrms11}).
 		
 	%
 	%	ZCR
 	%
 	
 	\subsection{Zero Crossing Rate}
-		\begin{figure}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/zcr11FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/zcr11_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/zcr11_R.png}
-			\label{fig:eval:zcr}
-			\caption{Plots over K for Zero Crossing Rate}
-		\end{figure}
+%		\begin{figure}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/zcr11FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/zcr11_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/zcr11_R.png}
+%			\label{fig:eval:zcr}
+%			\caption{Plots over K for Zero Crossing Rate}
+%		\end{figure}
+%		
+%		\begin{table}
+%			\begin{subtable}[tbp]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					\cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{0.871} & 0.081 & 0.017 & 0.924\\ \hline
+%					 \textbf{s} & 0.122 & \textcolor{red}{0.636} & 0.169 & 0.630\\ \hline
+%					 \textbf{hh} & 0.122 & 0.283 & \textcolor{red}{0.814} & 0.768\\ \Xhline{2\arrayrulewidth}
+%					 F & 0.896 & 0.633 & 0.790 & \textcolor{blue}{0.787}\\ \hline
+%				\end{tabular}
+%				\label{table:eval:zcrBest1}
+%				\caption{$K=9$ (Best)}
+%			\end{subtable}
+%		
+%			\begin{subtable}[tbp]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					\cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{0.871} & 0.051 & 0.017 & 0.945\\ \hline
+%					 \textbf{s} & 0.122 & \textcolor{red}{0.636} & 0.169 & 0.630\\ \hline
+%					 \textbf{hh} & 0.122 & 0.313 & \textcolor{red}{0.814} & 0.750\\ \Xhline{2\arrayrulewidth}
+%					 F & 0.906 & 0.633 & 0.780 & \textcolor{blue}{0.787}\\ \hline
+%				\end{tabular}
+%				\label{table:eval:zcrBest2}
+%				\caption{$K=10$ (Best)}
+%			\end{subtable}
+%			
+%			\begin{subtable}[tbp]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					\cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{0.885} & 0.162 & 0.042 & 0.854\\ \hline
+%					 \textbf{s} & 0.108 & \textcolor{red}{0.475} & 0.305 & 0.480\\ \hline
+%					 \textbf{hh} & 0.108 & 0.364 & \textcolor{red}{0.653} & 0.675\\ \Xhline{2\arrayrulewidth}
+%					 F & 0.869 & 0.477 & 0.664 & \textcolor{blue}{0.694}\\ \hline
+%				\end{tabular}
+%				\label{table:eval:zcrWorst}
+%				\caption{$K=2$ (Worst)}
+%			\end{subtable}
+%			
+%			\caption{Measures over K using ZCR}
+%		\end{table}
 		
-		\begin{table}
-			\begin{subtable}[tbp]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{0.871} & 0.081 & 0.017 & 0.924\\ \hline
-					 \textbf{s} & 0.122 & \textcolor{red}{0.636} & 0.169 & 0.630\\ \hline
-					 \textbf{hh} & 0.122 & 0.283 & \textcolor{red}{0.814} & 0.768\\ \Xhline{2\arrayrulewidth}
-					 F & 0.896 & 0.633 & 0.790 & \textcolor{blue}{0.787}\\ \hline
-				\end{tabular}
-				\label{table:eval:zcrBest1}
-				\caption{$K=9$ (Best)}
-			\end{subtable}
-		
-			\begin{subtable}[tbp]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{0.871} & 0.051 & 0.017 & 0.945\\ \hline
-					 \textbf{s} & 0.122 & \textcolor{red}{0.636} & 0.169 & 0.630\\ \hline
-					 \textbf{hh} & 0.122 & 0.313 & \textcolor{red}{0.814} & 0.750\\ \Xhline{2\arrayrulewidth}
-					 F & 0.906 & 0.633 & 0.780 & \textcolor{blue}{0.787}\\ \hline
-				\end{tabular}
-				\label{table:eval:zcrBest2}
-				\caption{$K=10$ (Best)}
-			\end{subtable}
-			
-			\begin{subtable}[tbp]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{0.885} & 0.162 & 0.042 & 0.854\\ \hline
-					 \textbf{s} & 0.108 & \textcolor{red}{0.475} & 0.305 & 0.480\\ \hline
-					 \textbf{hh} & 0.108 & 0.364 & \textcolor{red}{0.653} & 0.675\\ \Xhline{2\arrayrulewidth}
-					 F & 0.869 & 0.477 & 0.664 & \textcolor{blue}{0.694}\\ \hline
-				\end{tabular}
-				\label{table:eval:zcrWorst}
-				\caption{$K=2$ (Worst)}
-			\end{subtable}
-			
-			\caption{Measures over K using ZCR}
-		\end{table}
-		
-		The best results using ZCR was a tie between $K=9$ (table \ref{table:eval:zcrBest1}) and $k=10$ (table \ref{table:eval:zcrBest2}), both with accuracy 78.7\%. In the results from $K=9$, the precision of the hh is slightly better than in $K=10$ (75\% vs 67.5\%). In $K=10$, the precision of the kick is slightly better (94.6\% vs 92.4\%). The worst results was observed with $K=2$, having accuracy 69.4\%(table \ref{table:eval:zcrWorst}). No tests were deemed significant by $X^2$ testing for $alpha=0.\overline{111}$. See all $X^2$ results in appendix \ref{app:res:zcr};
+		The best results using ZCR was a tie between $K=9$ (appendix \ref{app:zcr:best}) and $k=10$ (appendix \ref{app:zcr:best2}), both with accuracy 78.7\%. In the results from $K=9$, the precision of the hh is slightly better than in $K=10$ (75\% vs 67.5\%). In $K=10$, the precision of the kick is slightly better (94.6\% vs 92.4\%). The worst results was observed with $K=2$, having accuracy 69.4\%(appendix \ref{app-ZCR-Worst}). No tests were deemed significant by $X^2$ testing. See all $X^2$ results in appendix \ref{app:res:zcr};
 		
 	%	
 	%	MFCC
 	%	
 		
 	\subsection{Mel Frequency Cepstrum Coefficients}
-		\begin{figure}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc2010FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc2010_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc2010_R.png}
-			
-			\caption{Plots over K for MFCC with 20ms windows and 10ms window skips}
-		\end{figure}
-		\begin{figure}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc105FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc105_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc105_R.png}
-			
-			\caption{Plots over K for MFCC with 10ms windows and 5ms window skips}
-		\end{figure}
-		\begin{figure}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc52FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc52_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc52_R.png}
-			
-			\caption{Plots over K for MFCC with 5ms windows and 2ms window skips}
-		\end{figure}\clearpage
+%		\begin{figure}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc2010FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc2010_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc2010_R.png}
+%			
+%			\caption{Plots over K for MFCC with 20ms windows and 10ms window skips}
+%		\end{figure}
+%		\begin{figure}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc105FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc105_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc105_R.png}
+%			
+%			\caption{Plots over K for MFCC with 10ms windows and 5ms window skips}
+%		\end{figure}
+%		\begin{figure}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc52FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc52_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/mfcc52_R.png}
+%			
+%			\caption{Plots over K for MFCC with 5ms windows and 2ms window skips}
+%		\end{figure}\clearpage
+%		
+%		\begin{table}
+%			\begin{subtable}[tbp]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					\cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{1.000} & 0.010 & 0.008 & 0.986\\ \hline
+%					 \textbf{s} & 0.000 & \textcolor{red}{0.980} & 0.008 & 0.990\\ \hline
+%					 \textbf{hh} & 0.000 & 0.010 & \textcolor{red}{0.983} & 0.991\\ \Xhline{2\arrayrulewidth}
+%					 F & 0.993 & 0.985 & 0.987 & \textcolor{blue}{0.989}\\ \hline
+%				\end{tabular}
+%				\caption{$wSize=5ms, wSkip=2ms, K=7$}
+%				\label{table:eval:mfccBest1}
+%			\end{subtable}
+%			\hfill
+%			\begin{subtable}[tbp]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					\cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{1.000} & 0.010 & 0.008 & 0.986\\ \hline
+%					 \textbf{s} & 0.000 & \textcolor{red}{0.980} & 0.008 & 0.990\\ \hline
+%					 \textbf{hh} & 0.000 & 0.010 & \textcolor{red}{0.983} & 0.991\\ \Xhline{2\arrayrulewidth}
+%					 F & 0.993 & 0.985 & 0.987 & \textcolor{blue}{0.989}\\ \hline
+%				\end{tabular}
+%				\caption{$wSize=5ms, wSkip=2ms, K=8$}
+%				\label{table:eval:mfccBest2}
+%			\end{subtable}
+%			\hfill
+%			\begin{subtable}[tbp]{0.45\textwidth}
+%			\centering
+%			\begin{tabular}{|c|c|c|c"c|}
+%			\cline{2-5}
+%			 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%			 \textbf{k} & \textcolor{red}{0.986} & 0.043 & 0.000 & 0.971\\ \hline
+%			 \textbf{s} & 0.007 & \textcolor{red}{0.913} & 0.060 & 0.913\\ \hline
+%			 \textbf{hh} & 0.007 & 0.043 & \textcolor{red}{0.940} & 0.957\\ \Xhline{2\arrayrulewidth}
+%			 F & 0.978 & 0.913 & 0.948 & \textcolor{blue}{0.951}\\ \hline
+%			\end{tabular}
+%			\caption{$wSize=20ms, wSkip=10ms, K=2$}
+%			\label{table:eval:mfccWorst}
+%			\end{subtable}
+%			
+%			\caption{Measures over K using MFCC}
+%		\end{table}
 		
-		\begin{table}
-			\begin{subtable}[tbp]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{1.000} & 0.010 & 0.008 & 0.986\\ \hline
-					 \textbf{s} & 0.000 & \textcolor{red}{0.980} & 0.008 & 0.990\\ \hline
-					 \textbf{hh} & 0.000 & 0.010 & \textcolor{red}{0.983} & 0.991\\ \Xhline{2\arrayrulewidth}
-					 F & 0.993 & 0.985 & 0.987 & \textcolor{blue}{0.989}\\ \hline
-				\end{tabular}
-				\caption{$wSize=5ms, wSkip=2ms, K=7$}
-				\label{table:eval:mfccBest1}
-			\end{subtable}
-			\hfill
-			\begin{subtable}[tbp]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{1.000} & 0.010 & 0.008 & 0.986\\ \hline
-					 \textbf{s} & 0.000 & \textcolor{red}{0.980} & 0.008 & 0.990\\ \hline
-					 \textbf{hh} & 0.000 & 0.010 & \textcolor{red}{0.983} & 0.991\\ \Xhline{2\arrayrulewidth}
-					 F & 0.993 & 0.985 & 0.987 & \textcolor{blue}{0.989}\\ \hline
-				\end{tabular}
-				\caption{$wSize=5ms, wSkip=2ms, K=8$}
-				\label{table:eval:mfccBest2}
-			\end{subtable}
-			\hfill
-			\begin{subtable}[tbp]{0.45\textwidth}
-			\centering
-			\begin{tabular}{|c|c|c|c"c|}
-			\cline{2-5}
-			 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-			 \textbf{k} & \textcolor{red}{0.986} & 0.043 & 0.000 & 0.971\\ \hline
-			 \textbf{s} & 0.007 & \textcolor{red}{0.913} & 0.060 & 0.913\\ \hline
-			 \textbf{hh} & 0.007 & 0.043 & \textcolor{red}{0.940} & 0.957\\ \Xhline{2\arrayrulewidth}
-			 F & 0.978 & 0.913 & 0.948 & \textcolor{blue}{0.951}\\ \hline
-			\end{tabular}
-			\caption{$wSize=20ms, wSkip=10ms, K=2$}
-			\label{table:eval:mfccWorst}
-			\end{subtable}
-			
-			\caption{Measures over K using MFCC}
-		\end{table}
-		
-		Over all three configurations of the MFCC feature vector, the best performing were $K=7$ and $K=8$ with accuracies 98.9\%, when using a window size of 5ms and skip of 2ms (see table \ref{table:eval:mfccBest1} and \ref{table:eval:mfccBest2}). Some of the other results with the same parameters reach similar performance in regards to precision per class (see appendix \ref{tlmfcc52}). The worst performing, with 95.1\% accuracy, is using 20ms window size and 10ms skip with $K=2$ (see table \ref{table:eval:mfccWorst}). It still has better precision for kick than some others(e.g. $K=4$ or $K=6$), but some have similar hh precision (e.g. $K=1$ or $K=6$). No $X^2$ results were considered significant (although some came quite close; see appendix \ref{xlmfcc52}).
+		Over all three configurations of the MFCC feature vector, the best performing were $K=7$ and $K=8$ with accuracies 98.9\%, when using a window size of 5ms and skip of 2ms (see appendix \ref{app:MFCC:7:best} and \ref{app:MFCC:8:best}). Some of the other results with the same parameters reach similar performance in regards to precision per class (see appendix \ref{tlmfcc52}). The worst performing, with 95.1\% accuracy, is using 20ms window size and 10ms skip with $K=2$ (see appendixs \ref{app:Mfcc:2:worst}). It still has better precision for kick than some others(e.g. $K=4$ or $K=6$), but some have similar hh precision (e.g. $K=1$ or $K=6$). No $X^2$ results were considered significant (although some came quite close; see appendix \ref{xlmfcc52}).
 		
 	%
 	% SC
 	%
 	\subsection{Spectral Centroid}
-		\begin{figure}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010_R.png}
-			
-			\caption{Plots over K for Spectral Centroid with 20ms windows and 10ms window skips}
-		\end{figure}
-		\begin{figure}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105_R.png}
-				
-				\caption{Plots over K for Spectral Centroid with 10ms windows and 5ms window skips}
-		\end{figure}
-		\begin{figure}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52_R.png}
-				
-				\caption{Plots over K for Spectral Centroid with 5ms windows and 2ms window skips}
-		\end{figure}\clearpage
+%		\begin{figure}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid2010_R.png}
+%			
+%			\caption{Plots over K for Spectral Centroid with 20ms windows and 10ms window skips}
+%		\end{figure}
+%		\begin{figure}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid105_R.png}
+%				
+%				\caption{Plots over K for Spectral Centroid with 10ms windows and 5ms window skips}
+%		\end{figure}
+%		\begin{figure}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/scentroid52_R.png}
+%				
+%				\caption{Plots over K for Spectral Centroid with 5ms windows and 2ms window skips}
+%		\end{figure}\clearpage
+%		
+%		\begin{table}
+%			\begin{subtable}[h]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					\cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{0.935} & 0.020 & 0.008 & 0.977\\ \hline
+%					 \textbf{s} & 0.065 & \textcolor{red}{0.806} & 0.271 & 0.658\\ \hline
+%					 \textbf{hh} & 0.065 & 0.173 & \textcolor{red}{0.720} & 0.833\\ \Xhline{2\arrayrulewidth}
+%					 F & 0.956 & 0.725 & 0.773 & \textcolor{blue}{0.828}\\ \hline
+%				\end{tabular}
+%				\label{table:eval:centroidBest}
+%				\caption{$wSize=10ms, wSkip=5ms, K=9$}
+%			\end{subtable}
+%			\hfill
+%			\begin{subtable}[h]{0.45\textwidth}
+%			\centering
+%			\begin{tabular}{|c|c|c|c"c|}
+%			\cline{2-5}
+%			 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%			 \textbf{k} & \textcolor{red}{0.957} & 0.041 & 0.008 & 0.964\\ \hline
+%			 \textbf{s} & 0.043 & \textcolor{red}{0.786} & 0.280 & 0.664\\ \hline
+%			 \textbf{hh} & 0.043 & 0.173 & \textcolor{red}{0.712} & 0.832\\ \Xhline{2\arrayrulewidth}
+%			 F & 0.960 & 0.720 & 0.767 & \textcolor{blue}{0.828}\\ \hline
+%			\end{tabular}
+%			\label{table:eval:centroidSimilar}
+%			\caption{$wSize=10ms, wSkip=5ms, K=8$}
+%			\end{subtable}
+%			\hfill
+%			\begin{subtable}[h]{0.45\textwidth}
+%			\centering
+%			\begin{tabular}{|c|c|c|c"c|}
+%			\cline{2-5}
+%			 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%			 \textbf{k} & \textcolor{red}{0.920} & 0.163 & 0.009 & 0.888\\ \hline
+%			 \textbf{s} & 0.072 & \textcolor{red}{0.446} & 0.239 & 0.519\\ \hline
+%			 \textbf{hh} & 0.072 & 0.391 & \textcolor{red}{0.752} & 0.704\\ \Xhline{2\arrayrulewidth}
+%			 F & 0.904 & 0.480 & 0.727 & \textcolor{blue}{0.738}\\ \hline
+%			\end{tabular}
+%			\caption{$wSize=20ms, wSkip=10ms, K=2$}
+%			\label{table:eval:centroidWorst}
+%			\end{subtable}
+%			
+%			\caption{Measures over K using Spectral Centroid}
+%		\end{table}
 		
-		\begin{table}
-			\begin{subtable}[h]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{0.935} & 0.020 & 0.008 & 0.977\\ \hline
-					 \textbf{s} & 0.065 & \textcolor{red}{0.806} & 0.271 & 0.658\\ \hline
-					 \textbf{hh} & 0.065 & 0.173 & \textcolor{red}{0.720} & 0.833\\ \Xhline{2\arrayrulewidth}
-					 F & 0.956 & 0.725 & 0.773 & \textcolor{blue}{0.828}\\ \hline
-				\end{tabular}
-				\label{table:eval:centroidBest}
-				\caption{$wSize=10ms, wSkip=5ms, K=9$}
-			\end{subtable}
-			\hfill
-			\begin{subtable}[h]{0.45\textwidth}
-			\centering
-			\begin{tabular}{|c|c|c|c"c|}
-			\cline{2-5}
-			 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-			 \textbf{k} & \textcolor{red}{0.957} & 0.041 & 0.008 & 0.964\\ \hline
-			 \textbf{s} & 0.043 & \textcolor{red}{0.786} & 0.280 & 0.664\\ \hline
-			 \textbf{hh} & 0.043 & 0.173 & \textcolor{red}{0.712} & 0.832\\ \Xhline{2\arrayrulewidth}
-			 F & 0.960 & 0.720 & 0.767 & \textcolor{blue}{0.828}\\ \hline
-			\end{tabular}
-			\label{table:eval:centroidSimilar}
-			\caption{$wSize=10ms, wSkip=5ms, K=8$}
-			\end{subtable}
-			\hfill
-			\begin{subtable}[h]{0.45\textwidth}
-			\centering
-			\begin{tabular}{|c|c|c|c"c|}
-			\cline{2-5}
-			 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-			 \textbf{k} & \textcolor{red}{0.920} & 0.163 & 0.009 & 0.888\\ \hline
-			 \textbf{s} & 0.072 & \textcolor{red}{0.446} & 0.239 & 0.519\\ \hline
-			 \textbf{hh} & 0.072 & 0.391 & \textcolor{red}{0.752} & 0.704\\ \Xhline{2\arrayrulewidth}
-			 F & 0.904 & 0.480 & 0.727 & \textcolor{blue}{0.738}\\ \hline
-			\end{tabular}
-			\caption{$wSize=20ms, wSkip=10ms, K=2$}
-			\label{table:eval:centroidWorst}
-			\end{subtable}
-			
-			\caption{Measures over K using Spectral Centroid}
-		\end{table}
-		
-		Using the Spectral Centroid feature, the best configuration found, with accuracy 82.8\% was 10ms windows and 5ms window skips, and $K=9$, as shown in table \ref{table:eval:centroidBest}. Some results show similar or better precision in some classes, e.g. $K=8$, seen in table \ref{table:eval:centroidSimilar}. The worst accuracy seen, was using 20ms window size, 10ms window skip, and $K=2$, with accuracy 73.8\%, as shown in table \ref{table:eval:centroidWorst}. $X^2$-test revealed no significant differences (see all in appendix \ref{app:res:sc}).
+		Using the Spectral Centroid feature, the best configuration found, with accuracy 82.8\% was 10ms windows and 5ms window skips, and $K=9$, as shown in appendix \ref{app:sc:9:best}. Some results show similar or better precision in some classes, e.g. $K=8$. The worst accuracy seen, was usisng 20ms window size, 10ms window skip, and $K=2$, with accuracy 73.8\%, as shown in table \ref{app:SC:2:worst}. $X^2$-test revealed no significant differences (see all in appendix \ref{app:res:sc}).
 		
 				
 	% 
@@ -327,139 +327,139 @@
 	%
 	\subsection{Spectral Skew}
 			
-		\begin{figure}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew2010FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew2010_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew2010_R.png}
-			
-			\caption{Plots over K for Spectral Skew with 20ms windows and 10ms window skips}
-		\end{figure}
+%		\begin{figure}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew2010FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew2010_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew2010_R.png}
+%			
+%			\caption{Plots over K for Spectral Skew with 20ms windows and 10ms window skips}
+%		\end{figure}
+%		
+%		\begin{figure}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew105FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew105_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew105_R.png}
+%				
+%				\caption{Plots over K for Spectral Skew with 10ms windows and 5ms window skips}
+%		\end{figure}
+%		\begin{figure}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew52FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew52_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew52_R.png}
+%				
+%				\caption{Plots over K for Spectral Skew with 5ms windows and 2ms window skips}
+%		\end{figure}\clearpage
+%		
+%		\begin{table}
+%			\begin{subtable}[h]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					 \cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{0.942} & 0.031 & 0.008 & 0.970\\ \hline
+%					 \textbf{s} & 0.058 & \textcolor{red}{0.786} & 0.288 & 0.647\\ \hline
+%					 \textbf{hh} & 0.058 & 0.184 & \textcolor{red}{0.703} & 0.822\\ \Xhline{2\arrayrulewidth}
+%					  F & 0.956 & 0.710 & 0.758 & \textcolor{blue}{0.820}\\ \hline
+%				\end{tabular}
+%				\caption{$wSize=10ms, wSkip=5ms, K=7$}
+%				\label{table:eval:skewBest}
+%			\end{subtable}
+%			\hfill
+%			\begin{subtable}[h]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					\cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{0.964} & 0.081 & 0.008 & 0.937\\ \hline
+%					 \textbf{s} & 0.036 & \textcolor{red}{0.768} & 0.280 & 0.667\\ \hline
+%					 \textbf{hh} & 0.036 & 0.152 & \textcolor{red}{0.712} & 0.848\\ \Xhline{2\arrayrulewidth}
+%					 F & 0.950 & 0.714 & 0.774 & \textcolor{blue}{0.826}\\ \hline
+%				\end{tabular}
+%				\caption{$wSize=5ms, wSkip=2ms, K=7$}
+%				\label{table:eval:skewKicker}
+%			\end{subtable}
+%			\hfill
+%			\begin{subtable}[h]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					\cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{0.920} & 0.163 & 0.009 & 0.888\\ \hline
+%					 \textbf{s} & 0.072 & \textcolor{red}{0.446} & 0.239 & 0.519\\ \hline
+%					 \textbf{hh} & 0.072 & 0.391 & \textcolor{red}{0.752} & 0.704\\ \Xhline{2\arrayrulewidth}
+%					 F & 0.904 & 0.480 & 0.727 & \textcolor{blue}{0.738}\\ \hline
+%				\end{tabular}
+%				\caption{$wSize=20ms, wSkip=10ms, K=2$}
+%				\label{table:eval:skewWorst}
+%			\end{subtable}
+%			\caption{Measures over K using Spectral Skewness}
+%		\end{table}
 		
-		\begin{figure}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew105FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew105_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew105_R.png}
-				
-				\caption{Plots over K for Spectral Skew with 10ms windows and 5ms window skips}
-		\end{figure}
-		\begin{figure}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew52FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew52_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sskew52_R.png}
-				
-				\caption{Plots over K for Spectral Skew with 5ms windows and 2ms window skips}
-		\end{figure}\clearpage
-		
-		\begin{table}
-			\begin{subtable}[h]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					 \cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{0.942} & 0.031 & 0.008 & 0.970\\ \hline
-					 \textbf{s} & 0.058 & \textcolor{red}{0.786} & 0.288 & 0.647\\ \hline
-					 \textbf{hh} & 0.058 & 0.184 & \textcolor{red}{0.703} & 0.822\\ \Xhline{2\arrayrulewidth}
-					  F & 0.956 & 0.710 & 0.758 & \textcolor{blue}{0.820}\\ \hline
-				\end{tabular}
-				\caption{$wSize=10ms, wSkip=5ms, K=7$}
-				\label{table:eval:skewBest}
-			\end{subtable}
-			\hfill
-			\begin{subtable}[h]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{0.964} & 0.081 & 0.008 & 0.937\\ \hline
-					 \textbf{s} & 0.036 & \textcolor{red}{0.768} & 0.280 & 0.667\\ \hline
-					 \textbf{hh} & 0.036 & 0.152 & \textcolor{red}{0.712} & 0.848\\ \Xhline{2\arrayrulewidth}
-					 F & 0.950 & 0.714 & 0.774 & \textcolor{blue}{0.826}\\ \hline
-				\end{tabular}
-				\caption{$wSize=5ms, wSkip=2ms, K=7$}
-				\label{table:eval:skewKicker}
-			\end{subtable}
-			\hfill
-			\begin{subtable}[h]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{0.920} & 0.163 & 0.009 & 0.888\\ \hline
-					 \textbf{s} & 0.072 & \textcolor{red}{0.446} & 0.239 & 0.519\\ \hline
-					 \textbf{hh} & 0.072 & 0.391 & \textcolor{red}{0.752} & 0.704\\ \Xhline{2\arrayrulewidth}
-					 F & 0.904 & 0.480 & 0.727 & \textcolor{blue}{0.738}\\ \hline
-				\end{tabular}
-				\caption{$wSize=20ms, wSkip=10ms, K=2$}
-				\label{table:eval:skewWorst}
-			\end{subtable}
-			\caption{Measures over K using Spectral Skewness}
-		\end{table}
-		
-		The most accurate result using Spectral Skew was 82\%, was $K=7$ with 10ms window size and 5ms window skip, as shown in table \ref{table:eval:skewBest}. Some other tests was more precise on kicks (e.g. Spectral Skew with 5ms window and 2ms window skip, with $K=7$, see \ref{table:eval:skewKicker}). The least accurate result was $K=2$, using 20ms window size, 10ms window skip (see table \ref{table:eval:skewWorst}). $X^2$-test did not show any significant results.
+		The most accurate result using Spectral Skew was 82\%, was $K=7$ with 10ms window size and 5ms window skip, as shown in appendix \ref{app:SS:7:best}. Some other tests was more precise on kicks (e.g. Spectral Skew with 5ms window and 2ms window skip, with $K=7$, see \ref{app:SS:7:kickbest}). The least accurate result was $K=2$, using 20ms window size, 10ms window skip (see appendix \ref{app:SS:2:worst}). $X^2$-test did not show any significant results.
 	
 	%
 	% SF
 	%
 	\subsection{Spectral Flux}
 		
-		\begin{figure}
+%		\begin{figure}
+%		
+%			\label{figJitter}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux2010FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux2010_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux2010_R.png}
+%			
+%			\caption{Plots over K for Spectral Flux with 20ms windows and 10ms window skips}
+%		\end{figure}
+%		\begin{figure}
+%		
+%		
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux105FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux105_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux105_R.png}
+%				
+%				\caption{Plots over K for Spectral Flux with 10ms windows and 5ms window skips}
+%		\end{figure}
+%		\begin{figure}
+%		
+%		
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux52FP.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux52_P.png}
+%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux52_R.png}
+%				
+%				\caption{Plots over K for Spectral Flux with 5ms windows and 2ms window skips}
+%		\end{figure}
+%		
+%		\begin{table}
+%			\begin{subtable}[h]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					\cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{0.827} & 0.121 & 0.102 & 0.827\\ \hline
+%					 \textbf{s} & 0.050 & \textcolor{red}{0.394} & 0.280 & 0.494\\ \hline
+%					 \textbf{hh} & 0.050 & 0.485 & \textcolor{red}{0.619} & 0.529\\ \Xhline{2\arrayrulewidth}
+%					 F & 0.827 & 0.438 & 0.570 & \textcolor{blue}{0.638}\\ \hline
+%				\end{tabular}
+%				\caption{$wSize=5ms, wSkip=2ms, K=5$}
+%				\label{table:eval:fluxBest}
+%			\end{subtable}
+%			\hfill
+%			\begin{subtable}[h]{0.45\textwidth}
+%				\centering
+%				\begin{tabular}{|c|c|c|c"c|}
+%					\cline{2-5}
+%					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
+%					 \textbf{k} & \textcolor{red}{0.812} & 0.293 & 0.274 & 0.655\\ \hline
+%					 \textbf{s} & 0.080 & \textcolor{red}{0.272} & 0.291 & 0.357\\ \hline
+%					 \textbf{hh} & 0.080 & 0.435 & \textcolor{red}{0.436} & 0.481\\ \Xhline{2\arrayrulewidth}
+%					 F & 0.725 & 0.309 & 0.457 & \textcolor{blue}{0.542}\\ \hline
+%				\end{tabular}
+%				\caption{$wSize=20ms, wSkip=10ms, K=2$}
+%				\label{table:eval:fluxWorst}
+%			\end{subtable}
+%			
+%			\caption{Measures over K using Spectral Flux}
+%		\end{table}
 		
-		
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux2010FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux2010_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux2010_R.png}
-			
-			\caption{Plots over K for Spectral Flux with 20ms windows and 10ms window skips}
-		\end{figure}
-		\begin{figure}
-		
-		
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux105FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux105_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux105_R.png}
-				
-				\caption{Plots over K for Spectral Flux with 10ms windows and 5ms window skips}
-		\end{figure}
-		\begin{figure}
-		
-		
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux52FP.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux52_P.png}
-			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux52_R.png}
-				
-				\caption{Plots over K for Spectral Flux with 5ms windows and 2ms window skips}
-		\end{figure}
-		
-		\begin{table}
-			\begin{subtable}[h]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{0.827} & 0.121 & 0.102 & 0.827\\ \hline
-					 \textbf{s} & 0.050 & \textcolor{red}{0.394} & 0.280 & 0.494\\ \hline
-					 \textbf{hh} & 0.050 & 0.485 & \textcolor{red}{0.619} & 0.529\\ \Xhline{2\arrayrulewidth}
-					 F & 0.827 & 0.438 & 0.570 & \textcolor{blue}{0.638}\\ \hline
-				\end{tabular}
-				\caption{$wSize=5ms, wSkip=2ms, K=5$}
-				\label{table:eval:fluxBest}
-			\end{subtable}
-			\hfill
-			\begin{subtable}[h]{0.45\textwidth}
-				\centering
-				\begin{tabular}{|c|c|c|c"c|}
-					\cline{2-5}
-					 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-					 \textbf{k} & \textcolor{red}{0.812} & 0.293 & 0.274 & 0.655\\ \hline
-					 \textbf{s} & 0.080 & \textcolor{red}{0.272} & 0.291 & 0.357\\ \hline
-					 \textbf{hh} & 0.080 & 0.435 & \textcolor{red}{0.436} & 0.481\\ \Xhline{2\arrayrulewidth}
-					 F & 0.725 & 0.309 & 0.457 & \textcolor{blue}{0.542}\\ \hline
-				\end{tabular}
-				\caption{$wSize=20ms, wSkip=10ms, K=2$}
-				\label{table:eval:fluxWorst}
-			\end{subtable}
-			
-			\caption{Measures over K using Spectral Flux}
-		\end{table}
-		
-		The most accurate results with the Spectral Flux feature vector, was with 5ms window size, 2ms window skip, and $K=5$ (table \ref{table:eval:fluxBest}), however several test configurations using other feature parameters, show better precision for the highhat. The worst in terms of accuracy is the Spectral Flux using 20ms windows and 10ms window skips, with $K=2$, see table \ref{table:eval:fluxWorst}.	$X^2$ showed no significant results.
+		The most accurate results with the Spectral Flux feature vector, was with 5ms window size, 2ms window skip, and $K=5$ (appendix \ref{app:SF:5:best}), however several test configurations using other feature parameters, show better precision for the highhat. The worst in terms of accuracy is the Spectral Flux using 20ms windows and 10ms window skips, with $K=2$, see appendix \ref{app:SF:2:worst}.	$X^2$ showed no significant results.
