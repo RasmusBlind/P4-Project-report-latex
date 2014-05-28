@@ -1,39 +1,24 @@
 \paragraph{Test results} \hspace{0pt} \\
 
-To recap slightly from the previous chapter: Overall, the highest accuracy was obtained using MFCC over a window of 5ms with a skip of 2ms, with $K=7$ and $K=8$. Our $X^2$ tests did not show a significant difference even once, so our null-hypothesis stands true. This was unexpected, although some probabilities come very close, so perhaps the result might look different in future tests. Alternatively one could use a different test, for example a t-test over precision.
+To recap slightly from the previous chapter: Overall, the highest accuracy was obtained using MFCC over a window of 5ms with a skip of 2ms, with $k=7$ and $k=8$. Our $X^2$ tests did not show a significant difference even once, so our null-hypothesis stands true. This was unexpected, although some probabilities come very close, so perhaps the result might look different in future tests. Alternatively one could use a different test, for example a t-test over precision.
 
-Some interesting things showed in many tests with $K$ between 1 and 5, namely the jumps in measures (y) that can be seen in several plots, e.g. \ref{figJitter}. We attributed this to even and uneven numbers, as they could shift the decision between classes, or even result in a random decision if e.g. the two nearest neighbors are of different classes.
+Some interesting points were found in many tests with $k$ between 1 and 5, namely the jumps in measures (y) can be seen in several plots, e.g. \ref{cmon}. We attributed this to even and uneven numbers, as they could shift the decision between classes, or even result in a random decision if e.g. the two nearest neighbours are of different classes.
 
-In general a higher $K$ meant better performance, although on some plots, the measures\footnote{Precision, Recall, Accuracy, F} seem to begin a descent when $K$ approaches 10. This makes us think that it would be worth testing even greater ranges of $K$. 
-Further more, we generally see that smaller window sizes (and corresponding skips) yields better performance. This make sense, since more data gives higher acuity. It is, however, a trade-off between complexity and performance - something to take into consideration for future prospect
+In general a higher $k$ meant better performance, although on some plots, the measures\footnote{Precision, Recall, Accuracy, F} seem to begin a descent when $k$ approaches 10. This makes us think that it would be worth testing even greater ranges of $k$. 
+Furthermore, we generally see that smaller window sizes (and corresponding skips) yields better performance. This make sense, since more data gives higher acuity. It is, however, a trade-off between complexity and performance - something to take into consideration for future prospect
 
-We were surprised by the results of the spectral features, as they showed poor to mediocre results. This was quite juxtaposed to the expected outcome; an expectation we based on the proposed effectiveness of some of these on beatboxing sounds \citep{Sinyor05}. There is a likelihood that the fault is ours, though, as we could have produced faulty code, as a result of limited Matlab scripting skills. Too little test-data could also have affected our outcome\footnote{according to our supervisor, Bob. L. Sturm}.
-
-
+We were surprised by the results of the spectral features, as they showed poor to mediocre results. This was quite the opposite to the expected outcome; an expectation we based on the proposed effectiveness of some of these on beatboxing sounds \citep{Sinyor05}. There is a likelihood that the fault is ours, though, as we could have produced faulty code, as a result of limited MATLAB scripting skills. Too little test-data could also have affected our outcome\footnote{according to our supervisor, Bob. L. Sturm}.
 
 % Direct errors we could have cause
 
-We were surprised by the results of the spectral features, as they showed poor to mediocre results. This was quite juxtaposed to the expected outcome; an expectation we based on the proposed effectiveness of some of these on beatboxing sounds \citep{Sinyor05}. There is a likelihood that the fault is ours, though, as we could have produced faulty code, as a result of limited Matlab scripting skills.
-
 \paragraph{Bias} \hspace{0pt} \\
 % random division of dataset
-%
-Malfunction of algorithms
-Wrong data collection
-Statistical calculation misinterpreted
-Wrong utilization of hardware (recording hardware)
 
-Hardware could affect the collected measurements
-
-How f and precision/accuracy....
- 
+To decrease the probability of obtaining bias, we have been careful to only have one independent variable i.e. variations in $k$, thus we are sure that the measured statistical probability given a 1\% level of significance is sufficient to estimate the preferred value of $k$. However, we can in by no means reject that other factors might have contaminated the test data. Possible bias could e.g. be the k-NN accidentally picking a wrong class. The statistical uncertainty will naturally be reduced the more time the test program is run; hence we can assume that the hypothesis will be further substantiated upon evaluating the other factors of the program independently.\\
+\paragraph{Future Prospects} \hspace{0pt}
 
 
-Since we are operating within the boundaries of machine learning, some aspects are more pertinent than others. E.g. evaluation of our approach to the test has to be measured according to applied principal of machine learning. Most assessment of machine learning is based on mathematical logic, which can be applied to estimate the validity of the acquired data \citep{Gordon1995}. The goal of machine learning is to construct algorithms that can learn to anticipate a target output, and we want to be sure that no uncontrollable factors has affected the data evaluation which may ultimately lead to erroneous assumptions \citep{Gordon1995}. To decrease the probability of obtaining bias, we have been careful to only have one independent variable i.e. variations in K, thus we are sure that the measured statistical probability given a 1\% level of significance is sufficient to estimate the preferred value of K. However, we can in by no means reject that other factors might have contaminated the test data. Possible bias could e.g. be the k-nearest neighbour accidentally picking a wrong class. The statistical uncertainty will naturally be reduced the more time the test program is run; hence we can assume that the hypothesis will be further substantiated upon evaluating the other factors of the program independently.\\
-\paragraph{Future Prospects} \hspace{0pt} \\
-The way the system is implemented now, we can still see that it lacks a bit of improvement... samsing samsing samsing
-
-The level of transcription in our system is based on classifying the signal to indicate what kind of sound is being input. To expand on the transcription part of the system a possibility could be to synthesize a output instead of a text note. This synthesis could generate a sound, representing the sound input by the user, to imitate a musical instrument, e.g. a real kick-/base drum or hi-hat.
+To expand on the transcription part of our system a possibility could be to synthesize an output instead of a text note. This synthesis could generate a sound representing the sound input by the user, to imitate a musical instrument, e.g. a real kick-drum or hi-hat.
 
 Another way of synthesizing an output could be to use a system like earGram in conjunction with our classification\footnote{Homepage for the earGram application: \url{https://sites.google.com/site/eargram/}}. This would make it possible to input a beatboxing sound and then, through concatenative synthesis in earGram, an output sound. Through this concatenative synthesis, the input sound would undergo an analysis to find sound snippets from a database that sound similar to each piece of the input. The output could then sound like real instruments if the database consisted of recordings of real instruments.
 
@@ -41,19 +26,8 @@ Right now only three beatboxing sounds can, to some extend, be classified limiti
 
 Another limit of the system is that it is based on beatboxing by amateurs, i.e. the collected dataset is a recording of people that have not genuinely been beatboxing before. To broaden the target group, gathering data from more professionally oriented beatboxers would give more possibilities. This could include a system used to learn how to beatbox. Say, a person who has never been beatboxing before suddenly wants to learn how to master the art, this person could then input a beatboxing sequence into the system. The system would then tell if the person hit the right sound or not, to help on improving the mastering of beatboxing.
 
-	- Be able to classify more sounds
-		- Research BB styles (Victor)
-	- Improve data collection (Victor)
-
 
 \paragraph{Where can we use this?} \hspace{0pt} \\
 
-
-	- Roskilde (alike)
-
-\colorbox{red}{FROM INTRO: We will use the results and experiences to discuss how
-our systems}
-\colorbox{red}{performance can be improved, and to further develop a useful tool for audio
-analysis.}
 
 The software tool created by us is a well-functioning solution to the stated problem, albeit somewhat rudimentary in accordance with the initial idea developments. Though we have accomplished to transcribe beatboxing fairly accurately, we have still not attempted to generate a corresponding output. One of the early considerations involved a particular type of interactive tutorial based on the SBN, and auditory feedback would be a required aspect of a potential implementation. The fundamental basics are, however, fully integrated, and we believe that any arbitrary superstructure would be relatively manageable to implement.
