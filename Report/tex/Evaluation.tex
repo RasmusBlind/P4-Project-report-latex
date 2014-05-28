@@ -7,12 +7,12 @@
 		This will be tested for each feature and each feature configuration.
 		We will test window sizes of 20ms, 10ms, and 5ms; and we will test window skips of 10ms, 5ms, 2ms respectively. This will be the case for all features using window: MFCC, Spectral Flux, Spectral Centroid, Spectral Skew, and Spectral Rolloff. Only the first 20 MFCC coefficients will be used. RMS and ZCR are calculated over the entire sound.
 		
-		To determine if the independent variable $k$ has any has any significant effect on resulting confusion tables, the chi squared test is used. Since we are testing over 10 different K, but only on unique combinations of $K_1$ and $K_2$, the amount of tests done in total will be $Tests = 10*9/2 = 45$. We have chosen that the null hypothesis can be disputed, if any calculated probability $p < \alpha$. Further, the Bonferroni correction\citep{bonferroni} will be applied to $\alpha$, such that $\alpha=\alpha/45 = 0.00\overline{111}$.
+		To determine if the independent variable $k$ has any has any significant effect on resulting confusion tables, the chi squared test is used. Since we are testing over 10 different K, but only on unique combinations of $K_1$ and $K_2$, the amount of tests done in total will be $Tests = 10*9/2 = 45$. We have chosen that the null hypothesis can be disputed, if any calculated probability $p < \alpha$. Further, the Bonferroni correction\citep{bonferroni} will be applied to $\alpha$, such that $\alpha=\alpha/45 = 0.00\overline{1}$.
 		
 	\subsection{Measures}
 		A confusion table is created for each test (each unique combination of variables). This will be shown in percentages (or rather, values between 0 and 1). Overall accuracy is calculated, along with precision, recall, and F-score for each class individually. For the sake of compactness, all the measures are included in an extended confusion table, as shown in the explanatory table \ref{table:eval:explanatory}. 
 		The most important measure, for the sake of measuring our transcription system, would be the precision, that is, the amount of correctly transcribed sounds over the actual amount of that sound class.
-		Recall should just be ignored, since we only test on the dataset, which means that we always test on all available samples of any given class, meaning that it would be the same as the amount of . This would be different, had the segmentation been part of the evaluation. It is included nonetheless, as further progress with this project might find a need for it. When looking at results, we will judge the performance primarily by accuracy and precision.
+		Recall should just be ignored, since we only test on the dataset, which means that we always test on all available samples of any given class, meaning that it would be the same as the total amount. This would be different, had the segmentation been part of the evaluation. It is included nonetheless, as further progress with this project might find a need for it. When looking at results, we will judge the performance primarily by accuracy and precision.
 
 			\begin{table}
 				\centering
@@ -67,49 +67,10 @@
 	%
 	
 	\subsection{Root Mean Square}
-%		\begin{figure}
-%		
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/rms11FP.png}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/rms11_P.png}
-%			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/rms11_R.png}
-%			
-%			\label{fig:eval:rms}
-%			\caption{Plots over K for Root Mean Square}
-%		\end{figure}
-%
-%		\begin{table}
-%			\begin{subtable}[tbp]{0.45\textwidth}
-%				\centering
-%				\begin{tabular}{|c|c|c|c"c|}
-%					\cline{2-5}
-%				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-%				 \textbf{k} & \textcolor{red}{0.719} & 0.212 & 0.161 & 0.714\\ \hline
-%				 \textbf{s} & 0.094 & \textcolor{red}{0.364} & 0.364 & 0.391\\ \hline
-%				 \textbf{hh} & 0.094 & 0.424 & \textcolor{red}{0.475} & 0.452\\ \Xhline{2\arrayrulewidth}
-%				 F & 0.717 & 0.377 & 0.463 & \textcolor{blue}{0.539}\\ \hline
-%				\end{tabular}
-%				\label{table:eval:rmsWorst}
-%				\caption{$K=1$ (Worst)}
-%			\end{subtable}
-%			
-%			\begin{subtable}[tbp]{0.45\textwidth}
-%				\centering
-%				\begin{tabular}{|c|c|c|c"c|}
-%					\cline{2-5}
-%				 \multicolumn{1}{c|}{} & \textbf{k}  & \textbf{s}  & \textbf{hh}  & Prec.\\ \hline
-%				 \textbf{k} & \textcolor{red}{0.791} & 0.141 & 0.059 & 0.840\\ \hline
-%				 \textbf{s} & 0.079 & \textcolor{red}{0.384} & 0.339 & 0.427\\ \hline
-%				 \textbf{hh} & 0.079 & 0.475 & \textcolor{red}{0.602} & 0.522\\ \Xhline{2\arrayrulewidth}
-%				 F & 0.815 & 0.404 & 0.559 & \textcolor{blue}{0.615}\\ \hline
-%				\end{tabular}
-%				\label{table:eval:rmsBest}
-%				\caption{$K=9$ (Best)}
-%			\end{subtable}
-%				
-%			\caption{Measures over K using RMS}
-%		\end{table}
+
 	
-		The best results using the RMS feature vector was observed using $K=9$ with accuracy 61.5\% (see table \ref{table:eval:rmsBest}). Some configurations had slightly higher precision in classes 's' and 'hh', although this seems minimal (see e.g. appendix  \ref{app:rms:k6} and \ref{app:rms:k8}). The worst observed was using $K=1$, with accuracy 53.9\% see table \ref{table:eval:rmsWorst}. All results from for the RMS feature can be found in appendix \ref{app:res:rms}. The $X^2$ test revealed no significant differences between any two $K$ (see all p in \ref{xlrms11}).
+		The best results using the RMS feature vector was observed using $K=9$ with accuracy 61.5\% (see appendixx \ref{app:RMS:9:best}). Some configurations had slightly higher precision in classes 's' and 'hh', although this seems minimal (see e.g. appendix  \ref{app:rms:k6} and \ref{app:rms:k8}). The worst observed was using $K=1$, with accuracy 53.9\% see appendix \ref{app:RMS:1:worst}. All results from for the RMS feature can be found in appendix \ref{app:res:rms}. The $X^2$ test revealed no significant differences between any two $K$ (see all p in \ref{xlrms11}).
+
 		
 	%
 	%	ZCR
@@ -170,7 +131,8 @@
 %			\caption{Measures over K using ZCR}
 %		\end{table}
 		
-		The best results using ZCR was a tie between $K=9$ (table \ref{table:eval:zcrBest1}) and $k=10$ (table \ref{table:eval:zcrBest2}), both with accuracy 78.7\%. In the results from $K=9$, the precision of the hh is slightly better than in $K=10$ (75\% vs 67.5\%). In $K=10$, the precision of the kick is slightly better (94.6\% vs 92.4\%). The worst results was observed with $K=2$, having accuracy 69.4\%(table \ref{table:eval:zcrWorst}). No tests were deemed significant by $X^2$ testing for $alpha=0.\overline{111}$. See all $X^2$ results in appendix \ref{app:res:zcr};
+
+		The best results using ZCR was a tie between $K=9$ (appendix \ref{app:zcr:best}) and $k=10$ (appendix \ref{app:zcr:best2}), both with accuracy 78.7\%. In the results from $K=9$, the precision of the hh is slightly better than in $K=10$ (75\% vs 67.5\%). In $K=10$, the precision of the kick is slightly better (94.6\% vs 92.4\%). The worst results was observed with $K=2$, having accuracy 69.4\%(appendix \ref{app-ZCR-Worst}). No tests were deemed significant by $X^2$ testing. See all $X^2$ results in appendix \ref{app:res:zcr};
 		
 	%	
 	%	MFCC
@@ -245,15 +207,15 @@
 %			\caption{Measures over K using MFCC}
 %		\end{table}
 		
-		Over all three configurations of the MFCC feature vector, the best performing were $K=7$ and $K=8$ with accuracies 98.9\%, when using a window size of 5ms and skip of 2ms (see table \ref{table:eval:mfccBest1} and \ref{table:eval:mfccBest2}). Some of the other results with the same parameters reach similar performance in regards to precision per class (see appendix \ref{tlmfcc52}). The worst performing, with 95.1\% accuracy, is using 20ms window size and 10ms skip with $K=2$ (see table \ref{table:eval:mfccWorst}). It still has better precision for kick than some others(e.g. $K=4$ or $K=6$), but some have similar hh precision (e.g. $K=1$ or $K=6$). No $X^2$ results were considered significant (although some came quite close; see appendix \ref{xlmfcc52}).
+
+		Over all three configurations of the MFCC feature vector, the best performing were $K=7$ and $K=8$ with accuracies 98.9\%, when using a window size of 5ms and skip of 2ms (see appendix \ref{app:MFCC:7:best} and \ref{app:MFCC:8:best}). Some of the other results with the same parameters reach similar performance in regards to precision per class (see appendix \ref{tlmfcc52}). The worst performing, with 95.1\% accuracy, is using 20ms window size and 10ms skip with $K=2$ (see appendixs \ref{app:Mfcc:2:worst}). It still has better precision for kick than some others(e.g. $K=4$ or $K=6$), but some have similar hh precision (e.g. $K=1$ or $K=6$). No $X^2$ results were considered significant (although some came quite close; see appendix \ref{xlmfcc52}).
 		
 	%
 	% SC
 	%
 	\subsection{Spectral Centroid}
 
-		
-		Using the Spectral Centroid feature, the best configuration found, with accuracy 82.8\% was 10ms windows and 5ms window skips, and $K=9$, as shown in table \ref{table:eval:centroidBest}. Some results show similar or better precision in some classes, e.g. $K=8$, seen in table \ref{table:eval:centroidSimilar}. The worst accuracy seen, was using 20ms window size, 10ms window skip, and $K=2$, with accuracy 73.8\%, as shown in table \ref{table:eval:centroidWorst}. $X^2$-test revealed no significant differences (see all in appendix \ref{app:res:sc}).
+		Using the Spectral Centroid feature, the best configuration found, with accuracy 82.8\% was 10ms windows and 5ms window skips, and $K=9$, as shown in appendix \ref{app:sc:9:best}. Some results show similar or better precision in some classes, e.g. $K=8$. The worst accuracy seen, was usisng 20ms window size, 10ms window skip, and $K=2$, with accuracy 73.8\%, as shown in table \ref{app:SC:2:worst}. $X^2$-test revealed no significant differences (see all in appendix \ref{app:res:sc}).
 		
 				
 	% 
@@ -329,7 +291,8 @@
 %			\caption{Measures over K using Spectral Skewness}
 %		\end{table}
 		
-		The most accurate result using Spectral Skew was 82\%, was $K=7$ with 10ms window size and 5ms window skip, as shown in table \ref{table:eval:skewBest}. Some other tests was more precise on kicks (e.g. Spectral Skew with 5ms window and 2ms window skip, with $K=7$, see \ref{table:eval:skewKicker}). The least accurate result was $K=2$, using 20ms window size, 10ms window skip (see table \ref{table:eval:skewWorst}). $X^2$-test did not show any significant results.
+
+		The most accurate result using Spectral Skew was 82\%, was $K=7$ with 10ms window size and 5ms window skip, as shown in appendix \ref{app:SS:7:best}. Some other tests was more precise on kicks (e.g. Spectral Skew with 5ms window and 2ms window skip, with $K=7$, see \ref{app:SS:7:kickbest}). The least accurate result was $K=2$, using 20ms window size, 10ms window skip (see appendix \ref{app:SS:2:worst}). $X^2$-test did not show any significant results.
 	
 	%
 	% SF
@@ -338,7 +301,7 @@
 		
 %		\begin{figure}
 %		
-%		
+%			\label{figJitter}
 %			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux2010FP.png}
 %			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux2010_P.png}
 %			\centering\includegraphics[width=0.3\textwidth]{tex/appendices/test/sflux2010_R.png}
@@ -396,4 +359,4 @@
 %			\caption{Measures over K using Spectral Flux}
 %		\end{table}
 		
-		The most accurate results with the Spectral Flux feature vector, was with 5ms window size, 2ms window skip, and $K=5$ (table \ref{table:eval:fluxBest}), however several test configurations using other feature parameters, show better precision for the highhat. The worst in terms of accuracy is the Spectral Flux using 20ms windows and 10ms window skips, with $K=2$, see table \ref{table:eval:fluxWorst}.	$X^2$ showed no significant results.
+		The most accurate results with the Spectral Flux feature vector, was with 5ms window size, 2ms window skip, and $K=5$ (appendix \ref{app:SF:5:best}), however several test configurations using other feature parameters, show better precision for the highhat. The worst in terms of accuracy is the Spectral Flux using 20ms windows and 10ms window skips, with $K=2$, see appendix \ref{app:SF:2:worst}.	$X^2$ showed no significant results.
