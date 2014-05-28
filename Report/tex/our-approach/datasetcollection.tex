@@ -1,15 +1,18 @@
-\section{Collecting Data}
-\label{sec:collecting-data}
-In order to build a system to transcribe beatboxing by the common man we had to gather a dataset so base our system on. This dataset consists of the three different sounds described above, performed by several participants. The place in which we collected the data was at the Aalborg University campus in Copenhagen. In the main hall of the main building random people passing by were asked to help us out. The participants were placed in a chair surrounded by small movable walls (see figure \ref{data-collection-pic}) to limit some noise from the surroundings. They were asked in order to produce 5-10 of each of the three sounds finishing off with a short self-improvised mix of the sounds.
+\section{Data Collection}
+\label{sec:data-collecting}
+In order to build a system to transcribe beatboxing by amateurs we had to gather a dataset based on this aspect. 
+Non-probability sampling was used to collect the data, in which 19 people participated, and it took place in the main building of Aalborg University Copenhagen. 
 
-To record the beatboxing sequences we used a e815-S dynamic cardioid microphone attached to an H4n portable recorder. The sampling rate were at 96 kHz and 24 bits.
+The participants were placed in a chair surrounded by small partition walls (see cfigure \ref{data-collection-pic}) to limit noise from the surroundings. They were asked to produce 5-10 of each of the three sounds, and also to perform a self-improvised short mix of the sounds.
 
-The data gathered has been collected as one big sound file used as a database for our system. In order to utilize this database the sound file had to be manually annotated. This means that for each sound a note had to be saved about its starting point and duration in the sound file and the type of sound. This was done using Sonic Visualiser\footnote{\url{http://www.sonicvisualiser.org/}}, which generated a text file with the needed information.
+To record the beatboxing sequences we used a e815-S dynamic cardioid microphone attached to an H4n portable recorder. The sampling rate was 96 kHz and 24 bit precision.
+
+The gathered data was collected on one track used as a database for our system. In order to utilize this database the sound file had to be manually annotated. This means that for each sound its onset was denoted and saved, and the type of sound labelled according to the three sound classes. This was done using Sonic Visualiser\footnote{\url{http://www.sonicvisualiser.org/}}, which generated a text file with the needed information.
 
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[height=5cm]{fig/dataset_collection.JPG}
-		\caption{Data collection setup. In the image the chair on which the participants sat can be seen.}
+		\caption{Data collection booth.}
 		\label{data-collection-pic}
 	\end{center}
 \end{figure}

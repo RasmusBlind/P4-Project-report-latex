@@ -1,0 +1,41 @@
+\paragraph{Test results} \hspace{0pt} \\
+
+
+\paragraph{Bias} \hspace{0pt} \\
+Malfunction of algorithms
+Wrong data collection
+Statistical calculation misinterpreted
+Wrong utilization of hardware (recording hardware)
+
+Hardware could affect the collected measurements
+
+How f and precision/accuracy....
+ 
+
+
+Since we are operating within the boundaries of machine learning, some aspects are more pertinent than others. E.g. evaluation of our approach to the test has to be measured according to applied principal of machine learning. Most assessment of machine learning is based on mathematical logic, which can be applied to estimate the validity of the acquired data \citep{Gordon1995}. The goal of machine learning is to construct algorithms that can learn to anticipate a target output, and we want to be sure that no uncontrollable factors has affected the data evaluation which may ultimately lead to erroneous assumptions \citep{Gordon1995}. To decrease the probability of obtaining bias, we have been careful to only have one independent variable i.e. variations in K, thus we are sure that the measured statistical probability given a 1\% level of significance is sufficient to estimate the preferred value of K. However, we can in by no means reject that other factors might have contaminated the test data. Possible bias could e.g. be the k-nearest neighbour accidentally picking a wrong class. The statistical uncertainty will naturally be reduced the more time the test program is run; hence we can assume that the hypothesis will be further substantiated upon evaluating the other factors of the program independently.\\
+\paragraph{Future Prospects} \hspace{0pt} \\
+The way the system is implemented now, we can still see that it lacks a bit of improvement... samsing samsing samsing
+
+The level of transcription in our system is based on classifying the signal to indicate what kind of sound is being input. To expand on the transcription part of the system a possibility could be to synthesize a output instead of a text note. This synthesis could generate a sound, representing the sound input by the user, to imitate a musical instrument, e.g. a real kick-/base drum or hi-hat.
+
+Another way of synthesizing an output could be to use a system like earGram in conjunction with our classification\footnote{Homepage for the earGram application: \url{https://sites.google.com/site/eargram/}}. This would make it possible to input a beatboxing sound and then, through concatenative synthesis in earGram, an output sound. Through this concatenative synthesis, the input sound would undergo an analysis to find sound snippets from a database that sound similar to each piece of the input. The output could then sound like real instruments if the database consisted of recordings of real instruments.
+
+Right now only three beatboxing sounds can, to some extend, be classified limiting the user to only be able to use kicks, snares, and hi-hat sounds. If further development on the system should occur, an expansion on the classifiable sounds would be a suitable subject as it would open up for a broader spectrum of sounds/beats to be transcribed.
+
+Another limit of the system is that it is based on beatboxing by amateurs, i.e. the collected dataset is a recording of people that have not genuinely been beatboxing before. To broaden the target group, gathering data from more professionally oriented beatboxers would give more possibilities. This could include a system used to learn how to beatbox. Say, a person who has never been beatboxing before suddenly wants to learn how to master the art, this person could then input a beatboxing sequence into the system. The system would then tell if the person hit the right sound or not, to help on improving the mastering of beatboxing.
+
+	- Be able to classify more sounds
+		- Research BB styles (Victor)
+	- Improve data collection (Victor)
+
+
+\paragraph{Where can we use this?} \hspace{0pt} \\
+
+
+	- Roskilde (alike)
+
+\colorbox{red}{FROM INTRO: We will use the results and experiences to discuss how
+our systems}
+\colorbox{red}{performance can be improved, and to further develop a useful tool for audio
+analysis.}
