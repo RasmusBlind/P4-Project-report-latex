@@ -1,11 +1,6 @@
 \documentclass[11pt,a4paper]{report}
 
-\usepackage[a4paper,
-			twoside,
-			left=1.5in,
-			right=1.0in,
-			height=9.0in,
-			headheight=14pt]{geometry}
+\usepackage[a4paper]{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \cfoot{}
@@ -104,7 +99,9 @@ keepaspectratio]{fig/BBB.png}%
 \AddToShipoutPicture*{\BackgroundPic}
 
 \maketitle
+\newgeometry{twoside,left=1.5in,right=1.0in,height=9.0in,headheight=14pt}
 \tableofcontents
+
 \chapter{Introduction}
 \thispagestyle{empty}
 \input{tex/intro2.tex}
@@ -118,6 +115,7 @@ keepaspectratio]{fig/BBB.png}%
 %\input{tex/Acoustics.tex}
 
 \chapter{Applications and Technical Aspects of Beatboxing}
+\chaptermark{Applications and Technical...}
 \thispagestyle{empty}
 \input{tex/IntroToMethodsOfbeatboxingTranscription.tex}
 \input{tex/SOTA.tex}
@@ -126,7 +124,7 @@ keepaspectratio]{fig/BBB.png}%
 \input{tex/onset_detection.tex}
 
 \chapter{Our Approach}
-\label(chapter:OurApproach)
+\label{chapter:OurApproach}
 \thispagestyle{empty}
 \input{tex/Our-Approach.tex}
 
