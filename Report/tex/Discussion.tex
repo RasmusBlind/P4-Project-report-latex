@@ -1,7 +1,22 @@
 \paragraph{Test results} \hspace{0pt} \\
 
+To recap slightly from the previous chapter: Overall, the highest accuracy was obtained using MFCC over a window of 5ms with a skip of 2ms, with $K=7$ and $K=8$. Our $X^2$ tests did not show a significant difference even once, so our null-hypothesis stands true. This was unexpected, although some probabilities come very close, so perhaps the result might look different in future tests. Alternatively one could use a different test, for example a t-test over precision.
+
+Some interesting things showed in many tests with $K$ between 1 and 5, namely the jumps in measures (y) that can be seen in several plots, e.g. \ref{figJitter}. We attributed this to even and uneven numbers, as they could shift the decision between classes, or even result in a random decision if e.g. the two nearest neighbors are of different classes.
+
+In general a higher $K$ meant better performance, although on some plots, the measures\footnote{Precision, Recall, Accuracy, F} seem to begin a descent when $K$ approaches 10. This makes us think that it would be worth testing even greater ranges of $K$. 
+Further more, we generally see that smaller window sizes (and corresponding skips) yields better performance. This make sense, since more data gives higher acuity. It is, however, a trade-off between complexity and performance - something to take into consideration for future prospect
+
+We were surprised by the results of the spectral features, as they showed poor to mediocre results. This was quite juxtaposed to the expected outcome; an expectation we based on the proposed effectiveness of some of these on beatboxing sounds \citep{Sinyor05}. There is a likelihood that the fault is ours, though, as we could have produced faulty code, as a result of limited Matlab scripting skills. Too little test-data could also have affected our outcome\footnote{according to our supervisor, Bob. L. Sturm}.
+
+
+
+% Direct errors we could have cause
+
 
 \paragraph{Bias} \hspace{0pt} \\
+% random division of dataset
+%
 Malfunction of algorithms
 Wrong data collection
 Statistical calculation misinterpreted
@@ -39,3 +54,6 @@ Another limit of the system is that it is based on beatboxing by amateurs, i.e. 
 our systems}
 \colorbox{red}{performance can be improved, and to further develop a useful tool for audio
 analysis.}
+
+
+
