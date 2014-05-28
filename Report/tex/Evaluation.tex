@@ -319,7 +319,7 @@
 			\caption{Measures over K using Spectral Centroid}
 		\end{table}
 		
-		Using the Spectral Centroid feature, the best configuration found, with accuracy 82.8\% was 10ms windows and 5ms window skips, and $K=9$, as shown in table \ref{table:eval:centroidBest}. Some results show similar or better precision in some classes, e.g. $K=8$, seen in table \ref{table:eval:centroidSimilar}. The worst accuracy seen, was using 20ms window size, 10ms window skip, and $K=2$, with accuracy 73.8\%, as shown in table \ref{table:eval:centroidWorst}.
+		Using the Spectral Centroid feature, the best configuration found, with accuracy 82.8\% was 10ms windows and 5ms window skips, and $K=9$, as shown in table \ref{table:eval:centroidBest}. Some results show similar or better precision in some classes, e.g. $K=8$, seen in table \ref{table:eval:centroidSimilar}. The worst accuracy seen, was using 20ms window size, 10ms window skip, and $K=2$, with accuracy 73.8\%, as shown in table \ref{table:eval:centroidWorst}. $X^2$-test revealed no significant differences (see all in appendix \ref{app:res:sc).
 		
 				
 	% 
@@ -395,7 +395,7 @@
 			\caption{Measures over K using Spectral Skewness}
 		\end{table}
 		
-		The most accurate result using Spectral Skew was 82\%, was $K=7$ with 10ms window size and 5ms window skip, as shown in table \ref{table:eval:skewBest}. Some other tests was more precise on kicks (e.g. Spectral Skew with 5ms window and 2ms window skip, with $K=7$, see \ref{table:eval:skewKicker}). The least accurate result was $K=2$, using 20ms window size, 10ms window skip (see table \ref{table:eval:skewWorst}).
+		The most accurate result using Spectral Skew was 82\%, was $K=7$ with 10ms window size and 5ms window skip, as shown in table \ref{table:eval:skewBest}. Some other tests was more precise on kicks (e.g. Spectral Skew with 5ms window and 2ms window skip, with $K=7$, see \ref{table:eval:skewKicker}). The least accurate result was $K=2$, using 20ms window size, 10ms window skip (see table \ref{table:eval:skewWorst}). $X^2$-test did not show any significant results.
 	
 	%
 	% SF
@@ -462,4 +462,4 @@
 			\caption{Measures over K using Spectral Flux}
 		\end{table}
 		
-		The most accurate results with the Spectral Flux feature vector, was with 5ms window size, 2ms window skip, and $K=5$ (table \ref{table:eval:fluxBest}), however several test configurations using other feature parameters, show better precision for the highhat. The worst in terms of accuracy is the Spectral Flux using 20ms windows and 10ms window skips, with $K=2$, see table \ref{table:eval:fluxWorst}.		
+		The most accurate results with the Spectral Flux feature vector, was with 5ms window size, 2ms window skip, and $K=5$ (table \ref{table:eval:fluxBest}), however several test configurations using other feature parameters, show better precision for the highhat. The worst in terms of accuracy is the Spectral Flux using 20ms windows and 10ms window skips, with $K=2$, see table \ref{table:eval:fluxWorst}.	$X^2$ showed no significant results.
